@@ -1,13 +1,5 @@
 import Link from "next/link";
-
-interface Race {
-  _id: string;
-  name: string;
-  date: string;
-  location: string;
-  distance?: string;
-  description?: string;
-}
+import { IRace } from "@/models/Race";
 
 async function getRaces() {
   try {
@@ -59,7 +51,7 @@ export default async function RacesPage() {
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {races.map((race: Race) => (
+            {races.map((race: IRace) => (
               <div
                 key={race._id}
                 className="rounded-lg border border-zinc-200 bg-white p-6 transition-shadow hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
