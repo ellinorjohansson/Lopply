@@ -13,4 +13,7 @@
 - Today i added common.json for reusble text. Open up for adding more language like swedish, but started with only english. Went well and next thing todo is to install auth.js.
 
 **2025-12-22**
+
 - Installed basic auth.js. I just followed thru the docs of the installation. (not connected to login/signup or mongodb yet)
+- Deploy to Vercel (deployed but db dont show)
+- Added tailwind config and fixed with font, colors and icons. Struggled a lot with tailwind but now it works (don't really know if its truly the right way to do it tho)
