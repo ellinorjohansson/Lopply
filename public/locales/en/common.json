@@ -1,5 +1,14 @@
 {
   "general": {
     "lopply": "Lopply"
+  },
+  "menu": {
+    "home": "Home"
+  },
+  "validation": {
+    "required_field": "Requaired field"
+  },
+  "races": {
+    "explore_your_next_race": "Explore your next race"
   }
 }
