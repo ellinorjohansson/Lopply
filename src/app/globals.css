@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=optional");
 @import "tailwindcss";
 
-:root {
-  --primary: #322f2f;
-  --secondary: #3b3536;
-  --primaryaccent: #f46034;
-  --secondaryaccent: #faf9e3;
-  --success: #00710D;
-  --error: #940000;
+@theme {
+  --color-primary: #322f2f;
+  --color-secondary: #3b3536;
+  --color-primaryaccent: #f46034;
+  --color-secondaryaccent: #faf9e3;
+  --color-success: #00710D;
+  --color-error: #940000;
 }
 
 body {
-  background-color: var(--primary);
+  background-color: var(--color-primary);
 }
 
 h1 {
   font-family: var(--font-kavoon), serif;
-  color: var(--primaryaccent);
+  color: var(--color-primaryaccent);
 }
 
 h2,
@@ -24,6 +24,6 @@ h3,
 h4,
 h5,
 p {
-  font-family: var(--font-instrument-sans);
-  color: var(--secondaryaccent);
+  font-family: var(--font-instrument-sans), sans-serif;
+  color: var(--color-secondaryaccent);
 }
