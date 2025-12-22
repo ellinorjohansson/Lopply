@@ -11,3 +11,6 @@
 **2025-12-20**
 
 - Today i added common.json for reusble text. Open up for adding more language like swedish, but started with only english. Went well and next thing todo is to install auth.js.
+
+**2025-12-22**
+- Installed basic auth.js. I just followed thru the docs of the installation. (not connected to login/signup or mongodb yet)
