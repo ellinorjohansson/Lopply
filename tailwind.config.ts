@@ -24,8 +24,8 @@ const config: Config = {
                 '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
             },
             fontFamily: {
-                sans: ['Instrument Sans', 'sans-serif'],
-                display: ['Kavoon', 'serif'],
+                sans: ['--font-instrument-sans', 'sans-serif'],
+                display: ['--font-kavoon', 'serif'],
             }
         },
     },
