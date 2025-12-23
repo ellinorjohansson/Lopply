@@ -29,18 +29,11 @@ export default async function RacesPage() {
     <div className="min-h-screen">
       <main className="mx-auto w-full max-w-6xl px-4 py-12 bg-primary">
         <div className="mb-8">
-          <Link
-            href="/"
-            className="text-sm mb-2 inline-block text-secondary"
-          >
+          <Link href="/" className="text-sm mb-2 inline-block text-secondary">
             ← Back to Home
           </Link>
-          <h1 className="text-4xl font-bold mb-2 font-display">
-            Races
-          </h1>
-          <p className="text-lg">
-            Browse upcoming running races
-          </p>
+          <h2 className="text-4xl font-bold mb-2 font-display">Races</h2>
+          <p className="text-lg">Browse upcoming running races</p>
         </div>
 
         {races.length === 0 ? (
@@ -52,22 +45,15 @@ export default async function RacesPage() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {races.map((race: IRace) => (
-              <div
-                key={race._id}
-                className="rounded-lg border-primaryaccent"
-              >
-                <h2 className="text-xl font-semibold mb-2">
-                  {race.name}
-                </h2>
+              <div key={race._id} className="rounded-lg border-primaryaccent">
+                <h2 className="text-xl font-semibold mb-2">{race.name}</h2>
                 <div className="space-y-1 text-sm ">
                   <p>📍 {race.location}</p>
                   <p>📅 {new Date(race.date).toLocaleDateString()}</p>
                   {race.distance && <p>🏃 {race.distance}</p>}
                 </div>
                 {race.description && (
-                  <p className="mt-3 text-sm">
-                    {race.description}
-                  </p>
+                  <p className="mt-3 text-sm">{race.description}</p>
                 )}
               </div>
             ))}
