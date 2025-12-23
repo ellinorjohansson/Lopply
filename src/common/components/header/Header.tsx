@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           className="flex items-center cursor-pointer"
           onClick={toggleNav}
         >
-          <span className="material-symbols-outlined text-5xl text-secondaryaccent">
+          <span className="material-symbols-outlined text-5xl text-secondaryaccent hover:text-primaryaccent transition-colors">
             left_panel_open
           </span>
         </button>
@@ -54,7 +54,7 @@ const Header: React.FC = () => {
             <li className="mb-3">
               <a
                 href="#"
-                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all"
+                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl hover:bg-primaryaccent/20 transition-all"
               >
                 <span className="material-symbols-outlined">home</span>
                 Home
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
             <li className="mb-3">
               <a
                 href="#"
-                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all"
+                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">favorite</span>
                 Race Match
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
             <li className="mb-3">
               <a
                 href="#"
-                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all"
+                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">add</span>
                 Add Race
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
             <li className="mb-2">
               <a
                 href="#"
-                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all"
+                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">search</span>
                 Explore Races
@@ -99,7 +99,7 @@ const Header: React.FC = () => {
             <li className="mb-2">
               <a
                 href="#"
-                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all"
+                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">
                   list_alt_check
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
             <li className="mb-2">
               <a
                 href="#"
-                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all"
+                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">person</span>
                 Login / Sign up
@@ -128,7 +128,7 @@ const Header: React.FC = () => {
             <li className="mb-2">
               <a
                 href="#"
-                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all"
+                className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">shield</span>
                 Admin Panel
