@@ -1,9 +1,12 @@
 "use client";
 
+import { useTranslation } from "@/common/hooks/useTranslation";
 import React, { useState } from "react";
 
 const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const m = useTranslation("menu");
+  const g = useTranslation("general");
 
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
@@ -25,7 +28,7 @@ const Header: React.FC = () => {
 
         {/* Title in the center */}
         <h1 className="absolute left-1/2 transform -translate-x-1/2 text-xl sm:text-3xl font-logo">
-          Lopply
+          {g("lopply")}
         </h1>
       </header>
 
@@ -57,7 +60,7 @@ const Header: React.FC = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl hover:bg-primaryaccent/20 transition-all"
               >
                 <span className="material-symbols-outlined">home</span>
-                Home
+                {m("home")}
               </a>
             </li>
             <li className="mb-3">
@@ -66,7 +69,7 @@ const Header: React.FC = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">favorite</span>
-                Race Match
+                {m("race_match")}
               </a>
             </li>
             <li className="mb-3">
@@ -75,7 +78,7 @@ const Header: React.FC = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">add</span>
-                Add Race
+                {m("add_race")}
               </a>
             </li>
             <li className="mb-2">
@@ -84,7 +87,7 @@ const Header: React.FC = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">search</span>
-                Explore Races
+                {m("explore_races")}
               </a>
             </li>
           </ul>
@@ -93,7 +96,7 @@ const Header: React.FC = () => {
         {/* My Journey Section */}
         <div className="p-4">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
-            My Journey
+            {m("label.my_journey")}
           </span>
           <ul>
             <li className="mb-2">
@@ -104,7 +107,7 @@ const Header: React.FC = () => {
                 <span className="material-symbols-outlined">
                   list_alt_check
                 </span>
-                Bucket List
+                {m("bucket_list")}
               </a>
             </li>
           </ul>
@@ -113,7 +116,7 @@ const Header: React.FC = () => {
         {/* Account Section */}
         <div className="p-4">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
-            Account
+            {m("label.account")}
           </span>
           <ul>
             <li className="mb-2">
@@ -122,7 +125,7 @@ const Header: React.FC = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">person</span>
-                Login / Sign up
+                {m("login_sign_up")}
               </a>
             </li>
             <li className="mb-2">
@@ -131,7 +134,7 @@ const Header: React.FC = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">shield</span>
-                Admin Panel
+                {m("admin_panel")}
               </a>
             </li>
           </ul>

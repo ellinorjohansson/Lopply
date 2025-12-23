@@ -3,7 +3,18 @@
     "lopply": "Lopply"
   },
   "menu": {
-    "home": "Home"
+    "home": "Home",
+    "race_match": "Race Match",
+    "add_race": "Add Race",
+    "explore_races": "Explore Races",
+    "bucket_list": "Bucket List",
+    "login_sign_up": "Login / Sign up",
+    "admin_panel": "Admin Panel",
+    "label": {
+      "discover": "Discover",
+      "my_journey": "My Journey",
+      "account": "Account"
+    }
   },
   "validation": {
     "required_field": "Requaired field"
