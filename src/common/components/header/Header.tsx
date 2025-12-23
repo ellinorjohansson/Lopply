@@ -24,7 +24,7 @@ const Header: React.FC = () => {
         </button>
 
         {/* Title in the center */}
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-xl sm:text-3xl">
+        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-xl sm:text-3xl font-logo">
           Lopply
         </h1>
       </header>

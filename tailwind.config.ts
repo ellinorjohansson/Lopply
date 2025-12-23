@@ -28,6 +28,7 @@ const config: Config = {
             fontFamily: {
                 sans: ['--font-instrument-sans', 'sans-serif'],
                 display: ['--font-kavoon', 'serif'],
+                logo: ['--font-instrument-serif', 'serif']
             }
         },
     },

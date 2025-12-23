@@ -32,7 +32,7 @@ export default async function RacesPage() {
           <Link href="/" className="text-sm mb-2 inline-block text-secondary">
             ← Back to Home
           </Link>
-          <h1 className="text-4xl font-bold mb-2 font-display">Races</h1>
+          <h2 className="text-4xl font-bold mb-2 font-display">Races</h2>
           <p className="text-lg">Browse upcoming running races</p>
         </div>
 
