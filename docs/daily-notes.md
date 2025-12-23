@@ -19,4 +19,8 @@
 - Added tailwind config and fixed with font, colors and icons. Struggled a lot with tailwind but now it works (don't really know if its truly the right way to do it tho)
 - Added the header and fixed so the tailwind classes for color works properly because it didnt work like it should before. The thing was that i use tailwind v4 and there for i need to use @theme and not :root. So that was why it didnt work. Took a lot of time to figure it out but hopfully this works (it does but i hope it stays this way)
 
-- Next thing todo is to fix vercel deploy, becuse now the data from mongodb dosent show.
+* Next thing todo is to fix vercel deploy, becuse now the data from mongodb dosent show.
+
+**2025-12-23**
+
+- Fixed the hover bg in the menu, font size, bugs and small style changes. So now the menu works like it should and i can do a pr.
