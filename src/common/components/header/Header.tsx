@@ -15,16 +15,16 @@ const Header: React.FC = () => {
         {/* Button on the left */}
         <button
           aria-label="Open left panel"
-          className="flex items-center cursor-pointer"
+          className="flex items-center cursor-pointer ml-5"
           onClick={toggleNav}
         >
-          <span className="material-symbols-outlined text-5xl text-secondaryaccent hover:text-primaryaccent transition-colors">
+          <span className="material-symbols-outlined inline-block text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
             left_panel_open
           </span>
         </button>
 
         {/* Title in the center */}
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-xl sm:text-2xl">
+        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-xl sm:text-3xl">
           Lopply
         </h1>
       </header>
