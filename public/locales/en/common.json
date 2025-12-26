@@ -1,6 +1,8 @@
 {
   "general": {
-    "lopply": "Lopply"
+    "lopply": "Lopply",
+    "back_to_home": "Back to home",
+    "try_again": "Try again"
   },
   "menu": {
     "home": "Home",
@@ -28,5 +30,11 @@
       "discover_and_concuer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
       "all_rights": "©2026 Lopply. All rights reserved."
     }
+  },
+  "error": {
+    "whoops_wrong_trail": "Whoops — wrong trail!",
+    "this_page_missed_the_marker": "This page missed the marker and ran the wrong way.",
+    "uhoh_something_tripped": "Uhoh, something tripped!",
+    "an_unexpected_error_occurred": "An unexpected error occurred."
   }
 }
