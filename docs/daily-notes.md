@@ -24,3 +24,8 @@
 **2025-12-23**
 
 - Fixed the hover bg in the menu, font size, bugs and small style changes. So now the menu works like it should and i can do a pr.
+- Started with the footer, added the coponent to the layout structure and started with adding some information in footer.
+
+**2025-12-26**
+
+- Done with the footer. Added style and things that was left to do with it like "all right reserved" thing. Also did style for mobile footer so it looks good on every device.
