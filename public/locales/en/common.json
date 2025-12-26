@@ -21,5 +21,12 @@
   },
   "races": {
     "explore_your_next_race": "Explore your next race"
+  },
+  "footer": {
+    "scroll_to_top": "Scroll to top",
+    "text": {
+      "discover_and_concuer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
+      "all_rights": "©2026 Lopply. All rights reserved."
+    }
   }
 }

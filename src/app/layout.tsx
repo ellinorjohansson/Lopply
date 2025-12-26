@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 import { Instrument_Sans, Kavoon, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/common/components/header/Header";
+import Footer from "@/common/components/footer/Footer";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
