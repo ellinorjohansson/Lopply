@@ -25,6 +25,11 @@ h2 {
   color: var(--color-primaryaccent);
 }
 
+@layer utilities {
+  .font-logo {
+    font-family: var(--font-instrument-serif), serif !important;
+  }
+}
 
 h3,
 h4,
