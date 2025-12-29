@@ -14,7 +14,7 @@ export default function Error({
   const e = useTranslation("error");
   return (
     <main className="min-h-screen flex items-center justify-center bg-primary">
-      <div className="max-w-xl w-full text-center p-8 rounded-2xl bg-primary/60 backdrop-blur-sm">
+      <div className="max-w-xl w-full text-center p-8">
         <h2 className="text-3xl text-primaryaccent mb-2">
           {e("uhoh_something_tripped")}
         </h2>
