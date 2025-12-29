@@ -38,3 +38,4 @@
 - Also connected races db to card to see how it looked and if it worked like i should. Before when developing i used temporary hard coded races.
 - Did the buttons, primary, secondary and accent that is used in different purpose and with different style. Went well, was easy to implement because of the reuse and only needed some tweeks.
 - I also did the toasters for succed and error that is going to be used when for example a user logged in succesfully or if something went wrong the error toaster is going to show up.
+- I also added the primary buttons to error page and 404/not found page
