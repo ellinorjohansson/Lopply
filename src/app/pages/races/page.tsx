@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { IRace } from "@/models/Race";
 
+// This is temporary
+
 async function getRaces() {
   try {
     const res = await fetch(
