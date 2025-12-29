@@ -16,7 +16,7 @@ const SecondaryButton = ({ text, icon, size = "medium" }: SecondaryButtonProps) 
 
     return (
         <button
-            className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-primary border border-secondaryaccent text-secondaryaccent rounded-3xl hover:brightness-90 transition`}
+            className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-primary border border-secondaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition`}
         >
             <span className="material-symbols-outlined mr-2">
                 {icon}
