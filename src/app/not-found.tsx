@@ -1,3 +1,4 @@
+import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import Link from "next/link";
 
@@ -16,7 +17,10 @@ export default function NotFound() {
 
         <div className="flex justify-center gap-4">
           <Link href="/">
-            <button>{g("back_to_home")}</button>
+            <PrimaryButton
+              text={g("back_to_home")}
+              icon="undo"
+              size="medium" />
           </Link>
         </div>
       </div>
