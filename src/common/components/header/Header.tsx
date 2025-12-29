@@ -3,7 +3,7 @@
 import { useTranslation } from "@/common/hooks/useTranslation";
 import React, { useState } from "react";
 
-const Header: React.FC = () => {
+const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const m = useTranslation("menu");
   const g = useTranslation("general");

@@ -1,9 +1,8 @@
-import Link from "next/link";
-import { IRace } from "@/models/Race";
+import Card, { RaceCardProps } from "@/common/components/card/Card";
 
 // This is temporary
 
-async function getRaces() {
+/*async function getRaces() {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/races`,
@@ -22,45 +21,69 @@ async function getRaces() {
     console.error("Error fetching races:", error);
     return [];
   }
-}
+}*/
+
+// Temporary for card develop
+const tempRaces: RaceCardProps[] = [
+  {
+    image: "/test.jpg",
+    title: "Stockholm Marathon",
+    location: "Stockholm",
+    date: "2025-06-01",
+    distance: 42,
+    terrain: "Urban",
+    difficulty: "Medium",
+  },
+  {
+    image: "/test.jpg",
+    title: "Göteborgs Halvmaraton",
+    location: "Göteborg, Sweden",
+    date: "2025-07-15",
+    distance: 21,
+    terrain: "Urban",
+    difficulty: "Easy",
+  },
+  {
+    image: "/test.jpg",
+    title: "Malmö Trail Run",
+    location: "Malmö",
+    date: "2025-08-10",
+    distance: 15,
+    terrain: "Costal",
+    difficulty: "Hard",
+  },
+  {
+    image: "/race3.jpg",
+    title: "Malmö Trail Run",
+    location: "Malmö",
+    date: "2025-08-10",
+    distance: 15,
+    terrain: "Mountain",
+    difficulty: "Hard",
+  },
+  {
+    image: "/test.jpg",
+    title: "Malmö Trail Run",
+    location: "Malmö",
+    date: "2025-08-10",
+    distance: 15,
+    terrain: "Mountain",
+    difficulty: "Hard",
+  },
+];
 
 export default async function RacesPage() {
-  const races = await getRaces();
+  //const races = await getRaces();
 
   return (
     <div className="min-h-screen">
       <main className="mx-auto w-full max-w-6xl px-4 py-12 bg-primary">
-        <div className="mb-8">
-          <Link href="/" className="text-sm mb-2 inline-block text-secondary">
-            ← Back to Home
-          </Link>
-          <h2 className="text-4xl font-bold mb-2 font-display">Races</h2>
-          <p className="text-lg">Browse upcoming running races</p>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+          {tempRaces.map((race: RaceCardProps, index: number) => (
+            <Card key={index} {...race} />
+          ))}
         </div>
-
-        {races.length === 0 ? (
-          <div className="rounded-lg border">
-            <p className="bg-conic-120">
-              No races found. Add some races to your database to get started.
-            </p>
-          </div>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {races.map((race: IRace) => (
-              <div key={race._id} className="rounded-lg border-primaryaccent">
-                <h2 className="text-xl font-semibold mb-2">{race.name}</h2>
-                <div className="space-y-1 text-sm ">
-                  <p>📍 {race.location}</p>
-                  <p>📅 {new Date(race.date).toLocaleDateString()}</p>
-                  {race.distance && <p>🏃 {race.distance}</p>}
-                </div>
-                {race.description && (
-                  <p className="mt-3 text-sm">{race.description}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
       </main>
     </div>
   );
