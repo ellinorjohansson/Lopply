@@ -38,3 +38,18 @@ p {
   font-family: var(--font-instrument-sans), sans-serif;
   color: var(--color-secondaryaccent);
 }
+
+@keyframes slide-up {
+  from {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
