@@ -29,3 +29,10 @@
 **2025-12-26**
 
 - Done with the footer. Added style and things that was left to do with it like "all right reserved" thing. Also did style for mobile footer so it looks good on every device.
+- Did the error page so if something goes wrong the error appear.
+- Did the 404 page if something is wrong with the page or routing this will show up.
+
+**2025-12-29**
+
+- Did the card component, it's basic for now and will implement more stuff like the trash button and so on when the time is.
+- Also connected races db to card to see how it looked and if it worked like i should. Before when developing i used temporary hard coded races.

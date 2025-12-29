@@ -1,7 +1,5 @@
-import Link from "next/link";
+import Card, { RaceCardProps } from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
-
-// This is temporary
 
 async function getRaces() {
   try {
@@ -25,42 +23,28 @@ async function getRaces() {
 }
 
 export default async function RacesPage() {
-  const races = await getRaces();
+  const racesData = await getRaces();
+
+  const races: RaceCardProps[] = racesData.map((race: IRace) => ({
+    image: race.imageUrl,
+    title: race.name,
+    location: race.location,
+    date: new Date(race.date).toISOString().slice(0, 10), 
+    distance: race.distance,
+    terrain: race.terrain,
+    difficulty: race.difficulty,
+    description: race.description
+  }));
 
   return (
     <div className="min-h-screen">
       <main className="mx-auto w-full max-w-6xl px-4 py-12 bg-primary">
-        <div className="mb-8">
-          <Link href="/" className="text-sm mb-2 inline-block text-secondary">
-            ← Back to Home
-          </Link>
-          <h2 className="text-4xl font-bold mb-2 font-display">Races</h2>
-          <p className="text-lg">Browse upcoming running races</p>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+          {races.map((race: RaceCardProps, index: number) => (
+            <Card key={index} {...race} />
+          ))}
         </div>
-
-        {races.length === 0 ? (
-          <div className="rounded-lg border">
-            <p className="bg-conic-120">
-              No races found. Add some races to your database to get started.
-            </p>
-          </div>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {races.map((race: IRace) => (
-              <div key={race._id} className="rounded-lg border-primaryaccent">
-                <h2 className="text-xl font-semibold mb-2">{race.name}</h2>
-                <div className="space-y-1 text-sm ">
-                  <p>📍 {race.location}</p>
-                  <p>📅 {new Date(race.date).toLocaleDateString()}</p>
-                  {race.distance && <p>🏃 {race.distance}</p>}
-                </div>
-                {race.description && (
-                  <p className="mt-3 text-sm">{race.description}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
       </main>
     </div>
   );
