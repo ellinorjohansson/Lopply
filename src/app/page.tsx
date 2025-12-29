@@ -1,3 +1,4 @@
+import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import Link from "next/link";
 
@@ -13,9 +14,11 @@ export default function Home() {
           <p className="text-xl mb-8">Discover and track running races</p>
           <Link
             href="/pages/races"
-            className="px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-lg font-semibold hover:opacity-80 transition-opacity inline-block"
           >
-            Browse Races
+            <PrimaryButton
+              text="Explore races"
+              icon="search"
+              size="medium" />
           </Link>
         </div>
       </main>
