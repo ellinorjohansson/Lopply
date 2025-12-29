@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 export interface RaceCardProps {
@@ -10,9 +10,10 @@ export interface RaceCardProps {
 	distance: string | number;
 	terrain: string;
 	difficulty: string;
+	description: string;
 }
 
-const Card: React.FC<RaceCardProps> = ({
+const Card = ({
 	image,
 	title,
 	location,
@@ -20,7 +21,8 @@ const Card: React.FC<RaceCardProps> = ({
 	distance,
 	terrain,
 	difficulty,
-}) => {
+	description
+}: RaceCardProps) => {
 	const [favorited, setFavorited] = useState(false);
 
 	const toggleFavorite = () => {
@@ -41,7 +43,7 @@ const Card: React.FC<RaceCardProps> = ({
 			className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent max-w-sm shadow-lg"
 			aria-labelledby="race-title"
 		>
-			<div className="relative h-60 w-full">
+			<div className="relative h-48 md:h-60 w-full">
 				<Image
 					src={image}
 					alt={title}
@@ -63,38 +65,40 @@ const Card: React.FC<RaceCardProps> = ({
 				</div>
 			</div>
 
-			<div className="p-6 flex flex-col gap-3">
+			<div className="p-4 md:p-6 flex flex-col gap-3">
 				<h3
 					id="race-title"
-					className="text-2xl font-bold text-primaryaccent!"
+					className="text-xl md:text-2xl font-bold text-primaryaccent!"
 				>
 					{title}
 				</h3>
 
 				<div className="flex items-center gap-3 text-base" aria-label="Race location">
-					<span className="material-symbols-outlined w-5 h-5" aria-hidden="true">
+					<span className="material-symbols-outlined w-5 h-5 text-primaryaccent" aria-hidden="true">
 						location_on
 					</span>
 					<span className="font-sans">{location}</span>
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<div className="flex items-center gap-3" aria-label="Race date">
-						<span className="material-symbols-outlined w-5 h-5" aria-hidden="true">
-							calendar_today
-						</span>
-						<span className="text-base font-sans">{date}</span>
-					</div>
-
-					<div className="flex items-center gap-3" aria-label="Race distance">
-						<span className="material-symbols-outlined w-5 h-5" aria-hidden="true">
-							steps
-						</span>
-						<span className="text-base font-sans">{distance} km</span>
-					</div>
+				<div className="flex items-center gap-3" aria-label="Race date">
+					<span className="material-symbols-outlined w-5 h-5 text-primaryaccent" aria-hidden="true">
+						calendar_today
+					</span>
+					<span className="text-base font-sans">{date}</span>
 				</div>
 
-				<div className="flex gap-4 pt-2">
+				<div className="flex items-center gap-3" aria-label="Race distance">
+					<span className="material-symbols-outlined w-5 h-5 text-primaryaccent" aria-hidden="true">
+						steps
+					</span>
+					<span className="text-base font-sans">{distance} km</span>
+				</div>
+
+				<div className="flex items-center gap-3" aria-label="Race description">
+					<p className="text-base font-sans">{description}</p>
+				</div>
+
+				<div className="flex flex-wrap gap-4 pt-2">
 					<span
 						className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base"
 						aria-label="Terrain type"

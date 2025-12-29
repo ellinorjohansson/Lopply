@@ -1,8 +1,7 @@
 import Card, { RaceCardProps } from "@/common/components/card/Card";
+import { IRace } from "@/models/Race";
 
-// This is temporary
-
-/*async function getRaces() {
+async function getRaces() {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/races`,
@@ -21,66 +20,28 @@ import Card, { RaceCardProps } from "@/common/components/card/Card";
     console.error("Error fetching races:", error);
     return [];
   }
-}*/
-
-// Temporary for card develop
-const tempRaces: RaceCardProps[] = [
-  {
-    image: "/test.jpg",
-    title: "Stockholm Marathon",
-    location: "Stockholm",
-    date: "2025-06-01",
-    distance: 42,
-    terrain: "Urban",
-    difficulty: "Medium",
-  },
-  {
-    image: "/test.jpg",
-    title: "Göteborgs Halvmaraton",
-    location: "Göteborg, Sweden",
-    date: "2025-07-15",
-    distance: 21,
-    terrain: "Urban",
-    difficulty: "Easy",
-  },
-  {
-    image: "/test.jpg",
-    title: "Malmö Trail Run",
-    location: "Malmö",
-    date: "2025-08-10",
-    distance: 15,
-    terrain: "Costal",
-    difficulty: "Hard",
-  },
-  {
-    image: "/race3.jpg",
-    title: "Malmö Trail Run",
-    location: "Malmö",
-    date: "2025-08-10",
-    distance: 15,
-    terrain: "Mountain",
-    difficulty: "Hard",
-  },
-  {
-    image: "/test.jpg",
-    title: "Malmö Trail Run",
-    location: "Malmö",
-    date: "2025-08-10",
-    distance: 15,
-    terrain: "Mountain",
-    difficulty: "Hard",
-  },
-];
+}
 
 export default async function RacesPage() {
-  //const races = await getRaces();
+  const racesData = await getRaces();
+
+  const races: RaceCardProps[] = racesData.map((race: IRace) => ({
+    image: race.imageUrl,
+    title: race.name,
+    location: race.location,
+    date: new Date(race.date).toISOString().slice(0, 10), 
+    distance: race.distance,
+    terrain: race.terrain,
+    difficulty: race.difficulty,
+    description: race.description
+  }));
 
   return (
     <div className="min-h-screen">
       <main className="mx-auto w-full max-w-6xl px-4 py-12 bg-primary">
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-          {tempRaces.map((race: RaceCardProps, index: number) => (
+          {races.map((race: RaceCardProps, index: number) => (
             <Card key={index} {...race} />
           ))}
         </div>
