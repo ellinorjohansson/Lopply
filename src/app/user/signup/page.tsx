@@ -1,5 +1,6 @@
 "use client";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
+import HelperButton from "@/common/components/helperButton/HelperButton";
 import InputField from "@/common/components/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
@@ -34,16 +35,19 @@ const UserSignUp = () => {
                 <InputField
                     label={a("name")}
                     size="medium"
+                    helpButton={
+                        <HelperButton infoText={a("user.optional_name")} />
+                    }
                 />
                 <InputField
-                    label={a("email")}
+                    label={a("required_email")}
                     size="medium"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     error={errors.email}
                 />
                 <InputField
-                    label={a("password")}
+                    label={a("required_password")}
                     size="medium"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -51,6 +55,7 @@ const UserSignUp = () => {
                 />
                 <PrimaryButton text={a("user.signup")} size="large" />
             </form>
+            <span className="text-sm text-secondaryaccent">{v("required_field")}</span>
         </>
     );
 };

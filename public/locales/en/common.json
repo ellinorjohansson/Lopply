@@ -19,7 +19,7 @@
     }
   },
   "validation": {
-    "required_field": "Requaired field",
+    "required_field": "* Requaired field",
     "empty_field": "The field can't be empty"
   },
   "races": {
@@ -47,10 +47,13 @@
     "user": {
       "user_text_discover": "Discover your next running adventure",
       "login": "Login",
-      "signup": "SignUp"
+      "signup": "SignUp",
+      "optional_name": "Your name is optional and dosen't have anything with the authentication to do."
     },
     "name": "Name",
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "required_email": "Email *",
+    "required_password": "Password *"
   }
 }
