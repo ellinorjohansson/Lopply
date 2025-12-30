@@ -14,7 +14,7 @@ export default function Home() {
           <h2 className="text-5xl text-primaryaccent mb-4">{g("lopply")}</h2>
           <p className="text-xl mb-8">Discover and track running races</p>
           <Link
-            href="/pages/races"
+            href="/races"
           >
             <PrimaryButton
               text="Explore races"

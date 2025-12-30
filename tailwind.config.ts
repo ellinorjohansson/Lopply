@@ -15,6 +15,7 @@ const config: Config = {
                 secondaryaccent: 'var(--secondaryaccent)', // accent/text 
                 success: 'var(--success)',
                 error: 'var(--error)',
+                errortext: 'var(--errortext)',
             },
             fontSize: {
                 'xs': ['0.75rem', { lineHeight: '0.5rem' }],

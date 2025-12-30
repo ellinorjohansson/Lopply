@@ -9,6 +9,7 @@
   --color-secondaryaccent: #faf9e3;
   --color-success: #00710d;
   --color-error: #940000;
+  --color-errortext: #fb2c36;
 }
 
 body {
@@ -37,6 +38,10 @@ h5,
 p {
   font-family: var(--font-instrument-sans), sans-serif;
   color: var(--color-secondaryaccent);
+}
+
+span {
+  font-family: var(--font-instrument-sans), sans-serif;
 }
 
 @keyframes slide-up {
