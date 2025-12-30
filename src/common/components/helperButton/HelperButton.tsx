@@ -25,6 +25,7 @@ const HelperButton = ({ infoText }: HelperButtonProps) => {
 			<button
 				onClick={() => setOpen((prev) => !prev)}
 				className="cursor-pointer text-secondaryaccent flex items-center gap-1"
+				type="button"
 			>
 				<span className="material-symbols-outlined">help</span>
 			</button>
@@ -32,12 +33,7 @@ const HelperButton = ({ infoText }: HelperButtonProps) => {
 			{open && (
 				<div
 					ref={popupRef}
-					className="
-            absolute left-full top-0 ml-2 
-            bg-secondaryaccent 
-            p-3 rounded-lg text-sm w-52
-            z-50 text-secondary
-          "
+					className="absolute md:left-full md:top-0 md:ml-2 md:translate-x-0 left-1/2 -translate-x-1/2 top-full mt-2 bg-secondaryaccent p-3 rounded-lg text-sm w-52 z-50 text-secondary"
 				>
 					{infoText}
 				</div>
