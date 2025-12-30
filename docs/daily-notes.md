@@ -39,3 +39,9 @@
 - Did the buttons, primary, secondary and accent that is used in different purpose and with different style. Went well, was easy to implement because of the reuse and only needed some tweeks.
 - I also did the toasters for succed and error that is going to be used when for example a user logged in succesfully or if something went wrong the error toaster is going to show up.
 - I also added the primary buttons to error page and 404/not found page
+
+**2025-12-30**
+
+- Added input field component to use where needed.
+- Added input field and other components to build the admin login, for now it's only front end and dosen't work.
+- I also added error message to input field if something goes wrong to display it to the user what and where.
