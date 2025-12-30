@@ -5,7 +5,7 @@ export interface InputFieldProps {
 	size: "small" | "medium";
 	error?: string;
 	value?: string;
-	onChange?: () => void;
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 	onClick?: () => void;
 	id?: string;
 }

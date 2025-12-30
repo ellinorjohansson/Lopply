@@ -19,7 +19,8 @@
     }
   },
   "validation": {
-    "required_field": "Requaired field"
+    "required_field": "Requaired field",
+    "empty_field": "The field can't be empty"
   },
   "races": {
     "explore_your_next_race": "Explore your next race"
