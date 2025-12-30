@@ -10,7 +10,6 @@ const UserAuth = () => {
   const [mode, setMode] = useState<"login" | "signup">("login");
   const a = useTranslation("authentication");
 
-
   return (
     <section className="flex items-center justify-center w-full min-h-screen p-4">
       <div className="bg-secondary border border-secondaryaccent rounded-3xl p-15 flex flex-col gap-6">
