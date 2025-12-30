@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex items-center justify-between p-4">
+      <header className="flex items-center justify-between p-4 bg-secondary">
         {/* Button on the left */}
         <button
           aria-label="Open left panel"
