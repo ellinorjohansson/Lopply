@@ -12,13 +12,13 @@ const InputField = ({ label, size = "medium", onClick, id }: InputFieldProps) =>
 
 	const sizeClasses = {
 		small: "py-1 px-4 text-sm sm:text-base w-full max-w-[240px]",
-		medium: "py-1 px-4 text-sm sm:text-base w-full max-w-[560px]",
+		medium: "py-1 px-4 text-sm sm:text-base w-full max-w-[630px]",
 	}[size];
 
 
 	return (
 		<div className="flex flex-col">
-			<label htmlFor={inputId} className="mb-1 font-sans text-secondaryaccent">
+			<label htmlFor={inputId} className="mb-1 font-sans font-medium text-secondaryaccent">
 				{label}
 			</label>
 			<input

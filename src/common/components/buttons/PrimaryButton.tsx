@@ -2,7 +2,7 @@
 
 export interface PrimaryButtonProps {
 	text: string;
-	icon: string;
+	icon?: string;
 	size: "small" | "medium" | "large";
 	onClick?: () => void;
 }
@@ -12,7 +12,7 @@ const PrimaryButton = ({ text, icon, size = "medium", onClick }: PrimaryButtonPr
 	const sizeClasses = {
 		small: "py-2 px-4 text-sm",
 		medium: "py-2 px-23 text-base",
-		large: "py-2 px-60 text-base"
+		large: "py-2 px-23 sm:px-40 md:px-60 text-base"
 	}[size];
 
 	return (

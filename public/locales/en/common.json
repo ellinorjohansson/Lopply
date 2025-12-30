@@ -36,5 +36,14 @@
     "this_page_missed_the_marker": "This page missed the marker and ran the wrong way.",
     "uhoh_something_tripped": "Uhoh, something tripped!",
     "an_unexpected_error_occurred": "An unexpected error occurred."
+  },
+  "authentication": {
+    "admin": {
+      "admin_login": "Admin login",
+      "admin_subtext": "Enter admin password to access the panel",
+      "access_admin_panel": "Access admin panel"
+    },
+    "email": "Email",
+    "password": "Password"
   }
 }
