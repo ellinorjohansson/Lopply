@@ -44,6 +44,10 @@ span {
   font-family: var(--font-instrument-sans), sans-serif;
 }
 
+button {
+  font-family: var(--font-instrument-sans), sans-serif;
+}
+
 @keyframes slide-up {
   from {
     transform: translateY(120%);

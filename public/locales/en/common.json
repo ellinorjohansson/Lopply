@@ -44,6 +44,12 @@
       "admin_subtext": "Enter admin password to access the panel",
       "access_admin_panel": "Access admin panel"
     },
+    "user": {
+      "user_text_discover": "Discover your next running adventure",
+      "login": "Login",
+      "signup": "SignUp"
+    },
+    "name": "Name",
     "email": "Email",
     "password": "Password"
   }
