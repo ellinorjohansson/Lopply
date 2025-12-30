@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/common/hooks/useTranslation";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Header = () => {
@@ -11,6 +12,8 @@ const Header = () => {
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
   };
+
+  const closeNav = () => setIsNavOpen(false);
 
   return (
     <>
@@ -34,9 +37,8 @@ const Header = () => {
 
       {/* Navigation panel */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-primary z-50 transform transition-transform duration-300 ${
-          isNavOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 h-full w-64 bg-primary z-50 transform transition-transform duration-300 ${isNavOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <button
           aria-label="Close navigation"
@@ -55,40 +57,44 @@ const Header = () => {
           </span>
           <ul>
             <li className="mb-3">
-              <a
-                href="#"
+              <Link
+                href="/"
+                onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl hover:bg-primaryaccent/20 transition-all"
               >
                 <span className="material-symbols-outlined">home</span>
                 {m("home")}
-              </a>
+              </Link>
             </li>
             <li className="mb-3">
-              <a
-                href="#"
+              <Link
+                href="/"
+                onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">favorite</span>
                 {m("race_match")}
-              </a>
+              </Link>
             </li>
             <li className="mb-3">
-              <a
-                href="#"
+              <Link
+                href="/"
+                onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">add</span>
                 {m("add_race")}
-              </a>
+              </Link>
             </li>
             <li className="mb-2">
-              <a
-                href="#"
+              <Link
+                href="/races"
+                onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">search</span>
                 {m("explore_races")}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -100,15 +106,16 @@ const Header = () => {
           </span>
           <ul>
             <li className="mb-2">
-              <a
-                href="#"
+              <Link
+                href="/"
+                onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">
                   list_alt_check
                 </span>
                 {m("bucket_list")}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -120,22 +127,24 @@ const Header = () => {
           </span>
           <ul>
             <li className="mb-2">
-              <a
-                href="#"
+              <Link
+                href="/user/login"
+                onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">person</span>
                 {m("login_sign_up")}
-              </a>
+              </Link>
             </li>
             <li className="mb-2">
-              <a
-                href="#"
+              <Link
+                href="/admin/login"
+                onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">shield</span>
                 {m("admin_panel")}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
