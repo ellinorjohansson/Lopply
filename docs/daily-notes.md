@@ -45,3 +45,4 @@
 - Added input field component to use where needed.
 - Added input field and other components to build the admin login, for now it's only front end and dosen't work.
 - I also added error message to input field if something goes wrong to display it to the user what and where.
+- Today i also did and being done with the login and signup form as well. It's also just front end like the admin login, but more will come.

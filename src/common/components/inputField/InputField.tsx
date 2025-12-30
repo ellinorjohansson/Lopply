@@ -8,9 +8,10 @@ export interface InputFieldProps {
 	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 	onClick?: () => void;
 	id?: string;
+	helpButton?: React.ReactNode;
 }
 
-const InputField = ({ label, size = "medium", error, value, onChange, onClick, id }: InputFieldProps) => {
+const InputField = ({ label, size = "medium", error, value, onChange, onClick, id, helpButton }: InputFieldProps) => {
 	const inputId = id || `input-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
 	const sizeClasses = {
@@ -25,6 +26,11 @@ const InputField = ({ label, size = "medium", error, value, onChange, onClick, i
 					{label}
 				</label>
 				{error && <span className="text-errortext text-sm ml-3">{error}</span>}
+				{helpButton && (
+					<div className="ml-auto">
+						{helpButton}
+					</div>
+				)}
 			</div>
 			<input
 				id={inputId}

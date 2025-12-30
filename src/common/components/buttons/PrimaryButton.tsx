@@ -12,17 +12,19 @@ const PrimaryButton = ({ text, icon, size = "medium", onClick }: PrimaryButtonPr
 	const sizeClasses = {
 		small: "py-2 px-4 text-sm",
 		medium: "py-2 px-23 text-base",
-		large: "py-2 px-23 sm:px-40 md:px-60 text-base"
+		large: "py-1 px-23 sm:px-40 md:px-50 text-base"
 	}[size];
 
 	return (
 		<button
 			onClick={onClick}
-			className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-primaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition`}
+			className={`${sizeClasses} font-sans flex items-center justify-center cursor-pointer bg-primaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition`}
 		>
-			<span className="material-symbols-outlined mr-2">
-				{icon}
-			</span>
+			{icon && (
+				<span className="material-symbols-outlined mr-2">
+					{icon}
+				</span>
+			)}
 			{text}
 		</button>
 	);

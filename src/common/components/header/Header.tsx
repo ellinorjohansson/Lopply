@@ -128,7 +128,7 @@ const Header = () => {
           <ul>
             <li className="mb-2">
               <Link
-                href="/user/login"
+                href="/user"
                 onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
