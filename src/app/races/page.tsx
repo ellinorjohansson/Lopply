@@ -29,7 +29,7 @@ export default async function RacesPage() {
     image: race.imageUrl,
     title: race.name,
     location: race.location,
-    date: new Date(race.date).toISOString().slice(0, 10), 
+    date: new Date(race.date).toISOString().slice(0, 10),
     distance: race.distance,
     terrain: race.terrain,
     difficulty: race.difficulty,
@@ -37,15 +37,12 @@ export default async function RacesPage() {
   }));
 
   return (
-    <div className="min-h-screen">
-      <main className="mx-auto w-full max-w-6xl px-4 py-12 bg-primary">
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-          {races.map((race: RaceCardProps, index: number) => (
-            <Card key={index} {...race} />
-          ))}
-        </div>
-      </main>
-    </div>
+    <main className="mx-auto w-full max-w-6xl px-4 py-12 bg-primary min-h-screen">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+        {races.map((race: RaceCardProps, index: number) => (
+          <Card key={index} {...race} />
+        ))}
+      </div>
+    </main>
   );
 }
