@@ -49,4 +49,5 @@
 
 **2026-01-02**
 
-- Today i started with adding the race card skeleton for when the races are loading so the user can see that it's loading and not frozen. I also did a branch just for fixing small things with the styling, color, font and responsivness and more with the things i'm done with under this branch.
+- Today i started with adding the race card skeleton for when the races are loading so the user can see that it's loading and not frozen. I also did a branch just for fixing small things with the styling, color, font and responsivness and more with the things i'm done with under this sprint.
+- I also added sprint-1.md for reflection over what i been done with this sprint. I also merged develop to main.
