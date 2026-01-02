@@ -48,7 +48,7 @@ const Card = ({
 			rel="noopener noreferrer"
 			className="block" >
 			<article
-				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent max-w-sm shadow-lg cursor-pointer hover:scale-103  transition"
+				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent max-w-sm shadow-lg cursor-pointer hover:scale-103 transition"
 				aria-labelledby="race-title"
 			>
 				<div className="relative h-48 md:h-60 w-full">
