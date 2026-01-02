@@ -8,7 +8,7 @@ async function getRaces() {
         ? "http://localhost:3000"
         : "";
 
-    const res = await fetch(`${baseUrl}/api/races`, {
+    const res = await fetch(`${baseUrl}/races`, {
       cache: "no-store",
     });
 
