@@ -3,7 +3,7 @@
 const RaceCardSkeleton = () => {
   return (
     <article
-      className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent max-w-sm shadow-lg animate-pulse"
+      className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 h-36rem shadow-lg animate-pulse"
       aria-hidden="true"
     >
       {/* Image placeholder */}
@@ -37,13 +37,13 @@ const RaceCardSkeleton = () => {
         </div>
 
         {/* Description */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 h-20">
           <div className="h-4 w-full bg-white/20 rounded-md" />
           <div className="h-4 w-5/6 bg-white/20 rounded-md" />
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-4 pt-2">
+        <div className="flex flex-wrap gap-4 pt-2 mt-auto">
           <div className="px-5 py-2 h-8 rounded-full bg-white/20 w-24" />
           <div className="px-5 py-2 h-8 rounded-full bg-white/20 w-20" />
         </div>
