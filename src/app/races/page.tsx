@@ -3,12 +3,14 @@ import { IRace } from "@/models/Race";
 
 async function getRaces() {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/races`,
-      {
-        cache: "no-store",
-      },
-    );
+    const baseUrl =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "";
+
+    const res = await fetch(`${baseUrl}/api/races`, {
+      cache: "no-store",
+    });
 
     if (!res.ok) {
       throw new Error("Failed to fetch races");
