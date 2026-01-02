@@ -49,7 +49,7 @@ const Card = ({
 			rel="noopener noreferrer"
 			className="block" >
 			<article
-				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent max-w-sm shadow-lg cursor-pointer hover:scale-103 transition"
+				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 h-36rem shadow-lg cursor-pointer hover:scale-103 transition flex flex-col"
 				aria-labelledby="race-title"
 			>
 				<div className="relative h-48 md:h-60 w-full">
@@ -60,18 +60,19 @@ const Card = ({
 						className="object-cover rounded-3xl"
 						sizes="100%"
 					/>
-					<div
+					<button
 						onClick={toggleFavorite}
 						className="absolute top-4 right-4 bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer"
-						aria-hidden="true"
+						aria-pressed={favorited}
+						aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
 					>
 						<span
-							className={`material-symbols-rounded ${favorited ? "text-primaryaccent" : "text-secondary"}`}
+							className={`material-symbols-rounded ${favorited ? "text-primaryaccent" : "text-secondary/50"}`}
 							aria-hidden="true"
 						>
 							{favorited ? "favorite" : "favorite_border"}
 						</span>
-					</div>
+					</button>
 				</div>
 
 				<div className="p-4 md:p-6 flex flex-col gap-3">
@@ -104,10 +105,10 @@ const Card = ({
 					</div>
 
 					<div className="flex items-center gap-3" aria-label="Race description">
-						<p className="text-base font-sans">{description}</p>
+						<p className="text-base font-sans line-clamp-3 h-20">{description}</p>
 					</div>
 
-					<div className="flex flex-wrap gap-4 pt-2">
+					<div className="flex flex-wrap gap-4 pt-2 mt-auto">
 						<span
 							className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base"
 							aria-label="Terrain type"
