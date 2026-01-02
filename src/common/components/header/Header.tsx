@@ -30,7 +30,7 @@ const Header = () => {
         </button>
 
         {/* Title in the center */}
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-xl sm:text-3xl">
+        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           {g("lopply")}
         </h1>
       </header>
