@@ -38,7 +38,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,1,0&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`${instrumentSans.variable} ${kavoon.variable} ${instrumentSerif.variable}`}
       >

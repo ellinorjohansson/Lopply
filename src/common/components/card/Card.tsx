@@ -29,8 +29,9 @@ const Card = ({
 	const [favorited, setFavorited] = useState(false);
 
 	const toggleFavorite = (e: React.MouseEvent) => {
+		e.preventDefault();
 		e.stopPropagation();
-		setFavorited(!favorited);
+		setFavorited((prev) => !prev);
 	};
 
 	const terrainIcons: { [key: string]: string } = {
@@ -65,10 +66,10 @@ const Card = ({
 						aria-hidden="true"
 					>
 						<span
-							className={`material-symbols-outlined ${favorited ? "text-primaryaccent" : "text-secondary"}`}
+							className={`material-symbols-rounded ${favorited ? "text-primaryaccent" : "text-secondary"}`}
 							aria-hidden="true"
 						>
-							favorite
+							{favorited ? "favorite" : "favorite_border"}
 						</span>
 					</div>
 				</div>
