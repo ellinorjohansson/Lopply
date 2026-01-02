@@ -18,7 +18,6 @@ const Header = () => {
   return (
     <>
       <header className="flex items-center justify-between p-4 bg-secondary">
-        {/* Button on the left */}
         <button
           aria-label="Open left panel"
           className="flex items-center cursor-pointer ml-5"
@@ -29,8 +28,7 @@ const Header = () => {
           </span>
         </button>
 
-        {/* Title in the center */}
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
+        <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           {g("lopply")}
         </h1>
       </header>
@@ -50,8 +48,12 @@ const Header = () => {
           </span>
         </button>
 
+        <div className="p-4 mt-4 sm:hidden">
+          <h1 className="text-3xl text-secondaryaccent">{g("lopply")}</h1>
+        </div>
+
         {/* Discover Section */}
-        <div className="p-4 mt-16">
+        <div className="p-4 mt-5 sm:mt-16">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
             Discover
           </span>
