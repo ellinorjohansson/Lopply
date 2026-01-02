@@ -33,7 +33,8 @@ export default async function RacesPage() {
     distance: race.distance,
     terrain: race.terrain,
     difficulty: race.difficulty,
-    description: race.description
+    description: race.description,
+    raceUrl: race.raceUrl,
   }));
 
   return (
