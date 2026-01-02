@@ -38,6 +38,8 @@ const Card = ({
 		urban: "apartment",
 		costal: "water",
 		mountain: "landscape",
+		desert: "landscape_2",
+		forest: "forest"
 	};
 
 	const terrainIcon = terrainIcons[terrain.toLowerCase()];
