@@ -1,14 +1,59 @@
 {
   "general": {
-    "lopply": "Lopply"
+    "lopply": "Lopply",
+    "back_to_home": "Back to home",
+    "try_again": "Try again"
   },
   "menu": {
-    "home": "Home"
+    "home": "Home",
+    "race_match": "Race Match",
+    "add_race": "Add Race",
+    "explore_races": "Explore Races",
+    "bucket_list": "Bucket List",
+    "login_sign_up": "Login / Sign up",
+    "admin_panel": "Admin Panel",
+    "label": {
+      "discover": "Discover",
+      "my_journey": "My Journey",
+      "account": "Account"
+    }
   },
   "validation": {
-    "required_field": "Requaired field"
+    "required_field": "* Requaired field",
+    "empty_field": "The field can't be empty"
   },
   "races": {
     "explore_your_next_race": "Explore your next race"
+  },
+  "footer": {
+    "scroll_to_top": "Scroll to top",
+    "text": {
+      "discover_and_concuer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
+      "all_rights": "©2026 Lopply. All rights reserved."
+    }
+  },
+  "error": {
+    "whoops_wrong_trail": "Whoops — wrong trail!",
+    "this_page_missed_the_marker": "This page missed the marker and ran the wrong way.",
+    "uhoh_something_tripped": "Uhoh, something tripped!",
+    "an_unexpected_error_occurred": "An unexpected error occurred."
+  },
+  "authentication": {
+    "admin": {
+      "admin_login": "Admin login",
+      "admin_subtext": "Enter admin password to access the panel",
+      "access_admin_panel": "Access admin panel"
+    },
+    "user": {
+      "user_text_discover": "Discover your next running adventure",
+      "login": "Login",
+      "signup": "SignUp",
+      "optional_name": "Your name is optional and dosen't have anything with the authentication to do."
+    },
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "required_email": "Email *",
+    "required_password": "Password *"
   }
 }

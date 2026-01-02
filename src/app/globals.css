@@ -1,19 +1,62 @@
 @import "tailwindcss";
 
-:root {
-    --background: #ffffff;
-    --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+@theme {
+  --color-primary: #322f2f;
+  --color-secondary: #3b3536;
+  --color-primaryaccent: #f46034;
+  --color-secondaryaccent: #faf9e3;
+  --color-success: #00710d;
+  --color-error: #940000;
+  --color-errortext: #fb2c36;
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-primary);
+}
+
+h1 {
+  font-family: var(--font-instrument-serif), serif;
+  color: var(--color-primaryaccent);
+}
+
+h2 {
+  font-family: var(--font-kavoon), serif;
+  color: var(--color-primaryaccent);
+}
+
+@layer utilities {
+  .font-logo {
+    font-family: var(--font-instrument-serif), serif !important;
+  }
+}
+
+h3,
+h4,
+h5,
+p {
+  font-family: var(--font-instrument-sans), sans-serif;
+  color: var(--color-secondaryaccent);
+}
+
+span {
+  font-family: var(--font-instrument-sans), sans-serif;
+}
+
+button {
+  font-family: var(--font-instrument-sans), sans-serif;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
 }
