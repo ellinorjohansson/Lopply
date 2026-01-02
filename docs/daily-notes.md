@@ -46,3 +46,7 @@
 - Added input field and other components to build the admin login, for now it's only front end and dosen't work.
 - I also added error message to input field if something goes wrong to display it to the user what and where.
 - Today i also did and being done with the login and signup form as well. It's also just front end like the admin login, but more will come.
+
+**2026-01-02**
+
+- Today i started with adding the race card skeleton for when the races are loading so the user can see that it's loading and not frozen. I also did a branch just for fixing small things with the styling, color, font and responsivness and more with the things i'm done with under this branch.
