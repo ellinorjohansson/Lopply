@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Card, { RaceCardProps } from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
 
