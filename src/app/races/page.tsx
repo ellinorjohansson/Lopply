@@ -1,16 +1,15 @@
+export const dynamic = "force-dynamic";
 import Card, { RaceCardProps } from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
 
 async function getRaces() {
   try {
-    const baseUrl =
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
-        : "";
-
-    const res = await fetch(`${baseUrl}/races`, {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/races`,
+      {
+        cache: "no-store",
+      },
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch races");
