@@ -10,6 +10,10 @@
   --color-errortext: #fb2c36;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-primary);
 }
