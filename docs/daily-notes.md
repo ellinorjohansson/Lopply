@@ -51,3 +51,11 @@
 
 - Today i started with adding the race card skeleton for when the races are loading so the user can see that it's loading and not frozen. I also did a branch just for fixing small things with the styling, color, font and responsivness and more with the things i'm done with under this sprint.
 - I also added sprint-1.md for reflection over what i been done with this sprint. I also merged develop to main.
+
+**2026-01-04**
+
+- Today i finaly discovered the problem i had with deploying my page to Vercel. The problem was that i missed out on a variable so it basiclly used localhost that doesn't exist when deployed. So i added the variable and the value and now the data displays like it should.
+
+**2026-01-05**
+
+- Today i did the home page and also refactored the race display so i can reuse it and doesn't need to duplicate code for it. Went well and now that part is done.
