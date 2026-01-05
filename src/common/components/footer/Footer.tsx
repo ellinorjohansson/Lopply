@@ -1,5 +1,4 @@
 "use client";
-
 import { useTranslation } from "@/common/hooks/useTranslation";
 
 const Footer = () => {
