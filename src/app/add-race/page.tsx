@@ -41,64 +41,83 @@ const AddRace = () => {
             {a("submit_a_race")}
           </span>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <InputField
-            label={a("race_title")}
-            size="small"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            error={errors.email}
-          />
-          <InputField
-            label={a("locations")}
-            size="small"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
-          />
-          <InputField
-            label={a("distance")}
-            size="small"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
-          />
-          <InputField
-            label={a("date")}
-            size="small"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
-          />
-          <InputField
-            label={a("difficulty")}
-            size="small"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
-          />
-          <InputField
-            label={a("terrain")}
-            size="small"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
-          />
-          <InputField
-            label={a("image_url")}
-            size="medium"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
-          />
-          <InputField
-            label={a("description")}
-            size="medium"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            error={errors.password}
-          />
-          <div className="flex flex-row gap-3">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="col-span-1">
+            <InputField
+              label={a("race_title")}
+              size="small"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={errors.email}
+            />
+          </div>
+          <div className="col-span-1">
+            <InputField
+              label={a("locations")}
+              size="small"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
+            />
+          </div>
+          <div className="col-span-1">
+            <InputField
+              label={a("distance")}
+              size="small"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
+            />
+          </div>
+          <div className="col-span-1">
+            <InputField
+              label={a("date")}
+              size="small"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
+            />
+          </div>
+          <div className="col-span-1">
+            <InputField
+              label={a("difficulty")}
+              size="small"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
+            />
+          </div>
+          <div className="col-span-1">
+            <InputField
+              label={a("terrain")}
+              size="small"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
+            />
+          </div>
+
+          <div className="col-span-2">
+            <InputField
+              label={a("image_url")}
+              size="medium"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
+            />
+          </div>
+          <div className="col-span-2">
+            <InputField
+              label={a("description")}
+              size="medium"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
+            />
+          </div>
+
+          {/* Buttons, full width */}
+          <div className="col-span-2 flex flex-row gap-3">
             <PrimaryButton text={b("add_race")} size="large" />
             <SecondaryButton text={b("cancel")} size="small" />
           </div>
