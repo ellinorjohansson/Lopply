@@ -3,8 +3,6 @@ import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import Link from "next/link";
 
-// This is temporary
-
 export default function Home() {
   const g = useTranslation("general");
   return (

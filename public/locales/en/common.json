@@ -19,7 +19,7 @@
     }
   },
   "validation": {
-    "required_field": "* Requaired field",
+    "required_field": "* Required field",
     "empty_field": "The field can't be empty"
   },
   "races": {
@@ -28,7 +28,7 @@
   "footer": {
     "scroll_to_top": "Scroll to top",
     "text": {
-      "discover_and_concuer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
+      "discover_and_conquer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
       "all_rights": "©2026 Lopply. All rights reserved."
     }
   },
@@ -47,8 +47,8 @@
     "user": {
       "user_text_discover": "Discover your next running adventure",
       "login": "Login",
-      "signup": "SignUp",
-      "optional_name": "Your name is optional and dosen't have anything with the authentication to do."
+      "signup": "Sign Up",
+      "optional_name": "Your name is optional and has nothing to do with authentication."
     },
     "name": "Name",
     "email": "Email",

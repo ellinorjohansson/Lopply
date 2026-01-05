@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="flex flex-col space-y-1 text-center sm:text-left">
         <h2 className="text-3xl font-logo">{g("lopply")}</h2>
         <p className="w-50 text-sm mx-auto sm:mx-0">
-          {f("text.discover_and_concuer")}
+          {f("text.discover_and_conquer")}
         </p>
         <p className="text-sm mt-2 mx-auto sm:mx-0">{f("text.all_rights")}</p>
       </div>
