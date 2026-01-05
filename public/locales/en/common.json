@@ -24,7 +24,9 @@
   },
   "buttons": {
     "explore_races": "Explore Races",
-    "how_it_works": "How it works"
+    "how_it_works": "How it works",
+    "cancel": "Cancel",
+    "add_race": "Add race"
   },
   "races": {
     "explore_your_next_race": "Explore your next race"
@@ -78,5 +80,17 @@
       "match_your_training": "Match Your Training",
       "find_races_that": "Find races that fit your training timeline and preparation schedule"
     }
+  },
+  "add_race_page": {
+    "add_new_race": "Add New Race",
+    "submit_a_race": "Submit a race for approval by adminitrators",
+    "race_title": "Race title *",
+    "locations": "Locations *",
+    "distance": "Distance *",
+    "date": "Date *",
+    "difficulty": "Difficulty *",
+    "terrain": "Terrain *",
+    "image_url": "Image URL *",
+    "description": "Description"
   }
 }
