@@ -55,5 +55,12 @@
     "password": "Password",
     "required_email": "Email *",
     "required_password": "Password *"
+  },
+  "home_page": {
+    "discover_your_next": "Discover Your Next",
+    "running_adventure": "Running Adventure",
+    "explore_races_by_terrain_text": "Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.",
+    "featured_races": "Featured Races",
+    "handpicked_adventures_across": "Handpicked adventures across stunning terrains worldwide"
   }
 }
