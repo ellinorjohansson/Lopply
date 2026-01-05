@@ -19,8 +19,12 @@
     }
   },
   "validation": {
-    "required_field": "* Requaired field",
+    "required_field": "* Required field",
     "empty_field": "The field can't be empty"
+  },
+  "buttons": {
+    "explore_races": "Explore Races",
+    "how_it_works": "How it works"
   },
   "races": {
     "explore_your_next_race": "Explore your next race"
@@ -28,7 +32,7 @@
   "footer": {
     "scroll_to_top": "Scroll to top",
     "text": {
-      "discover_and_concuer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
+      "discover_and_conquer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
       "all_rights": "©2026 Lopply. All rights reserved."
     }
   },
@@ -47,13 +51,32 @@
     "user": {
       "user_text_discover": "Discover your next running adventure",
       "login": "Login",
-      "signup": "SignUp",
-      "optional_name": "Your name is optional and dosen't have anything with the authentication to do."
+      "signup": "Sign Up",
+      "optional_name": "Your name is optional and has nothing to do with authentication."
     },
     "name": "Name",
     "email": "Email",
     "password": "Password",
     "required_email": "Email *",
     "required_password": "Password *"
+  },
+  "home_page": {
+    "discover_your_next": "Discover Your Next",
+    "running_adventure": "Running Adventure",
+    "explore_races_by_terrain_text": "Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.",
+    "featured_races": "Featured Races",
+    "handpicked_adventures_across": "Handpicked adventures across stunning terrains worldwide",
+    "how_lopply_works": "How Lopply Works",
+    "a_new_way_to_discover": "A new way to discover and plan your running adventures",
+    "how_lopply_works_section": {
+      "explore_visually": "Explore Visually",
+      "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
+      "match_by_preferences": "Match By Preferences",
+      "find_races_based": "Find races based on terrain, distance, and timing.",
+      "build_your_bucket_list": "Build Your Bucket List",
+      "save_your_dream": "Save your dream races and create your personal running adventure roadmap",
+      "match_your_training": "Match Your Training",
+      "find_races_that": "Find races that fit your training timeline and preparation schedule"
+    }
   }
 }
