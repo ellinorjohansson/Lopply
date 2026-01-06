@@ -22,6 +22,9 @@
     "required_field": "* Required field",
     "empty_field": "The field can't be empty"
   },
+  "alt_text": {
+    "hero_alt": "Scenic mountain landscape in orange, beige and yellow, ending in a lake, with a sunset painting the sky in shades of blue."
+  },
   "buttons": {
     "explore_races": "Explore Races",
     "how_it_works": "How it works",
@@ -29,7 +32,8 @@
     "add_race": "Add race"
   },
   "races": {
-    "explore_your_next_race": "Explore your next race"
+    "explore_your_next_race": "Explore your next race",
+    "no_image": "The image ran off before we could catch it"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",

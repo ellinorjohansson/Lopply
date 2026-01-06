@@ -8,13 +8,14 @@ import ShowRaces from "@/common/components/showRaces/ShowRaces";
 export default function Home() {
   const h = useTranslation("home_page");
   const b = useTranslation("buttons");
+  const a = useTranslation("alt_text");
 
   return (
     <main className="w-full">
       <section className="relative h-[110vh] w-full flex items-center">
         <Image
           src="/images/nature-background.avif"
-          alt=""
+          alt={a("hero_alt")}
           fill
           priority
           className="object-cover mask-bottom-fade"
