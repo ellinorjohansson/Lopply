@@ -43,6 +43,7 @@ const AdminLogIn = () => {
 					<InputField
 						label={a("email")}
 						size="medium"
+						type="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						error={errors.email}
@@ -50,6 +51,7 @@ const AdminLogIn = () => {
 					<InputField
 						label={a("password")}
 						size="medium"
+						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						error={errors.password}

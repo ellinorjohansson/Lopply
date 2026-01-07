@@ -9,7 +9,6 @@ export interface InputFieldProps {
 	onClick?: () => void;
 	id?: string;
 	helpButton?: React.ReactNode;
-	height?: string;
 	type: string;
 }
 
@@ -22,7 +21,6 @@ const InputField = ({
 	onClick,
 	id,
 	helpButton,
-	height,
 	type
 }: InputFieldProps) => {
 	const inputId = id || `input-${label.toLowerCase().replace(/\s+/g, "-")}`;
@@ -55,7 +53,6 @@ const InputField = ({
 				value={value}
 				onChange={onChange}
 				onClick={onClick}
-				style={{ height }}
 				className={`border rounded-3xl py-1 focus:outline-none text-secondaryaccent bg-primary 
 					${sizeClasses} 
 					${error ? "border-error" : "border-secondaryaccent"} 

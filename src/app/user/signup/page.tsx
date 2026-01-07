@@ -35,6 +35,7 @@ const UserSignUp = () => {
 				<InputField
 					label={a("name")}
 					size="medium"
+					type="text"
 					helpButton={
 						<HelperButton infoText={a("user.optional_name")} />
 					}
@@ -42,6 +43,7 @@ const UserSignUp = () => {
 				<InputField
 					label={a("required_email")}
 					size="medium"
+					type="email"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					error={errors.email}
@@ -49,6 +51,7 @@ const UserSignUp = () => {
 				<InputField
 					label={a("required_password")}
 					size="medium"
+					type="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					error={errors.password}
