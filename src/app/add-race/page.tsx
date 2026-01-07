@@ -202,7 +202,7 @@ const AddRace = () => {
           <div className="col-span-2">
             <InputField
               label={a("image_url")}
-              size="medium"
+              size="large"
               type="text"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
@@ -223,7 +223,7 @@ const AddRace = () => {
           <div className="col-span-2">
             <InputField
               label={a("url_race_page")}
-              size="medium"
+              size="large"
               type="text"
               value={racePageUrl}
               onChange={(e) => setRacePageUrl(e.target.value)}

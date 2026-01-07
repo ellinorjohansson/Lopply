@@ -2,7 +2,7 @@
 
 export interface InputFieldProps {
 	label: string;
-	size?: "small" | "medium";
+	size?: "small" | "medium" | "large";
 	error?: string;
 	value?: string;
 	onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -28,6 +28,7 @@ const InputField = ({
 	const sizeClasses = {
 		small: "px-4 text-sm sm:text-base w-full md:max-w-[280px]",
 		medium: "px-4 text-sm sm:text-base w-full md:max-w-[630px]",
+		large: "px-4 text-sm sm:text-base w-full md:max-w-[920px]",
 	}[size];
 
 	return (

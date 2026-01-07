@@ -25,7 +25,7 @@ const TextArea = ({
 
   const sizeClasses = {
     small: "px-4 text-sm sm:text-base w-full max-w-[280px]",
-    medium: "px-4 text-sm sm:text-base w-full max-w-[630px]",
+    medium: "px-4 text-sm sm:text-base w-full max-w-[920px]",
   }[size];
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
