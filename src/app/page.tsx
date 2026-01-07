@@ -35,7 +35,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
-            <Link href="/races">
+            <Link href="/races" scroll={true}>
               <PrimaryButton
                 text={b("explore_races")}
                 icon="search"
@@ -66,7 +66,7 @@ export default function Home() {
           <ShowRaces limit={3} />
 
           <div className="flex justify-center mt-16">
-            <Link href="/races">
+            <Link href="/races" scroll={true}>
               <PrimaryButton text={b("explore_races")} icon="search" size="small" />
             </Link>
           </div>
