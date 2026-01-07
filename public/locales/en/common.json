@@ -117,6 +117,12 @@
       "failed_to_add_race": "Failed to add race",
       "submit_error": "Submit error:",
       "an_error_occurred_while_submitting_the_form": "An error occurred while submitting the form"
+    },
+    "helper": {
+      "location_helper": "Enter your location as City, Country (e.g., Stockholm, Sweden)",
+      "distance_helper": "Enter the distance in kilometers (numbers only)",
+      "image_helper": "Provide a direct link to the image (image URL)",
+      "description_helper": "Description must be a maximum of 75 characters"
     }
   },
   "confirm": {

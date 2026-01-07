@@ -157,7 +157,7 @@ const AddRace = () => {
                 value={locations}
                 onChange={(e) => setLocations(e.target.value)}
                 error={errors.locations}
-                helpButton={<HelperButton infoText="" />}
+                helpButton={<HelperButton infoText={a("helper.location_helper")} />}
               />
             </div>
 
@@ -169,7 +169,7 @@ const AddRace = () => {
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 error={errors.distance}
-                helpButton={<HelperButton infoText="" />}
+                helpButton={<HelperButton infoText={a("helper.distance_helper")} />}
               />
             </div>
 
@@ -222,7 +222,7 @@ const AddRace = () => {
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
                 error={errors.imageUrl}
-                helpButton={<HelperButton infoText="" />}
+                helpButton={<HelperButton infoText={a("helper.image_helper")} />}
               />
             </div>
 
@@ -231,7 +231,7 @@ const AddRace = () => {
                 label={a("description")}
                 value={description}
                 onChange={setDescription}
-                helpButton={<HelperButton infoText="" />}
+                helpButton={<HelperButton infoText={a("helper.description_helper")} />}
               />
             </div>
 
