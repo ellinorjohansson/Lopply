@@ -8,6 +8,7 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
 import TextArea from "@/common/components/input/TextArea";
 import ConfirmModal from "@/common/components/comfirmModal/ConfirmModal";
+import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 
 const AddRace = () => {
   const b = useTranslation("buttons");
@@ -17,7 +18,7 @@ const AddRace = () => {
 
   const [categoryTerrain, setCategoryTerrain] = useState("");
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [showToaster, setShowToaster] = useState(false);
 
   const [title, setTitle] = useState("");
   const [locations, setLocations] = useState("");
@@ -81,7 +82,7 @@ const AddRace = () => {
       const result = await response.json();
 
       if (result.success) {
-        setSubmitSuccess(true);
+        setShowToaster(true);
         setTitle("");
         setLocations("");
         setDistance("");
@@ -247,8 +248,13 @@ const AddRace = () => {
               <SecondaryButton text={b("cancel")} size="small" onClick={handleCancel} />
             </div>
           </form>
-          {submitSuccess && <div className="text-green-500 text-center">Race added successfully!</div>}
-          {submitError && <div className="text-red-500 text-center">{submitError}</div>}
+          {showToaster && (
+            <SuccedToaster
+              headerMessage={a("popup.race_submitted")}
+              text={a("popup.submitted_text")}
+              onClose={() => setShowToaster(false)}
+            />
+          )}          {submitError && <div className="text-red-500 text-center">{submitError}</div>}
           <span className="text-sm text-secondaryaccent">{v("required_field")}</span>
         </div>
       </section>

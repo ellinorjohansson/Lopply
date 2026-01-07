@@ -108,7 +108,13 @@
     },
     "image_url": "Image URL *",
     "description": "Description",
-    "url_race_page": "URL to race page *"
+    "url_race_page": "URL to race page *",
+    "popup": {
+      "race_submitted": "Race submitted!",
+      "submitted_text": "Your race is pending approval by an administrator",
+      "error": "Error",
+      "error_text": "An error occurred"
+    }
   },
   "confirm": {
     "clear_form": "Clear form",
