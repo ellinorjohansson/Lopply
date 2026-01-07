@@ -9,15 +9,18 @@ import { useState } from "react";
 import TextArea from "@/common/components/input/TextArea";
 import ConfirmModal from "@/common/components/comfirmModal/ConfirmModal";
 import SuccedToaster from "@/common/components/toasters/SuccedToaster";
+import ErrorToaster from "@/common/components/toasters/ErrorToaster";
 
 const AddRace = () => {
   const b = useTranslation("buttons");
   const a = useTranslation("add_race_page");
   const v = useTranslation("validation");
   const c = useTranslation("confirm");
+  const [showErrorToaster, setShowErrorToaster] = useState(false);
+  const [errorToasterText, setErrorToasterText] = useState("");
+
 
   const [categoryTerrain, setCategoryTerrain] = useState("");
-  const [submitError, setSubmitError] = useState<string | null>(null);
   const [showToaster, setShowToaster] = useState(false);
 
   const [title, setTitle] = useState("");
@@ -58,8 +61,6 @@ const AddRace = () => {
 
     if (Object.keys(newErrors).length > 0) return;
 
-    setSubmitError(null);
-
     try {
       const response = await fetch('/api/races', {
         method: 'POST',
@@ -94,11 +95,13 @@ const AddRace = () => {
         setRacePageUrl("");
         setErrors({});
       } else {
-        setSubmitError(result.error || 'Failed to add race');
+        setErrorToasterText(result.error || "Failed to add race");
+        setShowErrorToaster(true);
       }
     } catch (error) {
-      console.error('Submit error:', error);
-      setSubmitError('An error occurred while submitting the form');
+      console.error("Submit error:", error);
+      setErrorToasterText("An error occurred while submitting the form");
+      setShowErrorToaster(true);
     }
   };
 
@@ -245,7 +248,7 @@ const AddRace = () => {
 
             <div className="col-span-2 flex flex-row gap-3 mt-8">
               <PrimaryButton text={b("add_race")} size="large" />
-              <SecondaryButton text={b("cancel")} size="small" onClick={handleCancel} />
+              <SecondaryButton text={b("cancel")} size="small" type="button" onClick={handleCancel} />
             </div>
           </form>
           {showToaster && (
@@ -254,7 +257,14 @@ const AddRace = () => {
               text={a("popup.submitted_text")}
               onClose={() => setShowToaster(false)}
             />
-          )}          {submitError && <div className="text-red-500 text-center">{submitError}</div>}
+          )}
+          {showErrorToaster && (
+            <ErrorToaster
+              headerMessage={a("popup.error")}
+              text={errorToasterText}
+              onClose={() => setShowErrorToaster(false)}
+            />
+          )}
           <span className="text-sm text-secondaryaccent">{v("required_field")}</span>
         </div>
       </section>

@@ -12,7 +12,7 @@ const ErrorToaster = ({ headerMessage, text, onClose }: ErrorToasterProps) => {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			onClose();
-		}, 3500);
+		}, 4000);
 
 		return () => clearTimeout(timer);
 	}, [onClose]);
