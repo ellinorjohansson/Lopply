@@ -9,6 +9,7 @@ export interface TextareaFieldProps {
   onChange?: (_value: string) => void;
   id?: string;
   helpButton?: React.ReactNode;
+  maxLength?: number;
 }
 
 const TextArea = ({
@@ -19,6 +20,7 @@ const TextArea = ({
   onChange,
   id,
   helpButton,
+  maxLength = 75,
 }: TextareaFieldProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const inputId = id || `textarea-${label.toLowerCase().replace(/\s+/g, "-")}`;
@@ -29,10 +31,8 @@ const TextArea = ({
   }[size];
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange?.(e.target.value);
-
-    if (textareaRef.current) {
-      textareaRef.current.scrollTop = 0;
+    if (e.target.value.length <= maxLength) {
+      onChange?.(e.target.value);
     }
   };
 
@@ -57,6 +57,7 @@ const TextArea = ({
         ref={textareaRef}
         value={value}
         onChange={handleChange}
+        maxLength={maxLength}
         className={`border rounded-3xl py-4 resize-none focus:outline-none text-secondaryaccent bg-primary 
           ${sizeClasses} 
           ${error ? "border-error" : "border-secondaryaccent"} 
@@ -64,6 +65,9 @@ const TextArea = ({
         `}
         aria-label={label}
       />
+      <div className="text-right text-sm text-secondaryaccent mt-1">
+        {value.length}/{maxLength}
+      </div>
     </div>
   );
 };
