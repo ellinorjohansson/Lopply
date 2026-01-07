@@ -1,7 +1,7 @@
 "use client";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import HelperButton from "@/common/components/helperButton/HelperButton";
-import InputField from "@/common/components/inputField/InputField";
+import InputField from "@/common/components/input/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
 

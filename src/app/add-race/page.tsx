@@ -1,8 +1,9 @@
 "use client";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import SecondaryButton from "@/common/components/buttons/SecondaryButton";
+import DropdownField from "@/common/components/input/dropdownField/DropdownField";
 import HelperButton from "@/common/components/helperButton/HelperButton";
-import InputField from "@/common/components/inputField/InputField";
+import InputField from "@/common/components/input/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
 
@@ -10,6 +11,10 @@ const AddRace = () => {
   const b = useTranslation("buttons");
   const a = useTranslation("add_race_page");
   const v = useTranslation("validation");
+
+  const [categoryTerrain, setCategoryTerrain] = useState("");
+  const [categoryDifficulty, setCategoryDifficulty] = useState("");
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +37,7 @@ const AddRace = () => {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen p-4 m-20">
+    <section className="flex items-center justify-center min-h-screen p-4 m-2 md:m-20">
       <div className="bg-secondary border border-secondaryaccent rounded-3xl p-15 flex flex-col gap-6">
         <div className="flex flex-col gap-1 mb-2">
           <h3 className="text-2xl font-medium">
@@ -43,19 +48,21 @@ const AddRace = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <InputField
               label={a("race_title")}
               size="small"
+              type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               error={errors.email}
             />
           </div>
-          <div className="col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <InputField
               label={a("locations")}
               size="small"
+              type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
@@ -64,10 +71,11 @@ const AddRace = () => {
               }
             />
           </div>
-          <div className="col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <InputField
               label={a("distance")}
               size="small"
+              type="number"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
@@ -76,31 +84,40 @@ const AddRace = () => {
               }
             />
           </div>
-          <div className="col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <InputField
               label={a("date")}
               size="small"
+              type="date"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
             />
           </div>
-          <div className="col-span-1">
-            <InputField
+          <div className="col-span-2 md:col-span-1">
+            <DropdownField
               label={a("difficulty")}
-              size="small"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              error={errors.password}
+              value={categoryDifficulty}
+              onChange={(e) => setCategoryDifficulty(e.target.value)}
+              options={[
+                { value: "1", label: a("difficulty_options.easy") },
+                { value: "2", label: a("difficulty_options.medium") },
+                { value: "3", label: a("difficulty_options.hard") },
+              ]}
             />
           </div>
-          <div className="col-span-1">
-            <InputField
+          <div className="col-span-2 md:col-span-1">
+            <DropdownField
               label={a("terrain")}
-              size="small"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              error={errors.password}
+              value={categoryTerrain}
+              onChange={(e) => setCategoryTerrain(e.target.value)}
+              options={[
+                { value: "1", label: a("terrain_options.urban") },
+                { value: "2", label: a("terrain_options.costal") },
+                { value: "3", label: a("terrain_options.mountain") },
+                { value: "4", label: a("terrain_options.desert") },
+                { value: "5", label: a("terrain_options.forest") },
+              ]}
             />
           </div>
 
@@ -108,6 +125,7 @@ const AddRace = () => {
             <InputField
               label={a("image_url")}
               size="medium"
+              type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
@@ -120,6 +138,7 @@ const AddRace = () => {
             <InputField
               label={a("description")}
               size="medium"
+              type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
@@ -130,6 +149,7 @@ const AddRace = () => {
             <InputField
               label={a("url_race_page")}
               size="medium"
+              type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}

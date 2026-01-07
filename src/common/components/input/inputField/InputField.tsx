@@ -10,6 +10,7 @@ export interface InputFieldProps {
 	id?: string;
 	helpButton?: React.ReactNode;
 	height?: string;
+	type: string;
 }
 
 const InputField = ({
@@ -22,12 +23,13 @@ const InputField = ({
 	id,
 	helpButton,
 	height,
+	type
 }: InputFieldProps) => {
 	const inputId = id || `input-${label.toLowerCase().replace(/\s+/g, "-")}`;
 
 	const sizeClasses = {
-		small: "px-4 text-sm sm:text-base w-full max-w-[280px]",
-		medium: "px-4 text-sm sm:text-base w-full max-w-[630px]",
+		small: "px-4 text-sm sm:text-base w-full md:max-w-[280px]",
+		medium: "px-4 text-sm sm:text-base w-full md:max-w-[630px]",
 	}[size];
 
 	return (
@@ -49,7 +51,7 @@ const InputField = ({
 
 			<input
 				id={inputId}
-				type="text"
+				type={type}
 				value={value}
 				onChange={onChange}
 				onClick={onClick}

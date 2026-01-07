@@ -11,7 +11,7 @@ const SecondaryButton = ({ text, icon, size = "medium" }: SecondaryButtonProps) 
     const sizeClasses = {
         small: "py-2 px-4 text-sm",
         medium: "py-2 px-23 text-base",
-        large: "py-2 px-60 text-base"
+        large: "py-1 px-23 sm:px-40 md:px-50 text-base"
     }[size];
 
     return (

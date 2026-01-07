@@ -93,9 +93,22 @@
     "distance": "Distance *",
     "date": "Date *",
     "difficulty": "Difficulty *",
+    "difficulty_options": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
     "terrain": "Terrain *",
+    "terrain_options": {
+      "urban": "Urban",
+      "costal": "Costal",
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "forest": "Forest"
+    },
     "image_url": "Image URL *",
     "description": "Description",
-    "url_race_page": "URL to race page *"
+    "url_race_page": "URL to race page *",
+    "helper_text": {}
   }
 }

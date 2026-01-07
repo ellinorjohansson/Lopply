@@ -12,7 +12,7 @@ const PrimaryButton = ({ text, icon, size = "medium", onClick }: PrimaryButtonPr
 	const sizeClasses = {
 		small: "py-2 px-4 text-sm",
 		medium: "py-2 px-23 text-base",
-		large: "py-1 px-23 sm:px-40 md:px-50 text-base"
+		large: "py-1 px-17 sm:px-40 md:px-40 text-base"
 	}[size];
 
 	return (
