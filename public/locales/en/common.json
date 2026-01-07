@@ -113,7 +113,10 @@
       "race_submitted": "Race submitted!",
       "submitted_text": "Your race is pending approval by an administrator",
       "error": "Error",
-      "error_text": "An error occurred"
+      "error_text": "An error occurred",
+      "failed_to_add_race": "Failed to add race",
+      "submit_error": "Submit error:",
+      "an_error_occurred_while_submitting_the_form": "An error occurred while submitting the form"
     }
   },
   "confirm": {

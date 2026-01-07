@@ -95,12 +95,12 @@ const AddRace = () => {
         setRacePageUrl("");
         setErrors({});
       } else {
-        setErrorToasterText(result.error || "Failed to add race");
+        setErrorToasterText(result.error || a("popup.failed_to_add_race"));
         setShowErrorToaster(true);
       }
     } catch (error) {
-      console.error("Submit error:", error);
-      setErrorToasterText("An error occurred while submitting the form");
+      console.error(a("popup.submit_error"), error);
+      setErrorToasterText(a("an_error_occurred_while_submitting_the_form"));
       setShowErrorToaster(true);
     }
   };
