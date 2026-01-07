@@ -47,10 +47,14 @@ const AddRace = () => {
     e.preventDefault();
 
     const newErrors: typeof errors = {};
+    const locationRegex = /^[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*(\s[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*)*,\s*[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*(\s[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*)*$/;
 
     if (!title) newErrors.title = v("empty_field");
-    if (!locations) newErrors.locations = v("empty_field");
-    if (!distance) newErrors.distance = v("empty_field");
+    if (!locations) {
+      newErrors.locations = v("empty_field");
+    } else if (!locationRegex.test(locations)) {
+      newErrors.locations = a("helper.location_error");
+    } if (!distance) newErrors.distance = v("empty_field");
     if (!date) newErrors.date = v("empty_field");
     if (!categoryDifficulty) newErrors.categoryDifficulty = v("empty_field");
     if (!categoryTerrain) newErrors.categoryTerrain = v("empty_field");

@@ -120,6 +120,7 @@
     },
     "helper": {
       "location_helper": "Enter your location as City, Country (e.g., Stockholm, Sweden)",
+      "location_error": "Enter your location as City, Country",
       "distance_helper": "Enter the distance in kilometers (numbers only)",
       "image_helper": "Provide a direct link to the image (image URL)",
       "description_helper": "Description must be a maximum of 75 characters"
