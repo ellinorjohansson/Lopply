@@ -10,15 +10,15 @@ export interface PrimaryButtonProps {
 const PrimaryButton = ({ text, icon, size = "medium", onClick }: PrimaryButtonProps) => {
 
 	const sizeClasses = {
-		small: "py-2 px-4 text-sm",
-		medium: "py-2 px-23 text-base",
-		large: "py-1 px-23 sm:px-40 md:px-50 text-base"
+		small: "py-2 px-23 text-base",
+		medium: "py-2 px-4 text-base w-full max-w-[630px]",
+		large: "py-2 px-4 text-base w-full max-w-[920px]"
 	}[size];
 
 	return (
 		<button
 			onClick={onClick}
-			className={`${sizeClasses} font-sans flex items-center justify-center cursor-pointer bg-primaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition`}
+			className={`${sizeClasses} font-sans flex items-center justify-center cursor-pointer bg-primaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition whitespace-nowrap`}
 		>
 			{icon && (
 				<span className="material-symbols-outlined mr-2">

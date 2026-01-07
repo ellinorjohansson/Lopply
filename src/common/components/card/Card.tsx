@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "@/common/hooks/useTranslation";
 
 export interface RaceCardProps {
 	image: string;
@@ -27,6 +27,7 @@ const Card = ({
 	raceUrl,
 }: RaceCardProps) => {
 	const [favorited, setFavorited] = useState(false);
+	const r = useTranslation("races");
 
 	const toggleFavorite = (e: React.MouseEvent) => {
 		e.preventDefault();
@@ -55,13 +56,24 @@ const Card = ({
 				aria-labelledby="race-title"
 			>
 				<div className="relative h-48 md:h-60 w-full">
-					<Image
-						src={image}
-						alt={title}
-						fill
-						className="object-cover rounded-3xl"
-						sizes="100%"
-					/>
+					{image ? (
+						<img
+							src={image}
+							alt={title}
+							className="object-cover rounded-3xl w-full h-full"
+							loading="lazy"
+							width={400}
+							height={250}
+						/>
+					) : (
+						<div className="w-full h-full rounded-3xl bg-linear-to-br from-primaryaccent/20 to-secondaryaccent/30 flex flex-col items-center justify-center text-primaryaccent">
+							<span className="material-symbols-outlined text-3xl! opacity-70">
+								image_not_supported
+							</span>
+							<span className="text-sm mt-2 opacity-60 w-40 text-center">{r("no_image")}</span>
+						</div>
+					)}
+
 					<button
 						onClick={toggleFavorite}
 						className="absolute top-4 right-4 bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer"

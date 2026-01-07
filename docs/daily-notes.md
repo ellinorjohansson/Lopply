@@ -59,3 +59,7 @@
 **2026-01-05**
 
 - Today i did the home page and also refactored the race display so i can reuse it and doesn't need to duplicate code for it. Went well and now that part is done.
+
+**2026-01-05**
+
+- Todays small session i fixed so the images now is vivble in the race cards. I needed to use img and not nextjs image beacuse then i need to add the url/src what you call it in the nextjs config and that is not going to work in my place if i understood properly. But now it works and also added a fallback if a image doesn't shows.

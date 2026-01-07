@@ -1,6 +1,6 @@
 "use client";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
-import InputField from "@/common/components/inputField/InputField";
+import InputField from "@/common/components/input/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
 
@@ -34,6 +34,7 @@ const UserLogIn = () => {
 				<InputField
 					label={a("email")}
 					size="medium"
+					type="email"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					error={errors.email}
@@ -41,6 +42,7 @@ const UserLogIn = () => {
 				<InputField
 					label={a("password")}
 					size="medium"
+					type="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					error={errors.password}

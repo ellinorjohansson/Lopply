@@ -8,13 +8,14 @@ import ShowRaces from "@/common/components/showRaces/ShowRaces";
 export default function Home() {
   const h = useTranslation("home_page");
   const b = useTranslation("buttons");
+  const a = useTranslation("alt_text");
 
   return (
     <main className="w-full">
       <section className="relative h-[110vh] w-full flex items-center">
         <Image
           src="/images/nature-background.avif"
-          alt=""
+          alt={a("hero_alt")}
           fill
           priority
           className="object-cover mask-bottom-fade"
@@ -34,11 +35,11 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
-            <Link href="/races">
+            <Link href="/races" scroll={true}>
               <PrimaryButton
                 text={b("explore_races")}
                 icon="search"
-                size="medium"
+                size="small"
               />
             </Link>
 
@@ -65,8 +66,8 @@ export default function Home() {
           <ShowRaces limit={3} />
 
           <div className="flex justify-center mt-16">
-            <Link href="/races">
-              <PrimaryButton text={b("explore_races")} icon="search" size="medium" />
+            <Link href="/races" scroll={true}>
+              <PrimaryButton text={b("explore_races")} icon="search" size="small" />
             </Link>
           </div>
         </div>

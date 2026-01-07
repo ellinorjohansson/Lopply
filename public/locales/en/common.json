@@ -22,12 +22,18 @@
     "required_field": "* Required field",
     "empty_field": "The field can't be empty"
   },
+  "alt_text": {
+    "hero_alt": "Scenic mountain landscape in orange, beige and yellow, ending in a lake, with a sunset painting the sky in shades of blue."
+  },
   "buttons": {
     "explore_races": "Explore Races",
-    "how_it_works": "How it works"
+    "how_it_works": "How it works",
+    "cancel": "Cancel",
+    "add_race": "Add race"
   },
   "races": {
-    "explore_your_next_race": "Explore your next race"
+    "explore_your_next_race": "Explore your next race",
+    "no_image": "The image ran off before we could catch it"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
@@ -78,5 +84,54 @@
       "match_your_training": "Match Your Training",
       "find_races_that": "Find races that fit your training timeline and preparation schedule"
     }
+  },
+  "add_race_page": {
+    "add_new_race": "Add New Race",
+    "submit_a_race": "Submit a race for approval by adminitrators",
+    "race_title": "Race title *",
+    "locations": "Location *",
+    "distance": "Distance *",
+    "date": "Date *",
+    "difficulty": "Difficulty *",
+    "difficulty_options": {
+      "select_difficulty": "Select difficulty...",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "terrain": "Terrain *",
+    "terrain_options": {
+      "select_terrain": "Select terrain...",
+      "urban": "Urban",
+      "costal": "Costal",
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "forest": "Forest"
+    },
+    "image_url": "Image URL *",
+    "description": "Description",
+    "url_race_page": "URL to race page *",
+    "popup": {
+      "race_submitted": "Race submitted!",
+      "submitted_text": "Your race is pending approval by an administrator",
+      "error": "Error",
+      "error_text": "An error occurred",
+      "failed_to_add_race": "Failed to add race",
+      "submit_error": "Submit error:",
+      "an_error_occurred_while_submitting_the_form": "An error occurred while submitting the form"
+    },
+    "helper": {
+      "location_helper": "Enter your location as City, Country (e.g., Stockholm, Sweden)",
+      "location_error": "Enter your location as City, Country",
+      "distance_helper": "Enter the distance in kilometers (numbers only)",
+      "image_helper": "Provide a direct link to the image (image URL)",
+      "description_helper": "Description must be a maximum of 75 characters"
+    }
+  },
+  "confirm": {
+    "clear_form": "Clear form",
+    "are_you_sure": "Are you sure you want to clear the form? This cannot be undone.",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
   }
 }
