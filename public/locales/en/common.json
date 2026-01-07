@@ -94,12 +94,14 @@
     "date": "Date *",
     "difficulty": "Difficulty *",
     "difficulty_options": {
+      "select_difficulty": "Select difficulty...",
       "easy": "Easy",
       "medium": "Medium",
       "hard": "Hard"
     },
     "terrain": "Terrain *",
     "terrain_options": {
+      "select_terrain": "Select terrain...",
       "urban": "Urban",
       "costal": "Costal",
       "mountain": "Mountain",

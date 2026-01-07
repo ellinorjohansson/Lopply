@@ -195,6 +195,7 @@ const AddRace = () => {
                 onChange={(e) => setCategoryDifficulty(e.target.value)}
                 error={errors.categoryDifficulty}
                 options={[
+                  { value: "", label: a("difficulty_options.select_difficulty") },
                   { value: a("difficulty_options.easy"), label: a("difficulty_options.easy") },
                   { value: a("difficulty_options.medium"), label: a("difficulty_options.medium") },
                   { value: a("difficulty_options.hard"), label: a("difficulty_options.hard") },
@@ -209,6 +210,7 @@ const AddRace = () => {
                 onChange={(e) => setCategoryTerrain(e.target.value)}
                 error={errors.categoryTerrain}
                 options={[
+                  { value: "", label: a("terrain_options.select_terrain") },
                   { value: a("terrain_options.urban"), label: a("terrain_options.urban") },
                   { value: a("terrain_options.costal"), label: a("terrain_options.costal") },
                   { value: a("terrain_options.mountain"), label: a("terrain_options.mountain") },
