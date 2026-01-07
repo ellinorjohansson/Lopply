@@ -60,6 +60,10 @@
 
 - Today i did the home page and also refactored the race display so i can reuse it and doesn't need to duplicate code for it. Went well and now that part is done.
 
-**2026-01-05**
+**2026-01-06**
 
 - Todays small session i fixed so the images now is vivble in the race cards. I needed to use img and not nextjs image beacuse then i need to add the url/src what you call it in the nextjs config and that is not going to work in my place if i understood properly. But now it works and also added a fallback if a image doesn't shows.
+
+**2026-01-07**
+
+- Today i finished with the "add race" so now you can add a race (for now directly to db), get help from helpbutton, cancel with popup modal, toasters if it succed or it appears an error and error on inputfield if something goes from. I also added validation that needs for like location so the user writes it correctly and get help if something goes wrong. I also fixed some responsivness and styling issues that appear so i fixed that.
