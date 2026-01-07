@@ -29,8 +29,8 @@ const AdminLogIn = () => {
 	};
 
 	return (
-		<section className="flex items-center justify-center w-full min-h-screen p-4">
-			<div className="bg-secondary border border-secondaryaccent rounded-3xl p-15 flex flex-col gap-6">
+		<section className="flex items-center justify-center min-h-screen p-4">
+			<div className="bg-secondary border border-secondaryaccent rounded-3xl p-8 sm:p-12 md:p-16 w-full max-w-150 sm:max-w-180 md:max-w-180 flex flex-col gap-6">
 				<div className="flex flex-col gap-1 mb-2">
 					<h3 className="text-2xl font-medium">
 						{a("admin.admin_login")}
