@@ -39,7 +39,7 @@ export default function Home() {
               <PrimaryButton
                 text={b("explore_races")}
                 icon="search"
-                size="medium"
+                size="small"
               />
             </Link>
 
@@ -67,7 +67,7 @@ export default function Home() {
 
           <div className="flex justify-center mt-16">
             <Link href="/races">
-              <PrimaryButton text={b("explore_races")} icon="search" size="medium" />
+              <PrimaryButton text={b("explore_races")} icon="search" size="small" />
             </Link>
           </div>
         </div>

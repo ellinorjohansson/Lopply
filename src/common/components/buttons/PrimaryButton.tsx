@@ -10,7 +10,7 @@ export interface PrimaryButtonProps {
 const PrimaryButton = ({ text, icon, size = "medium", onClick }: PrimaryButtonProps) => {
 
 	const sizeClasses = {
-		small: "py-2 px-4 text-sm w-full max-w-[280px]",
+		small: "py-2 px-23 text-base",
 		medium: "py-2 px-4 text-base w-full max-w-[630px]",
 		large: "py-2 px-4 text-base w-full max-w-[920px]"
 	}[size];
