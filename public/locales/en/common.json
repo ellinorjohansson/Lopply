@@ -18,6 +18,10 @@
       "account": "Account"
     }
   },
+  "switch": {
+    "races": "Races",
+    "users": "Users"
+  },
   "validation": {
     "required_field": "* Required field",
     "empty_field": "The field can't be empty"
