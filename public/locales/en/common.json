@@ -19,8 +19,8 @@
     }
   },
   "switch": {
-    "races": "Races",
-    "users": "Users",
+    "races": "Pending races",
+    "users": "Users management",
     "login": "Login",
     "signup": "Sign Up"
   },
