@@ -1,6 +1,7 @@
 "use client";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import SecondaryButton from "@/common/components/buttons/SecondaryButton";
+import HelperButton from "@/common/components/helperButton/HelperButton";
 import InputField from "@/common/components/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
@@ -31,7 +32,7 @@ const AddRace = () => {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen p-4">
+    <section className="flex items-center justify-center min-h-screen p-4 m-20">
       <div className="bg-secondary border border-secondaryaccent rounded-3xl p-15 flex flex-col gap-6">
         <div className="flex flex-col gap-1 mb-2">
           <h3 className="text-2xl font-medium">
@@ -58,6 +59,9 @@ const AddRace = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
+              helpButton={
+                <HelperButton infoText={a("user.optional_name")} />
+              }
             />
           </div>
           <div className="col-span-1">
@@ -67,6 +71,9 @@ const AddRace = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
+              helpButton={
+                <HelperButton infoText={a("user.optional_name")} />
+              }
             />
           </div>
           <div className="col-span-1">
@@ -104,6 +111,9 @@ const AddRace = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
+              helpButton={
+                <HelperButton infoText={a("user.optional_name")} />
+              }
             />
           </div>
           <div className="col-span-2">
@@ -113,11 +123,20 @@ const AddRace = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
+              height="110px"
+            />
+          </div>
+          <div className="col-span-2">
+            <InputField
+              label={a("url_race_page")}
+              size="medium"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
             />
           </div>
 
-          {/* Buttons, full width */}
-          <div className="col-span-2 flex flex-row gap-3">
+          <div className="col-span-2 flex flex-row gap-3 mt-8">
             <PrimaryButton text={b("add_race")} size="large" />
             <SecondaryButton text={b("cancel")} size="small" />
           </div>

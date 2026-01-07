@@ -95,6 +95,7 @@
     "difficulty": "Difficulty *",
     "terrain": "Terrain *",
     "image_url": "Image URL *",
-    "description": "Description"
+    "description": "Description",
+    "url_race_page": "URL to race page *"
   }
 }
