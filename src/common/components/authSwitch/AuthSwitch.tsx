@@ -1,11 +1,14 @@
 "use client";
 
+import { useTranslation } from "@/common/hooks/useTranslation";
+
 interface AuthSwitchProps {
   mode: "login" | "signup";
   onChange: (_value: "login" | "signup") => void;
 }
 
 const AuthSwitch = ({ mode, onChange }: AuthSwitchProps) => {
+  const s = useTranslation("switch");
   return (
     <div className="flex w-full rounded-full border border-secondaryaccent overflow-hidden bg-primary text-secondaryaccent">
       <button
@@ -13,7 +16,7 @@ const AuthSwitch = ({ mode, onChange }: AuthSwitchProps) => {
           }`}
         onClick={() => onChange("login")}
       >
-        Login
+        {s("login")}
       </button>
 
       <button
@@ -21,7 +24,7 @@ const AuthSwitch = ({ mode, onChange }: AuthSwitchProps) => {
           }`}
         onClick={() => onChange("signup")}
       >
-        Sign Up
+        {s("signup")}
       </button>
     </div>
   );

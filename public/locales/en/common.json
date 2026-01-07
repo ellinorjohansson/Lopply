@@ -20,7 +20,9 @@
   },
   "switch": {
     "races": "Races",
-    "users": "Users"
+    "users": "Users",
+    "login": "Login",
+    "signup": "Sign Up"
   },
   "validation": {
     "required_field": "* Required field",
