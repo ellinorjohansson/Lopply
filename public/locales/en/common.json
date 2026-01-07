@@ -108,7 +108,12 @@
     },
     "image_url": "Image URL *",
     "description": "Description",
-    "url_race_page": "URL to race page *",
-    "helper_text": {}
+    "url_race_page": "URL to race page *"
+  },
+  "confirm": {
+    "clear_form": "Clear form",
+    "are_you_sure": "Are you sure you want to clear the form? This cannot be undone.",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
   }
 }
