@@ -18,6 +18,12 @@
       "account": "Account"
     }
   },
+  "switch": {
+    "races": "Pending races",
+    "users": "Users management",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
   "validation": {
     "required_field": "* Required field",
     "empty_field": "The field can't be empty"
@@ -29,7 +35,10 @@
     "explore_races": "Explore Races",
     "how_it_works": "How it works",
     "cancel": "Cancel",
-    "add_race": "Add race"
+    "add_race": "Add race",
+    "approve": "Approve",
+    "reject": "Reject",
+    "delete": "Delete"
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
@@ -128,10 +137,34 @@
       "description_helper": "Description must be a maximum of 75 characters"
     }
   },
+  "pending_races": {
+    "pending_races": "Pending race approval",
+    "review_submissions": "Review and approve or reject race submissions",
+    "no_pending_races": "No pending races to review",
+    "success": "Success",
+    "action_completed": "Action completed successfully",
+    "error": "Error",
+    "approve_error": "Failed to approve race",
+    "reject_error": "Failed to reject race",
+    "delete_error": "Failed to delete race",
+    "loading": "Loading...",
+    "all_races": "All races",
+    "no_races": "No races available",
+    "confirm_approve_message": "This race will be approved and published.",
+    "confirm_reject_message": "This race will be rejected and not published.",
+    "confirm_delete_message": "This race will be permanently deleted.",
+    "confirm_approve_title": "Are you sure you want to approve?",
+    "confirm_reject_title": "Are you sure you want to reject?",
+    "confirm_delete_title": "Are you sure you want to delete?"
+  },
   "confirm": {
     "clear_form": "Clear form",
     "are_you_sure": "Are you sure you want to clear the form? This cannot be undone.",
     "confirm": "Confirm",
     "cancel": "Cancel"
+  },
+  "admin_panel": {
+    "admin_dashboard": "Admin dashboard",
+    "manage_races_and_users": "Manage races and users"
   }
 }

@@ -9,7 +9,10 @@ interface ShowRacesProps {
 export default async function ShowRaces({ limit }: ShowRacesProps) {
   const racesData: IRace[] = await getRaces();
 
-  const races: RaceCardProps[] = racesData.map((race) => ({
+  const currentDate = new Date();
+  const futureRaces = racesData.filter((race) => new Date(race.date) >= currentDate);
+
+  const races: RaceCardProps[] = futureRaces.map((race) => ({
     image: race.imageUrl,
     title: race.name,
     location: race.location,
