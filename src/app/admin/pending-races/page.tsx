@@ -147,12 +147,12 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
             ))}
           </div>
         )}<div className="flex flex-col gap-1 mt-8 mb-2">
-          <h3 className="text-2xl font-medium">{p("all_races")}</h3>
+          <h3 className="text-2xl font-medium mt-16">{p("all_races")}</h3>
         </div>
         {allRaces.length === 0 ? (
           <p className="text-center items-center text-secondaryaccent">{p("no_races")}</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center mb-10">
             {allRaces.map((race) => (
               <Card
                 key={race._id}
