@@ -3,17 +3,21 @@ import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import InputField from "@/common/components/input/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const UserLogIn = () => {
 	const a = useTranslation("authentication");
 	const v = useTranslation("validation")
+	const router = useRouter();
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [loading, setLoading] = useState(false);
 
 	const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
 		const newErrors: { email?: string; password?: string } = {};
@@ -24,7 +28,19 @@ const UserLogIn = () => {
 		setErrors(newErrors);
 
 		if (Object.keys(newErrors).length === 0) {
-			console.log("Temporary: send form", { email, password });
+			setLoading(true);
+			const result = await signIn("credentials", {
+				email,
+				password,
+				redirect: false,
+			});
+			setLoading(false);
+
+			if (result?.error) {
+				setErrors({ email: a("invalid_credentials") });
+			} else {
+				router.push("/");
+			}
 		}
 	};
 
@@ -47,7 +63,7 @@ const UserLogIn = () => {
 					onChange={(e) => setPassword(e.target.value)}
 					error={errors.password}
 				/>
-				<PrimaryButton text={a("user.login")} size="large" />
+				<PrimaryButton text={loading ? "Logging in..." : a("user.login")} size="large" />
 			</form>
 		</>
 	);

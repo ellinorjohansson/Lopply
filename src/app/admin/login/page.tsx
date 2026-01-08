@@ -3,17 +3,21 @@ import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import InputField from "@/common/components/input/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
+import { signIn, getSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const AdminLogIn = () => {
 	const a = useTranslation("authentication");
 	const v = useTranslation("validation")
+	const router = useRouter();
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [loading, setLoading] = useState(false);
 
 	const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
 		const newErrors: { email?: string; password?: string } = {};
@@ -24,7 +28,25 @@ const AdminLogIn = () => {
 		setErrors(newErrors);
 
 		if (Object.keys(newErrors).length === 0) {
-			console.log("Temporary: send form", { email, password });
+			setLoading(true);
+			const result = await signIn("credentials", {
+				email,
+				password,
+				redirect: false,
+			});
+
+			if (result?.error) {
+				setErrors({ email: a("admin.invalid_credentials") });
+				setLoading(false);
+			} else {
+				const session = await getSession();
+				if (session?.user?.admin) {
+					router.push("/admin/panel");
+				} else {
+					setErrors({ email: a("admin.access_denied") });
+					setLoading(false);
+				}
+			}
 		}
 	};
 
@@ -56,7 +78,7 @@ const AdminLogIn = () => {
 						onChange={(e) => setPassword(e.target.value)}
 						error={errors.password}
 					/>
-					<PrimaryButton text={a("admin.access_admin_panel")} size="large" />
+					<PrimaryButton text={loading ? a("logging_in") : a("admin.access_admin_panel")} size="large" />
 				</form>
 			</div>
 		</section>
