@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Card from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
-import { getPendingRaces, updateRaceStatus } from "@/services/raceService";
+import { getPendingRaces, updateRaceStatus, deleteRace, getRaces } from "@/services/raceService";
 import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 import ErrorToaster from "@/common/components/toasters/ErrorToaster";
 import { useTranslation } from "@/common/hooks/useTranslation";
@@ -10,13 +10,14 @@ import ConfirmModal from "@/common/components/comfirmModal/ConfirmModal";
 
 const PendingRaces = () => {
   const [races, setRaces] = useState<IRace[]>([]);
+  const [allRaces, setAllRaces] = useState<IRace[]>([]);
   const [loading, setLoading] = useState(false);
   const [showSuccessToaster, setShowSuccessToaster] = useState(false);
   const [showErrorToaster, setShowErrorToaster] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [selectedRaceId, setSelectedRaceId] = useState<string | null>(null);
-  const [actionType, setActionType] = useState<'approved' | 'rejected' | null>(null);
+  const [actionType, setActionType] = useState<'approved' | 'rejected' | 'delete' | null>(null);
 
   const p = useTranslation("pending_races");
 
@@ -32,9 +33,21 @@ const PendingRaces = () => {
     }
   };
 
+  const fetchAllRaces = async () => {
+    try {
+      setLoading(true);
+      const races = await getRaces();
+      if (races) setAllRaces(races);
+    } catch (error) {
+      console.error("Failed to fetch all races:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchPendingRaces();
+    fetchAllRaces();
   }, []);
 
   const handleApprove = (id: string) => {
@@ -49,26 +62,42 @@ const PendingRaces = () => {
     setConfirmOpen(true);
   };
 
+  const handleDelete = (id: string) => {
+    setSelectedRaceId(id);
+    setActionType('delete');
+    setConfirmOpen(true);
+  };
+
   const handleConfirmAction = async () => {
     if (!selectedRaceId || !actionType) return;
 
-    const success = await updateRaceStatus(selectedRaceId, actionType);
+    let success = false;
+
+    if (actionType === 'delete') {
+      success = await deleteRace(selectedRaceId);
+    } else {
+      success = await updateRaceStatus(selectedRaceId, actionType);
+    }
 
     setConfirmOpen(false);
     setSelectedRaceId(null);
-    setActionType(null);
 
     if (success) {
       setShowSuccessToaster(true);
       fetchPendingRaces();
+      fetchAllRaces();
     } else {
       setErrorMessage(
         actionType === 'approved'
           ? p("approve_error")
-          : p("reject_error")
+          : actionType === 'rejected'
+            ? p("reject_error")
+            : p("delete_error")
       );
       setShowErrorToaster(true);
     }
+
+    setActionType(null);
   };
 
 
@@ -106,6 +135,30 @@ const PendingRaces = () => {
               />
             ))}
           </div>
+        )}<div className="flex flex-col gap-1 mt-8 mb-2">
+          <h3 className="text-2xl font-medium">{p("all_races")}</h3>
+        </div>
+        {allRaces.length === 0 ? (
+          <p className="text-center items-center text-secondaryaccent">{p("no_races")}</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center">
+            {allRaces.map((race) => (
+              <Card
+                key={race._id}
+                id={race._id as string}
+                image={race.imageUrl}
+                title={race.name}
+                location={race.location}
+                date={new Date(race.date).toISOString().slice(0, 10)}
+                distance={race.distance}
+                terrain={race.terrain}
+                difficulty={race.difficulty}
+                description={race.description || ""}
+                raceUrl={race.raceUrl}
+                onDelete={handleDelete}
+              />
+            ))}
+          </div>
         )}
       </section>
       {showSuccessToaster && (
@@ -127,12 +180,16 @@ const PendingRaces = () => {
         title={
           actionType === 'approved'
             ? p("confirm_approve_title")
-            : p("confirm_reject_title")
+            : actionType === 'rejected'
+              ? p("confirm_reject_title")
+              : p("confirm_delete_title")
         }
         message={
           actionType === 'approved'
             ? p("confirm_approve_message")
-            : p("confirm_reject_message")
+            : actionType === 'rejected'
+              ? p("confirm_reject_message")
+              : p("confirm_delete_message")
         }
         onConfirm={handleConfirmAction}
         onCancel={() => {

@@ -66,3 +66,24 @@ export async function updateRaceStatus(id: string, status: 'pending' | 'approved
     return false;
   }
 }
+
+export async function deleteRace(id: string): Promise<boolean> {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/races?id=${id}`,
+      {
+        method: 'DELETE',
+      },
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to delete race");
+    }
+
+    const data = await res.json();
+    return data.success;
+  } catch (error) {
+    console.error("Error deleting race:", error);
+    return false;
+  }
+}

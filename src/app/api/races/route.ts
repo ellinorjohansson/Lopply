@@ -81,3 +81,35 @@ export async function PUT(request: NextRequest) {
         );
     }
 }
+
+export async function DELETE(request: NextRequest) {
+    try {
+        await connectDB();
+        const { searchParams } = new URL(request.url);
+        const id = searchParams.get('id');
+
+        if (!id) {
+            return NextResponse.json(
+                { success: false, error: 'ID is required' },
+                { status: 400 }
+            );
+        }
+
+        const deletedRace = await Race.findByIdAndDelete(id);
+
+        if (!deletedRace) {
+            return NextResponse.json(
+                { success: false, error: 'Race not found' },
+                { status: 404 }
+            );
+        }
+
+        return NextResponse.json({ success: true, data: deletedRace });
+    } catch (error) {
+        console.error('Error deleting race:', error);
+        return NextResponse.json(
+            { success: false, error: 'Failed to delete race' },
+            { status: 500 }
+        );
+    }
+}

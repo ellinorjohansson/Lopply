@@ -37,7 +37,8 @@
     "cancel": "Cancel",
     "add_race": "Add race",
     "approve": "Approve",
-    "reject": "Reject"
+    "reject": "Reject",
+    "delete": "Delete"
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
@@ -145,14 +146,16 @@
     "error": "Error",
     "approve_error": "Failed to approve race",
     "reject_error": "Failed to reject race",
+    "delete_error": "Failed to delete race",
     "loading": "Loading...",
     "all_races": "All races",
-    "delete": "Delete",
-    "confirm_title": "Are you sure?",
+    "no_races": "No races available",
     "confirm_approve_message": "This race will be approved and published.",
     "confirm_reject_message": "This race will be rejected and not published.",
+    "confirm_delete_message": "This race will be permanently deleted.",
     "confirm_approve_title": "Are you sure you want to approve?",
-    "confirm_reject_title": "Are you sure you want to reject?"
+    "confirm_reject_title": "Are you sure you want to reject?",
+    "confirm_delete_title": "Are you sure you want to delete?"
   },
   "confirm": {
     "clear_form": "Clear form",

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import ApproveButton from "../buttons/ApproveButton";
 import RejectButton from "../buttons/RejectButton";
+import DeleteButton from "../buttons/DeleteButton";
 
 export interface RaceCardProps {
 	image: string;
@@ -18,6 +19,7 @@ export interface RaceCardProps {
 	id?: string;
 	onApprove?: (_id: string) => void;
 	onReject?: (_id: string) => void;
+	onDelete?: (_id: string) => void;
 }
 
 const Card = ({
@@ -33,6 +35,7 @@ const Card = ({
 	id,
 	onApprove,
 	onReject,
+	onDelete,
 }: RaceCardProps) => {
 	const [favorited, setFavorited] = useState(false);
 	const r = useTranslation("races");
@@ -54,7 +57,7 @@ const Card = ({
 
 	const terrainIcon = terrainIcons[terrain.toLowerCase()];
 
-	const isAdminMode = !!(onApprove && onReject && id);
+	const isAdminMode = !!(onApprove && onReject && id) || !!(onDelete && id);
 
 	const handleApprove = () => {
 		if (onApprove && id) onApprove(id);
@@ -62,6 +65,10 @@ const Card = ({
 
 	const handleReject = () => {
 		if (onReject && id) onReject(id);
+	};
+
+	const handleDelete = () => {
+		if (onDelete && id) onDelete(id);
 	};
 
 	const cardContent = (
@@ -156,16 +163,24 @@ const Card = ({
 
 				{isAdminMode && (
 					<div className="flex flex-col gap-3 mt-8">
-						<p
-							className="max-w-md truncate cursor-pointer"
-							title={raceUrl}
-							onClick={() => navigator.clipboard.writeText(raceUrl)}
-						>
-							{raceUrl}
-						</p>
+						{onApprove && onReject && (
+							<p
+								className="max-w-md truncate cursor-pointer"
+								title={raceUrl}
+								onClick={() => navigator.clipboard.writeText(raceUrl)}
+							>
+								{raceUrl}
+							</p>
+						)}
 						<div className="flex gap-3">
-							<ApproveButton text={b("approve")} onClick={handleApprove} />
-							<RejectButton text={b("reject")} onClick={handleReject} />
+							{onApprove && onReject ? (
+								<>
+									<ApproveButton text={b("approve")} onClick={handleApprove} />
+									<RejectButton text={b("reject")} onClick={handleReject} />
+								</>
+							) : (
+								<DeleteButton text={b("delete")} onClick={handleDelete} />
+							)}
 						</div>
 					</div>
 				)}
