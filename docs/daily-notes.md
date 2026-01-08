@@ -67,3 +67,8 @@
 **2026-01-07**
 
 - Today i finished with the "add race" so now you can add a race (for now directly to db), get help from helpbutton, cancel with popup modal, toasters if it succed or it appears an error and error on inputfield if something goes from. I also added validation that needs for like location so the user writes it correctly and get help if something goes wrong. I also fixed some responsivness and styling issues that appear so i fixed that.
+- I also started with the admin pending races small by doing the page and set up.
+
+**2026-01-08**
+
+- Today i did the race pending on admin panel to work so tha new added race appear there first for admin to approve or reject and thet it appears for the users. I also added all races for admin to delete if they want to. I also added so the races disapears from the page if the date is outdated.
