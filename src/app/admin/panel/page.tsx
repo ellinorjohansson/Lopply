@@ -7,6 +7,7 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 
 const AdminOverview = () => {
   const [activeTab, setActiveTab] = useState<"races" | "users">("races");
+  const [pendingCount, setPendingCount] = useState(0);
   const t = useTranslation("admin_panel");
 
   return (
@@ -21,11 +22,11 @@ const AdminOverview = () => {
           </p>
 
           <div className="sm:pl-9 mb-6">
-            <AdminSwitch mode={activeTab} onChange={setActiveTab} />
+            <AdminSwitch mode={activeTab} onChange={setActiveTab} pendingCount={pendingCount} />
           </div>
 
           <div className="mt-6">
-            {activeTab === "races" ? <PendingRaces /> : <UserManagement />}
+            {activeTab === "races" ? <PendingRaces onCountChange={setPendingCount} /> : <UserManagement />}
           </div>
         </div>
       </section>
