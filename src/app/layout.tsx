@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Instrument_Sans, Kavoon, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import ClientLayout from "./client-layout";
 import Header from "@/common/components/header/Header";
 import Footer from "@/common/components/footer/Footer";
 
@@ -48,9 +49,11 @@ export default async function RootLayout({
         className={`${instrumentSans.variable} ${kavoon.variable} ${instrumentSerif.variable}`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
-          <Footer />
+          <ClientLayout>
+            <Header />
+            {children}
+            <Footer />
+          </ClientLayout>
         </NextIntlClientProvider>
       </body>
     </html>
