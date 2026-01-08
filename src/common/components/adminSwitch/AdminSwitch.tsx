@@ -5,18 +5,19 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 interface AdminSwitchProps {
   mode: "races" | "users";
   onChange: (_value: "races" | "users") => void;
+  pendingCount?: number;
 }
 
-const AdminSwitch = ({ mode, onChange }: AdminSwitchProps) => {
+const AdminSwitch = ({ mode, onChange, pendingCount = 0 }: AdminSwitchProps) => {
   const s = useTranslation("switch");
   return (
-    <div className="flex w-full max-w-sm rounded-full border border-secondaryaccent overflow-hidden bg-primary text-secondaryaccent">
+    <div className="flex w-full rounded-full border border-secondaryaccent overflow-hidden bg-primary text-secondaryaccent">
       <button
         className={`flex-1 py-1 text-center transition cursor-pointer ${mode === "races" ? "border m-1 rounded-3xl text-secondaryaccent bg-secondary" : ""
           }`}
         onClick={() => onChange("races")}
       >
-        {s("races")}
+        {s("races")} {pendingCount > 0 && `(${pendingCount})`}
       </button>
 
       <button
