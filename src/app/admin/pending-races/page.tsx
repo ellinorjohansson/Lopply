@@ -79,15 +79,15 @@ const PendingRaces = () => {
 
   return (
     <>
-      <section className="flex flex-col min-h-screen p-4 m-2 md:m-20">
+      <section className="flex flex-col min-h-screen p-4 m-2">
         <div className="flex flex-col gap-1 mb-2">
-          <h3 className="text-2xl font-medium">{p("pending_races")}</h3>
+          <h3 className="text-2xl font-medium mt-13">{p("pending_races")}</h3>
           <span className="text-secondaryaccent text-base">{p("review_submissions")}</span>
         </div>
         {races.length === 0 ? (
           <p className="text-center items-center text-secondaryaccent">{p("no_pending_races")}</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center">
             {races.map((race) => (
               <Card
                 key={race._id}
