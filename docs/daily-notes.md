@@ -71,4 +71,8 @@
 
 **2026-01-08**
 
-- Today i did the race pending on admin panel to work so tha new added race appear there first for admin to approve or reject and thet it appears for the users. I also added all races for admin to delete if they want to. I also added so the races disapears from the page if the date is outdated.
+- Today i did the race pending on admin panel to work so tha new added race appear there first for admin to approve or reject and thet it appears for the users. I also added all races for admin to delete if they want to. I also added so the races disapears from the page if the date is outdated. I also started with the auth for admin and users.
+
+**2026-01-09**
+
+- Today i finished with the auth so it works like it should with both admin and user and error messages, toasters etc. I also fixed the user management that is under admin. This one was the hard one of the project and i think it went well for the first time, it works like it should at least.

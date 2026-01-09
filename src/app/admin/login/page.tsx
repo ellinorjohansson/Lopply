@@ -2,8 +2,8 @@
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import InputField from "@/common/components/input/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
-import { useState } from "react";
-import { signIn, getSession } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { signIn, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 
@@ -11,6 +11,7 @@ const AdminLogIn = () => {
 	const a = useTranslation("authentication");
 	const v = useTranslation("validation")
 	const router = useRouter();
+	const { data: session, status } = useSession();
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -18,6 +19,12 @@ const AdminLogIn = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 
 	const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+
+	useEffect(() => {
+		if (status === "authenticated" && session?.user?.admin) {
+			router.push("/admin/panel");
+		}
+	}, [status, session, router]);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -57,7 +64,6 @@ const AdminLogIn = () => {
 			}
 		}
 	};
-
 
 	return (
 		<>
