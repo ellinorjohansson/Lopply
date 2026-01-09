@@ -37,7 +37,7 @@ const UserLogIn = () => {
 			setLoading(false);
 
 			if (result?.error) {
-				setErrors({ email: a("invalid_credentials") });
+				setErrors({ email: a("admin.invalid_credentials") });
 			} else {
 				router.push("/");
 			}
