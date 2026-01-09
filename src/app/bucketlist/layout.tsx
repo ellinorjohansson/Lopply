@@ -9,7 +9,7 @@ export default async function BucketlistLayout({
   const session = await auth()
 
   if (!session) {
-    redirect("/user/login")
+    redirect("/user")
   }
 
   return <>{children}</>

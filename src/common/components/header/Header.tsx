@@ -1,21 +1,33 @@
 "use client";
-
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import SuccedToaster from "../toasters/SuccedToaster";
 import { useSearchParams } from "next/navigation";
 
-const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+function LogoutToaster() {
   const searchParams = useSearchParams();
   const initialToasterState = searchParams.get("loggedOut") === "true";
   const [showLogoutToaster, setShowLogoutToaster] = useState(initialToasterState);
+  const a = useTranslation("authentication");
+
+  if (!showLogoutToaster) return null;
+
+  return (
+    <SuccedToaster
+      headerMessage={a("toaster.logged_out")}
+      text={a("toaster.logged_out_text")}
+      onClose={() => setShowLogoutToaster(false)}
+    />
+  );
+}
+
+const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const m = useTranslation("menu");
   const g = useTranslation("general");
-  const a = useTranslation("authentication");
   const { data: session } = useSession();
 
   const toggleNav = () => {
@@ -65,13 +77,9 @@ const Header = () => {
         )}
       </header>
 
-      {showLogoutToaster && (
-        <SuccedToaster
-          headerMessage={a("toaster.logged_out")}
-          text={a("toaster.logged_out_text")}
-          onClose={() => setShowLogoutToaster(false)}
-        />
-      )}
+      <Suspense fallback={null}>
+        <LogoutToaster />
+      </Suspense>
 
       {/* Navigation panel */}
       <div
