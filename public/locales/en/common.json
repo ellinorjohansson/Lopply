@@ -77,7 +77,11 @@
     "password": "Password",
     "required_email": "Email *",
     "required_password": "Password *",
-    "logging_in": "Logging in..."
+    "logging_in": "Logging in...",
+    "toaster": {
+      "logged_out": "Logged out",
+      "logged_out_text": "You have successfully logged out."
+    }
   },
   "home_page": {
     "discover_your_next": "Discover Your Next",

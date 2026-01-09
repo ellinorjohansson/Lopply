@@ -4,11 +4,18 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
+import SuccedToaster from "../toasters/SuccedToaster";
+import { useSearchParams } from "next/navigation";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const searchParams = useSearchParams();
+  const initialToasterState = searchParams.get("loggedOut") === "true";
+  const [showLogoutToaster, setShowLogoutToaster] = useState(initialToasterState);
+
   const m = useTranslation("menu");
   const g = useTranslation("general");
+  const a = useTranslation("authentication");
   const { data: session } = useSession();
 
   const toggleNav = () => {
@@ -16,6 +23,10 @@ const Header = () => {
   };
 
   const closeNav = () => setIsNavOpen(false);
+
+  const handleLogout = () => {
+    signOut({ callbackUrl: "/user?loggedOut=true" });
+  };
 
   return (
     <>
@@ -38,7 +49,7 @@ const Header = () => {
             <button
               aria-label="Logout"
               className="flex items-center cursor-pointer"
-              onClick={() => signOut({ callbackUrl: "/user" })}
+              onClick={handleLogout}
             >
               <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
                 logout
@@ -51,6 +62,13 @@ const Header = () => {
         )}
       </header>
 
+      {showLogoutToaster && (
+        <SuccedToaster
+          headerMessage={a("toaster.logged_out")}
+          text={a("toaster.logged_out_text")}
+          onClose={() => setShowLogoutToaster(false)}
+        />
+      )}
 
       {/* Navigation panel */}
       <div
