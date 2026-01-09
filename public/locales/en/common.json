@@ -64,7 +64,9 @@
       "admin_subtext": "Enter admin password to access the panel",
       "access_admin_panel": "Access admin panel",
       "access_denied": "Access denied. Admin privileges required.",
-      "invalid_credentials": "Invalid credentials"
+      "invalid_credentials": "Invalid credentials",
+      "login_success": "Login success as admin",
+      "welcome": "Welcome back to Lopply!"
     },
     "user": {
       "user_text_discover": "Discover your next running adventure",
