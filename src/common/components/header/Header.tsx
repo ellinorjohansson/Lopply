@@ -44,6 +44,9 @@ const Header = () => {
         <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           {g("lopply")}
         </h1>
+        {session?.user?.name && (
+          <span className="text-secondaryaccent ml-3 sm:ml-8">{g("hello")} {session.user.name}</span>
+        )}
         {session && (
           <div className="ml-auto flex items-center mr-5">
             <button
