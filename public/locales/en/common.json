@@ -1,6 +1,7 @@
 {
   "general": {
     "lopply": "Lopply",
+    "hello": "Hello,",
     "back_to_home": "Back to home",
     "try_again": "Try again"
   },
@@ -61,19 +62,32 @@
     "admin": {
       "admin_login": "Admin login",
       "admin_subtext": "Enter admin password to access the panel",
-      "access_admin_panel": "Access admin panel"
+      "access_admin_panel": "Access admin panel",
+      "access_denied": "Access denied. Admin privileges required.",
+      "invalid_credentials": "Invalid credentials",
+      "login_success": "Login success as admin",
+      "welcome": "Welcome back to Lopply!"
     },
     "user": {
       "user_text_discover": "Discover your next running adventure",
       "login": "Login",
       "signup": "Sign Up",
-      "optional_name": "Your name is optional and has nothing to do with authentication."
+      "signup_failed": "Signup failed",
+      "optional_name": "Your name is optional and has nothing to do with authentication.",
+      "signup_success": "Sign up succeed!",
+      "login_success": "Login succeed!",
+      "signup_success_text": "Welcome to Lopply!"
     },
     "name": "Name",
     "email": "Email",
     "password": "Password",
     "required_email": "Email *",
-    "required_password": "Password *"
+    "required_password": "Password *",
+    "logging_in": "Logging in...",
+    "toaster": {
+      "logged_out": "Logged out",
+      "logged_out_text": "You have successfully logged out."
+    }
   },
   "home_page": {
     "discover_your_next": "Discover Your Next",
