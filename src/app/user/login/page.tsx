@@ -43,7 +43,7 @@ const UserLogIn = () => {
 			} else {
 				setShowSuccessToaster(true);
 				setTimeout(() => {
-					router.push("/");
+					router.push("/bucketlist");
 				}, 2000);
 			}
 		}
