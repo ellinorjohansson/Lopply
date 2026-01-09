@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/common/hooks/useTranslation";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -8,6 +9,7 @@ const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const m = useTranslation("menu");
   const g = useTranslation("general");
+  const { data: session } = useSession();
 
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
@@ -31,20 +33,22 @@ const Header = () => {
         <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           {g("lopply")}
         </h1>
-
-        <div className="ml-auto flex items-center mr-5">
-          <button
-            aria-label="Logout"
-            className="flex items-center cursor-pointer"
-          >
-            <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
-              logout
-            </span>
-            <span className="hidden sm:inline text-secondaryaccent font-semibold ml-1">
-              Logout
-            </span>
-          </button>
-        </div>
+        {session && (
+          <div className="ml-auto flex items-center mr-5">
+            <button
+              aria-label="Logout"
+              className="flex items-center cursor-pointer"
+              onClick={() => signOut({ callbackUrl: "/user" })}
+            >
+              <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
+                logout
+              </span>
+              <span className="hidden sm:inline text-secondaryaccent font-semibold ml-1">
+                Logout
+              </span>
+            </button>
+          </div>
+        )}
       </header>
 
 
