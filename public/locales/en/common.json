@@ -73,7 +73,9 @@
       "login": "Login",
       "signup": "Sign Up",
       "signup_failed": "Signup failed",
-      "optional_name": "Your name is optional and has nothing to do with authentication."
+      "optional_name": "Your name is optional and has nothing to do with authentication.",
+      "signup_success": "Sign up succeed!",
+      "signup_success_text": "Welcome to Lopply!"
     },
     "name": "Name",
     "email": "Email",

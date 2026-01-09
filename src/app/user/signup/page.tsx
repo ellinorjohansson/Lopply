@@ -2,6 +2,7 @@
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import HelperButton from "@/common/components/helperButton/HelperButton";
 import InputField from "@/common/components/input/inputField/InputField";
+import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
@@ -16,6 +17,7 @@ const UserSignUp = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
+	const [showSuccessToaster, setShowSuccessToaster] = useState(false);
 
 	const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string }>({});
 
@@ -39,7 +41,10 @@ const UserSignUp = () => {
 				});
 				if (res.ok) {
 					await signIn("credentials", { email, password, redirect: false });
-					router.push("/");
+					setShowSuccessToaster(true);
+					setTimeout(() => {
+						router.push("/");
+					}, 2000);
 				} else {
 					const data = await res.json();
 					setErrors({ email: data.error || a("user.signup_failed") });
@@ -53,6 +58,13 @@ const UserSignUp = () => {
 
 	return (
 		<>
+			{showSuccessToaster && (
+				<SuccedToaster
+					headerMessage={a("user.signup_success")}
+					text={a("user.signup_success_text")}
+					onClose={() => setShowSuccessToaster(false)}
+				/>
+			)}
 			<form onSubmit={handleSubmit} className="flex flex-col gap-6">
 				<InputField
 					label={a("name")}
