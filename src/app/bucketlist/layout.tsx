@@ -8,8 +8,8 @@ export default async function BucketlistLayout({
 }) {
   const session = await auth()
 
-  if (!session || !session.user?.admin) {
-    redirect("/user")
+  if (!session) {
+    redirect("/user/login")
   }
 
   return <>{children}</>
