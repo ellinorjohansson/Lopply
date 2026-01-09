@@ -2,7 +2,7 @@
 
 import { useTranslation } from "@/common/hooks/useTranslation";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -17,13 +17,13 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex items-center justify-between p-4 bg-secondary">
+      <header className="flex items-center p-4 bg-secondary">
         <button
           aria-label="Open left panel"
           className="flex items-center cursor-pointer ml-5"
           onClick={toggleNav}
         >
-          <span className="material-symbols-outlined inline-block text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
+          <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
             left_panel_open
           </span>
         </button>
@@ -31,7 +31,22 @@ const Header = () => {
         <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           {g("lopply")}
         </h1>
+
+        <div className="ml-auto flex items-center mr-5">
+          <button
+            aria-label="Logout"
+            className="flex items-center cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
+              logout
+            </span>
+            <span className="hidden sm:inline text-secondaryaccent font-semibold ml-1">
+              Logout
+            </span>
+          </button>
+        </div>
       </header>
+
 
       {/* Navigation panel */}
       <div
