@@ -1,6 +1,7 @@
 "use client";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import InputField from "@/common/components/input/inputField/InputField";
+import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
@@ -14,6 +15,7 @@ const UserLogIn = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
+	const [showSuccessToaster, setShowSuccessToaster] = useState(false);
 
 	const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
@@ -39,13 +41,23 @@ const UserLogIn = () => {
 			if (result?.error) {
 				setErrors({ email: a("admin.invalid_credentials") });
 			} else {
-				router.push("/");
+				setShowSuccessToaster(true);
+				setTimeout(() => {
+					router.push("/");
+				}, 2000);
 			}
 		}
 	};
 
 	return (
 		<>
+			{showSuccessToaster && (
+				<SuccedToaster
+					headerMessage={a("user.login_success")}
+					text={a("user.signup_success_text")}
+					onClose={() => setShowSuccessToaster(false)}
+				/>
+			)}
 			<form onSubmit={handleSubmit} className="flex flex-col gap-6">
 				<InputField
 					label={a("email")}
