@@ -180,5 +180,27 @@
   "admin_panel": {
     "admin_dashboard": "Admin dashboard",
     "manage_races_and_users": "Manage races and users"
+  },
+  "user_management": {
+    "title": "User management",
+    "subtitle": "Manage registered users and admin roles",
+    "no_users": "No users found",
+    "loading": "Loading...",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "actions": "Actions",
+    "user": "User",
+    "admin": "Admin",
+    "confirm_role_change_title": "Change user role?",
+    "confirm_role_change_message": "This will change the user's role to {role}.",
+    "confirm_delete_title": "Delete user?",
+    "confirm_delete_message": "This user will be permanently deleted. This action cannot be undone.",
+    "success": "Success",
+    "role_updated": "User role updated successfully",
+    "user_deleted": "User deleted successfully",
+    "error": "Error",
+    "update_error": "Failed to update user role",
+    "delete_error": "Failed to delete user"
   }
 }
