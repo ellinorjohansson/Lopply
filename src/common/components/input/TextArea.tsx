@@ -20,7 +20,7 @@ const TextArea = ({
   onChange,
   id,
   helpButton,
-  maxLength = 75,
+  maxLength = 80,
 }: TextareaFieldProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const inputId = id || `textarea-${label.toLowerCase().replace(/\s+/g, "-")}`;
