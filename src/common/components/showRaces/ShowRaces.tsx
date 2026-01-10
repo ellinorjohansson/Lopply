@@ -27,7 +27,7 @@ export default async function ShowRaces({ limit }: ShowRacesProps) {
   const displayedRaces = limit ? races.slice(0, limit) : races;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
       {displayedRaces.map((race, index) => (
         <Card key={index} {...race} />
       ))}
