@@ -1,6 +1,7 @@
 {
   "general": {
     "lopply": "Lopply",
+    "hello": "Hello,",
     "back_to_home": "Back to home",
     "try_again": "Try again"
   },
@@ -18,17 +19,36 @@
       "account": "Account"
     }
   },
+  "switch": {
+    "races": "Pending races",
+    "users": "Users management",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
   "validation": {
-    "required_field": "* Requaired field",
+    "required_field": "* Required field",
     "empty_field": "The field can't be empty"
   },
+  "alt_text": {
+    "hero_alt": "Scenic mountain landscape in orange, beige and yellow, ending in a lake, with a sunset painting the sky in shades of blue."
+  },
+  "buttons": {
+    "explore_races": "Explore Races",
+    "how_it_works": "How it works",
+    "cancel": "Cancel",
+    "add_race": "Add race",
+    "approve": "Approve",
+    "reject": "Reject",
+    "delete": "Delete"
+  },
   "races": {
-    "explore_your_next_race": "Explore your next race"
+    "explore_your_next_race": "Explore your next race",
+    "no_image": "The image ran off before we could catch it"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
     "text": {
-      "discover_and_concuer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
+      "discover_and_conquer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
       "all_rights": "©2026 Lopply. All rights reserved."
     }
   },
@@ -42,18 +62,145 @@
     "admin": {
       "admin_login": "Admin login",
       "admin_subtext": "Enter admin password to access the panel",
-      "access_admin_panel": "Access admin panel"
+      "access_admin_panel": "Access admin panel",
+      "access_denied": "Access denied. Admin privileges required.",
+      "invalid_credentials": "Invalid credentials",
+      "login_success": "Login success as admin",
+      "welcome": "Welcome back to Lopply!"
     },
     "user": {
       "user_text_discover": "Discover your next running adventure",
       "login": "Login",
-      "signup": "SignUp",
-      "optional_name": "Your name is optional and dosen't have anything with the authentication to do."
+      "signup": "Sign Up",
+      "signup_failed": "Signup failed",
+      "optional_name": "Your name is optional and has nothing to do with authentication.",
+      "signup_success": "Sign up succeed!",
+      "login_success": "Login succeed!",
+      "signup_success_text": "Welcome to Lopply!"
     },
     "name": "Name",
     "email": "Email",
     "password": "Password",
     "required_email": "Email *",
-    "required_password": "Password *"
+    "required_password": "Password *",
+    "logging_in": "Logging in...",
+    "toaster": {
+      "logged_out": "Logged out",
+      "logged_out_text": "You have successfully logged out."
+    }
+  },
+  "home_page": {
+    "discover_your_next": "Discover Your Next",
+    "running_adventure": "Running Adventure",
+    "explore_races_by_terrain_text": "Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.",
+    "featured_races": "Featured Races",
+    "handpicked_adventures_across": "Handpicked adventures across stunning terrains worldwide",
+    "how_lopply_works": "How Lopply Works",
+    "a_new_way_to_discover": "A new way to discover and plan your running adventures",
+    "how_lopply_works_section": {
+      "explore_visually": "Explore Visually",
+      "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
+      "match_by_preferences": "Match By Preferences",
+      "find_races_based": "Find races based on terrain, distance, and timing.",
+      "build_your_bucket_list": "Build Your Bucket List",
+      "save_your_dream": "Save your dream races and create your personal running adventure roadmap",
+      "match_your_training": "Match Your Training",
+      "find_races_that": "Find races that fit your training timeline and preparation schedule"
+    }
+  },
+  "add_race_page": {
+    "add_new_race": "Add New Race",
+    "submit_a_race": "Submit a race for approval by adminitrators",
+    "race_title": "Race title *",
+    "locations": "Location *",
+    "distance": "Distance *",
+    "date": "Date *",
+    "difficulty": "Difficulty *",
+    "difficulty_options": {
+      "select_difficulty": "Select difficulty...",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "terrain": "Terrain *",
+    "terrain_options": {
+      "select_terrain": "Select terrain...",
+      "urban": "Urban",
+      "costal": "Costal",
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "forest": "Forest"
+    },
+    "image_url": "Image URL *",
+    "description": "Description",
+    "url_race_page": "URL to race page *",
+    "popup": {
+      "race_submitted": "Race submitted!",
+      "submitted_text": "Your race is pending approval by an administrator",
+      "error": "Error",
+      "error_text": "An error occurred",
+      "failed_to_add_race": "Failed to add race",
+      "submit_error": "Submit error:",
+      "an_error_occurred_while_submitting_the_form": "An error occurred while submitting the form"
+    },
+    "helper": {
+      "location_helper": "Enter your location as City, Country (e.g., Stockholm, Sweden)",
+      "location_error": "Enter your location as City, Country",
+      "distance_helper": "Enter the distance in kilometers (numbers only)",
+      "image_helper": "Provide a direct link to the image (image URL)",
+      "description_helper": "Description must be a maximum of 75 characters"
+    }
+  },
+  "pending_races": {
+    "pending_races": "Pending race approval",
+    "review_submissions": "Review and approve or reject race submissions",
+    "no_pending_races": "No pending races to review",
+    "success": "Success",
+    "action_completed": "Action completed successfully",
+    "error": "Error",
+    "approve_error": "Failed to approve race",
+    "reject_error": "Failed to reject race",
+    "delete_error": "Failed to delete race",
+    "loading": "Loading...",
+    "all_races": "All races",
+    "no_races": "No races available",
+    "confirm_approve_message": "This race will be approved and published.",
+    "confirm_reject_message": "This race will be rejected and not published.",
+    "confirm_delete_message": "This race will be permanently deleted.",
+    "confirm_approve_title": "Are you sure you want to approve?",
+    "confirm_reject_title": "Are you sure you want to reject?",
+    "confirm_delete_title": "Are you sure you want to delete?"
+  },
+  "confirm": {
+    "clear_form": "Clear form",
+    "are_you_sure": "Are you sure you want to clear the form? This cannot be undone.",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "admin_panel": {
+    "admin_dashboard": "Admin dashboard",
+    "manage_races_and_users": "Manage races and users"
+  },
+  "user_management": {
+    "title": "User management",
+    "subtitle": "Manage registered users and admin roles",
+    "no_users": "No users found",
+    "loading": "Loading...",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "actions": "Actions",
+    "user": "User",
+    "admin": "Admin",
+    "confirm_role_change_title": "Change user role?",
+    "confirm_role_change_message": "This will change the user's role to {role}.",
+    "confirm_delete_title": "Delete user?",
+    "confirm_delete_message": "This user will be permanently deleted. This action cannot be undone.",
+    "success": "Success",
+    "role_updated": "User role updated successfully",
+    "user_deleted": "User deleted successfully",
+    "error": "Error",
+    "update_error": "Failed to update user role",
+    "delete_error": "Failed to delete user"
   }
 }

@@ -51,3 +51,28 @@
 
 - Today i started with adding the race card skeleton for when the races are loading so the user can see that it's loading and not frozen. I also did a branch just for fixing small things with the styling, color, font and responsivness and more with the things i'm done with under this sprint.
 - I also added sprint-1.md for reflection over what i been done with this sprint. I also merged develop to main.
+
+**2026-01-04**
+
+- Today i finaly discovered the problem i had with deploying my page to Vercel. The problem was that i missed out on a variable so it basiclly used localhost that doesn't exist when deployed. So i added the variable and the value and now the data displays like it should.
+
+**2026-01-05**
+
+- Today i did the home page and also refactored the race display so i can reuse it and doesn't need to duplicate code for it. Went well and now that part is done.
+
+**2026-01-06**
+
+- Todays small session i fixed so the images now is vivble in the race cards. I needed to use img and not nextjs image beacuse then i need to add the url/src what you call it in the nextjs config and that is not going to work in my place if i understood properly. But now it works and also added a fallback if a image doesn't shows.
+
+**2026-01-07**
+
+- Today i finished with the "add race" so now you can add a race (for now directly to db), get help from helpbutton, cancel with popup modal, toasters if it succed or it appears an error and error on inputfield if something goes from. I also added validation that needs for like location so the user writes it correctly and get help if something goes wrong. I also fixed some responsivness and styling issues that appear so i fixed that.
+- I also started with the admin pending races small by doing the page and set up.
+
+**2026-01-08**
+
+- Today i did the race pending on admin panel to work so tha new added race appear there first for admin to approve or reject and thet it appears for the users. I also added all races for admin to delete if they want to. I also added so the races disapears from the page if the date is outdated. I also started with the auth for admin and users.
+
+**2026-01-09**
+
+- Today i finished with the auth so it works like it should with both admin and user and error messages, toasters etc. I also fixed the user management that is under admin. This one was the hard one of the project and i think it went well for the first time, it works like it should at least.

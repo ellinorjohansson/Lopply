@@ -1,13 +1,34 @@
 "use client";
-
 import { useTranslation } from "@/common/hooks/useTranslation";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import React, { useState } from "react";
+import { Suspense, useState } from "react";
+import SuccedToaster from "../toasters/SuccedToaster";
+import { useSearchParams } from "next/navigation";
+
+function LogoutToaster() {
+  const searchParams = useSearchParams();
+  const initialToasterState = searchParams.get("loggedOut") === "true";
+  const [showLogoutToaster, setShowLogoutToaster] = useState(initialToasterState);
+  const a = useTranslation("authentication");
+
+  if (!showLogoutToaster) return null;
+
+  return (
+    <SuccedToaster
+      headerMessage={a("toaster.logged_out")}
+      text={a("toaster.logged_out_text")}
+      onClose={() => setShowLogoutToaster(false)}
+    />
+  );
+}
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
   const m = useTranslation("menu");
   const g = useTranslation("general");
+  const { data: session } = useSession();
 
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
@@ -15,15 +36,19 @@ const Header = () => {
 
   const closeNav = () => setIsNavOpen(false);
 
+  const handleLogout = () => {
+    signOut({ callbackUrl: "/user?loggedOut=true" });
+  };
+
   return (
     <>
-      <header className="flex items-center justify-between p-4 bg-secondary">
+      <header className="flex items-center p-4 bg-secondary">
         <button
           aria-label="Open left panel"
           className="flex items-center cursor-pointer ml-5"
           onClick={toggleNav}
         >
-          <span className="material-symbols-outlined inline-block text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
+          <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
             left_panel_open
           </span>
         </button>
@@ -31,7 +56,30 @@ const Header = () => {
         <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           {g("lopply")}
         </h1>
+        {session?.user?.name && (
+          <span className="text-secondaryaccent ml-3 sm:ml-8">{g("hello")} {session.user.name}</span>
+        )}
+        {session && (
+          <div className="ml-auto flex items-center mr-5">
+            <button
+              aria-label="Logout"
+              className="flex items-center cursor-pointer"
+              onClick={handleLogout}
+            >
+              <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
+                logout
+              </span>
+              <span className="hidden sm:inline text-secondaryaccent font-semibold ml-1">
+                Logout
+              </span>
+            </button>
+          </div>
+        )}
       </header>
+
+      <Suspense fallback={null}>
+        <LogoutToaster />
+      </Suspense>
 
       {/* Navigation panel */}
       <div
@@ -80,7 +128,7 @@ const Header = () => {
             </li>
             <li className="mb-3">
               <Link
-                href="/"
+                href="/add-race"
                 onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
@@ -109,7 +157,7 @@ const Header = () => {
           <ul>
             <li className="mb-2">
               <Link
-                href="/"
+                href="/bucketlist"
                 onClick={closeNav}
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
