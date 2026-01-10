@@ -142,7 +142,7 @@ const Card = ({
 					<p className="text-base font-sans line-clamp-3 h-20">{description}</p>
 				</div>
 
-				<div className="flex flex-wrap gap-4 pt-2 mt-auto">
+				<div className={`flex flex-wrap gap-4 mt-auto ${isAdminMode ? 'border-b pb-8 border-secondaryaccent/40' : ''}`}>
 					<span
 						className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base"
 						aria-label="Terrain type"
