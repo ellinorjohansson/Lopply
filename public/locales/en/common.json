@@ -49,7 +49,8 @@
     "distance": "Distance",
     "difficulty": "Difficulty",
     "loading": "Loading races...",
-    "no_races": "No races found matching your filters."
+    "no_races": "No races found matching your filters.",
+    "load_more": "Load more"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",

@@ -5,6 +5,7 @@ import Card, { RaceCardProps } from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
 import { getRaces } from "@/services/raceService";
 import { useTranslation } from "@/common/hooks/useTranslation";
+import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 
 interface ShowRacesProps {
   limit?: number;
@@ -19,8 +20,9 @@ export default function ShowRaces({
   distanceFilter = [],
   difficultyFilter = []
 }: ShowRacesProps) {
-  const [races, setRaces] = useState<RaceCardProps[]>([]);
+  const [allRaces, setAllRaces] = useState<RaceCardProps[]>([]);
   const [loading, setLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(12);
   const r = useTranslation("races");
 
   useEffect(() => {
@@ -73,9 +75,9 @@ export default function ShowRaces({
         raceUrl: race.raceUrl,
       }));
 
-      const displayedRaces = limit ? mappedRaces.slice(0, limit) : mappedRaces;
-      setRaces(displayedRaces);
+      setAllRaces(mappedRaces);
       setLoading(false);
+      setVisibleCount(12);
     }
 
     fetchRaces();
@@ -91,17 +93,30 @@ export default function ShowRaces({
     );
   }
 
+  const racesToShow = allRaces.slice(0, visibleCount);
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
-      {races.length > 0 ? (
-        races.map((race, index) => (
-          <Card key={index} {...race} />
-        ))
-      ) : (
-        <p className="col-span-full text-center py-12 text-secondaryaccent">
-          {r("no_races")}
-        </p>
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
+        {racesToShow.length > 0 ? (
+          racesToShow.map((race, index) => (
+            <Card key={index} {...race} />
+          ))
+        ) : (
+          <p className="col-span-full text-center py-12 text-secondaryaccent">
+            {r("no_races")}
+          </p>
+        )}
+      </div>
+      {visibleCount < allRaces.length && (
+        <div className="flex justify-center mt-6">
+          <PrimaryButton
+            text={r("load_more")}
+            size="medium"
+            onClick={() => setVisibleCount((prev) => prev + 12)}
+          />
+        </div>
       )}
-    </div>
+    </>
   );
 }
