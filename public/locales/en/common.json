@@ -43,7 +43,11 @@
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
-    "no_image": "The image ran off before we could catch it"
+    "explore_subtext": "Flat or hilly. Short or long. Easy-ish or “why did I sign up?”.",
+    "no_image": "The image ran off before we could catch it",
+    "terrain_type": "Terrain type",
+    "distance": "Distance",
+    "difficulty": "Difficulty"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
