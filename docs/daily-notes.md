@@ -85,3 +85,4 @@
 **2026-01-12**
 
 - I started of todays session by doing some fixes mostly small devices style issues that i discouved by looking at the page on my phone. I also fixed so when a user goes to another page it starts from the top and not from the button like it did before (if the "go to another page" button was in the middle or buttom of the page then the page the user goes to starts at the buttom.) I fixed that issue by adding a component and then added it to layout.
+- I also fixed the explore race page by adding title, filter and so the page only load 12 races at each time so it has an end.
