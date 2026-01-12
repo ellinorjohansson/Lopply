@@ -47,7 +47,9 @@
     "no_image": "The image ran off before we could catch it",
     "terrain_type": "Terrain type",
     "distance": "Distance",
-    "difficulty": "Difficulty"
+    "difficulty": "Difficulty",
+    "loading": "Loading races...",
+    "no_races": "No races found matching your filters."
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
