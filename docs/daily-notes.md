@@ -76,3 +76,12 @@
 **2026-01-09**
 
 - Today i finished with the auth so it works like it should with both admin and user and error messages, toasters etc. I also fixed the user management that is under admin. This one was the hard one of the project and i think it went well for the first time, it works like it should at least.
+
+**2026-01-10**
+
+- In todays session i fixed some styling on race cards so they allign with each other. I also added characters to description text from 75 to 80 after if fixed the design. I also added a line in cards if they are in admin to seperate the race card from the admin buttons that is attached.
+- I also merged develop to main.
+
+**2026-01-12**
+
+- I started of todays session by doing some fixes mostly small devices style issues that i discouved by looking at the page on my phone. I also fixed so when a user goes to another page it starts from the top and not from the button like it did before (if the "go to another page" button was in the middle or buttom of the page then the page the user goes to starts at the buttom.) I fixed that issue by adding a component and then added it to layout.
