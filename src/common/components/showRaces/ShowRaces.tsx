@@ -8,14 +8,12 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 
 interface ShowRacesProps {
-  limit?: number;
   terrainFilter?: string[];
   distanceFilter?: string[];
   difficultyFilter?: string[];
 }
 
 export default function ShowRaces({
-  limit,
   terrainFilter = [],
   distanceFilter = [],
   difficultyFilter = []
@@ -81,7 +79,7 @@ export default function ShowRaces({
     }
 
     fetchRaces();
-  }, [terrainFilter, distanceFilter, difficultyFilter, limit]);
+  }, [terrainFilter, distanceFilter, difficultyFilter]);
 
   if (loading) {
     return (

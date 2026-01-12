@@ -50,7 +50,8 @@
     "difficulty": "Difficulty",
     "loading": "Loading races...",
     "no_races": "No races found matching your filters.",
-    "load_more": "Load more"
+    "load_more": "Load more",
+    "no_races_found": "No featured races available."
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
