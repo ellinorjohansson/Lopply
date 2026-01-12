@@ -48,7 +48,7 @@ const DropdownField = ({
           id={selectId}
           value={value}
           onChange={onChange}
-          className={`appearance-none border rounded-3xl py-1 bg-primary text-secondaryaccent 
+          className={`appearance-none border rounded-3xl py-2 bg-primary text-secondaryaccent 
             ${sizeClasses}
             ${error ? "border-error" : "border-secondaryaccent"}
             focus:border-primaryaccent
