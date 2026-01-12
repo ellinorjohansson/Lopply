@@ -3,7 +3,7 @@ import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import Link from "next/link";
 import Image from "next/image";
-import ShowRaces from "@/common/components/showRaces/ShowRaces";
+import FeaturedRaces from "@/common/components/featuredRaces/FeaturedRaces";
 
 export default function Home() {
   const h = useTranslation("home_page");
@@ -63,7 +63,7 @@ export default function Home() {
             {h("handpicked_adventures_across")}
           </p>
 
-          <ShowRaces limit={3} />
+          <FeaturedRaces />
 
           <div className="flex justify-center mt-16">
             <Link href="/races" scroll={true}>
