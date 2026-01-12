@@ -7,6 +7,7 @@ import "./globals.css";
 import ClientLayout from "./client-layout";
 import Header from "@/common/components/header/Header";
 import Footer from "@/common/components/footer/Footer";
+import ScrollToTop from "@/common/components/scrollToTop/ScrollToTop";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <ClientLayout>
             <Header />
+            <ScrollToTop />
             {children}
             <Footer />
           </ClientLayout>

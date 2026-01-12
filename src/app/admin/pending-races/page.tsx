@@ -114,7 +114,7 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
 
 
   if (loading) {
-    return <div className="flex justify-center items-center min-h-screen">{p("loading")}</div>;
+    return <span className="flex justify-center items-center min-h-screen text-secondaryaccent">{p("loading")}</span>;
   }
 
   return (
@@ -125,7 +125,7 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
           <span className="text-secondaryaccent text-base">{p("review_submissions")}</span>
         </div>
         {races.length === 0 ? (
-          <p className="text-center items-center text-secondaryaccent">{p("no_pending_races")}</p>
+          <p className="text-center items-center mt-10 text-secondaryaccent">{p("no_pending_races")}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center">
             {races.map((race) => (

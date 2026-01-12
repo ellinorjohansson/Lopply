@@ -43,7 +43,14 @@
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
-    "no_image": "The image ran off before we could catch it"
+    "explore_subtext": "Flat or hilly. Short or long. Easy-ish or “why did I sign up?”.",
+    "no_image": "The image ran off before we could catch it",
+    "terrain_type": "Terrain type",
+    "distance": "Distance",
+    "difficulty": "Difficulty",
+    "loading": "Loading races...",
+    "no_races": "No races found matching your filters.",
+    "load_more": "Load more"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
@@ -101,7 +108,7 @@
       "explore_visually": "Explore Visually",
       "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
       "match_by_preferences": "Match By Preferences",
-      "find_races_based": "Find races based on terrain, distance, and timing.",
+      "find_races_based": "Find races based on terrain, distance, and timing",
       "build_your_bucket_list": "Build Your Bucket List",
       "save_your_dream": "Save your dream races and create your personal running adventure roadmap",
       "match_your_training": "Match Your Training",

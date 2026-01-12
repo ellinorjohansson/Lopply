@@ -26,9 +26,9 @@ const InputField = ({
 	const inputId = id || `input-${label.toLowerCase().replace(/\s+/g, "-")}`;
 
 	const sizeClasses = {
-		small: "px-4 text-sm sm:text-base w-full md:max-w-[280px]",
-		medium: "px-4 text-sm sm:text-base w-full md:max-w-[630px]",
-		large: "px-4 text-sm sm:text-base w-full md:max-w-[920px]",
+		small: "px-4 md:p-1 text-sm sm:text-base w-full md:max-w-[280px]",
+		medium: "px-4 md:p-1 text-sm sm:text-base w-full md:max-w-[630px]",
+		large: "px-4 md:p-1 text-sm sm:text-base w-full md:max-w-[920px]",
 	}[size];
 
 	return (
@@ -54,7 +54,7 @@ const InputField = ({
 				value={value}
 				onChange={onChange}
 				onClick={onClick}
-				className={`border rounded-3xl py-1 focus:outline-none text-secondaryaccent bg-primary 
+				className={`border rounded-3xl py-2 focus:outline-none text-secondaryaccent bg-primary 
 					${sizeClasses} 
 					${error ? "border-error" : "border-secondaryaccent"} 
 					focus:border-primaryaccent
