@@ -114,7 +114,7 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
 
 
   if (loading) {
-    return <div className="flex justify-center items-center min-h-screen">{p("loading")}</div>;
+    return <span className="flex justify-center items-center min-h-screen text-secondaryaccent">{p("loading")}</span>;
   }
 
   return (
