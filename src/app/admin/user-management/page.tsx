@@ -188,7 +188,7 @@ const UserManagement = () => {
               </thead>
               <tbody className="block md:table-row-group">
                 {users.map((user) => (
-                  <tr key={user._id} className="block md:table-row border-b border-secondaryaccent/10 hover:bg-secondaryaccent/5 mb-4 md:mb-0">
+                  <tr key={user._id} className="block md:table-row border-b border-secondaryaccent md:border-secondaryaccent/10 hover:bg-secondaryaccent/5 mb-4 md:mb-0">
                     <td className="block md:table-cell py-2 md:py-3 px-4 text-secondaryaccent before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${u("name")}:`}>
                       {user.name || "-"}
                     </td>

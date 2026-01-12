@@ -136,7 +136,7 @@ const AddRace = () => {
   return (
     <>
       <section className="flex items-center justify-center min-h-screen p-4 m-2 md:m-20">
-        <div className="bg-secondary border border-secondaryaccent rounded-3xl p-15 flex flex-col gap-6 max-w-5xl w-full">
+        <div className="bg-secondary border border-secondaryaccent rounded-3xl p-5 md:p-8 lg:p-15 flex flex-col gap-6 max-w-5xl w-full">
           <div className="flex flex-col gap-1 mb-2">
             <h3 className="text-2xl font-medium">{a("add_new_race")}</h3>
             <span className="text-secondaryaccent text-base">{a("submit_a_race")}</span>
