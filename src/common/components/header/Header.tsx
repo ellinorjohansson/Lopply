@@ -106,7 +106,7 @@ const Header = () => {
             Discover
           </span>
           <ul>
-            <li className="mb-3">
+            <li className="mb-4 md:mb-3">
               <Link
                 href="/"
                 onClick={closeNav}
@@ -116,7 +116,7 @@ const Header = () => {
                 {m("home")}
               </Link>
             </li>
-            <li className="mb-3">
+            <li className="mb-4 md:mb-3">
               <Link
                 href="/"
                 onClick={closeNav}
@@ -126,7 +126,7 @@ const Header = () => {
                 {m("race_match")}
               </Link>
             </li>
-            <li className="mb-3">
+            <li className="mb-4 md:mb-3">
               <Link
                 href="/add-race"
                 onClick={closeNav}
@@ -136,7 +136,7 @@ const Header = () => {
                 {m("add_race")}
               </Link>
             </li>
-            <li className="mb-2">
+            <li className="mb-4 md:mb-3">
               <Link
                 href="/races"
                 onClick={closeNav}
@@ -155,7 +155,7 @@ const Header = () => {
             {m("label.my_journey")}
           </span>
           <ul>
-            <li className="mb-2">
+            <li className="mb-4 md:mb-3">
               <Link
                 href="/bucketlist"
                 onClick={closeNav}
@@ -176,7 +176,7 @@ const Header = () => {
             {m("label.account")}
           </span>
           <ul>
-            <li className="mb-2">
+            <li className="mb-4 md:mb-3">
               <Link
                 href="/user"
                 onClick={closeNav}
@@ -186,7 +186,7 @@ const Header = () => {
                 {m("login_sign_up")}
               </Link>
             </li>
-            <li className="mb-2">
+            <li className="mb-4 md:mb-3">
               <Link
                 href="/admin/login"
                 onClick={closeNav}
