@@ -6,13 +6,16 @@ import { getBucketlistRaces } from "@/services/bucketlistService";
 import { IRace } from "@/models/Race";
 import Card from "@/common/components/card/Card";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
+import DropdownField from "@/common/components/input/dropdownField/DropdownField";
 import Link from "next/link";
 
 const Bucketlist = () => {
   const b = useTranslation("bucketlist");
   const bu = useTranslation("buttons");
+  const r = useTranslation("races");
   const [races, setRaces] = useState<IRace[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortBy, setSortBy] = useState<"upcoming" | "farthest" | "">("");
 
   useEffect(() => {
     const fetchBucketlist = async () => {
@@ -29,6 +32,13 @@ const Bucketlist = () => {
     const bucketlistRaces = await getBucketlistRaces();
     setRaces(bucketlistRaces);
   };
+
+  const sortedRaces = [...races].sort((a, b) => {
+    if (!sortBy) return 0;
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return sortBy === "upcoming" ? dateA - dateB : dateB - dateA;
+  });
 
   return (
     <main>
@@ -71,24 +81,38 @@ const Bucketlist = () => {
           </div>
 
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
-            {races.map((race) => (
-              <Card
-                key={race._id}
-                id={race._id}
-                image={race.imageUrl}
-                title={race.name}
-                location={race.location}
-                date={new Date(race.date).toLocaleDateString()}
-                distance={race.distance}
-                terrain={race.terrain}
-                difficulty={race.difficulty}
-                description={race.description || ""}
-                raceUrl={race.raceUrl}
-                onFavoriteChange={handleFavoriteChange}
+          <>
+            <div className="mb-6 px-4">
+              <DropdownField
+                placeholder={r("sort_by")}
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as "upcoming" | "farthest" | "")}
+                options={[
+                  { value: "upcoming", label: r("upcoming_first") },
+                  { value: "farthest", label: r("farthest_first") },
+                ]}
+                size="small"
               />
-            ))}
-          </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
+              {sortedRaces.map((race) => (
+                <Card
+                  key={race._id}
+                  id={race._id}
+                  image={race.imageUrl}
+                  title={race.name}
+                  location={race.location}
+                  date={new Date(race.date).toLocaleDateString()}
+                  distance={race.distance}
+                  terrain={race.terrain}
+                  difficulty={race.difficulty}
+                  description={race.description || ""}
+                  raceUrl={race.raceUrl}
+                  onFavoriteChange={handleFavoriteChange}
+                />
+              ))}
+            </div>
+          </>
         )}
       </section>
     </main>

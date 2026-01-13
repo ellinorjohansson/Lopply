@@ -6,6 +6,7 @@ import { IRace } from "@/models/Race";
 import { getRaces } from "@/services/raceService";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
+import DropdownField from "@/common/components/input/dropdownField/DropdownField";
 
 interface ShowRacesProps {
   terrainFilter?: string[];
@@ -21,6 +22,7 @@ export default function ShowRaces({
   const [allRaces, setAllRaces] = useState<RaceCardProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(12);
+  const [sortBy, setSortBy] = useState<"upcoming" | "farthest" | "">("");
   const r = useTranslation("races");
 
   useEffect(() => {
@@ -74,13 +76,20 @@ export default function ShowRaces({
         raceUrl: race.raceUrl,
       }));
 
-      setAllRaces(mappedRaces);
+      const sortedRaces = [...mappedRaces].sort((a, b) => {
+        if (!sortBy) return 0;
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return sortBy === "upcoming" ? dateA - dateB : dateB - dateA;
+      });
+
+      setAllRaces(sortedRaces);
       setLoading(false);
       setVisibleCount(12);
     }
 
     fetchRaces();
-  }, [terrainFilter, distanceFilter, difficultyFilter]);
+  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy]);
 
   if (loading) {
     return (
@@ -96,6 +105,18 @@ export default function ShowRaces({
 
   return (
     <>
+      <div className="mb-6 px-4">
+        <DropdownField
+          placeholder={r("sort_by")}
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value as "upcoming" | "farthest" | "")}
+          options={[
+            { value: "upcoming", label: r("upcoming_first") },
+            { value: "farthest", label: r("farthest_first") },
+          ]}
+          size="small"
+        />
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
         {racesToShow.length > 0 ? (
           racesToShow.map((race, index) => (
