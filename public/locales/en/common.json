@@ -225,6 +225,7 @@
     "added_to_bucketlist": "Added to Bucketlist",
     "added_subtext": "This race has been saved to your bucketlist",
     "removed_from_bucketlist": "Removed from Bucketlist",
-    "removed_subtext": "This race has been removed from your bucketlist"
+    "removed_subtext": "This race has been removed from your bucketlist",
+    "remove_from_list": "Remove from list"
   }
 }

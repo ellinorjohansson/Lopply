@@ -6,6 +6,7 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 import ApproveButton from "../buttons/ApproveButton";
 import RejectButton from "../buttons/RejectButton";
 import DeleteButton from "../buttons/DeleteButton";
+import SecondaryButton from "../buttons/SecondaryButton";
 import ErrorToaster from "../toasters/ErrorToaster";
 import SuccedToaster from "../toasters/SuccedToaster";
 
@@ -24,6 +25,9 @@ export interface RaceCardProps {
 	onReject?: (_id: string) => void;
 	onDelete?: (_id: string) => void;
 	onFavoriteChange?: () => void;
+	onRemoveSuccess?: () => void;
+	onFavoriteSuccess?: () => void;
+	showRemoveButton?: boolean;
 }
 
 const Card = ({
@@ -41,6 +45,9 @@ const Card = ({
 	onReject,
 	onDelete,
 	onFavoriteChange,
+	onRemoveSuccess,
+	onFavoriteSuccess,
+	showRemoveButton = false,
 }: RaceCardProps) => {
 	const [favorited, setFavorited] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
@@ -97,7 +104,9 @@ const Card = ({
 
 				if (res.ok) {
 					setFavorited(false);
-					setShowRemoveSuccess(true);
+					if (onFavoriteSuccess) {
+						onFavoriteSuccess();
+					}
 					if (onFavoriteChange) {
 						onFavoriteChange();
 					}
@@ -112,6 +121,9 @@ const Card = ({
 				if (res.ok) {
 					setFavorited(true);
 					setShowSuccess(true);
+					if (onFavoriteSuccess) {
+						onFavoriteSuccess();
+					}
 				}
 			}
 		} catch (error) {
@@ -132,6 +144,7 @@ const Card = ({
 	const terrainIcon = terrainIcons[terrain.toLowerCase()];
 
 	const isAdminMode = !!(onApprove && onReject && id) || !!(onDelete && id);
+	const isBucketlistMode = showRemoveButton && !isAdminMode;
 
 	const handleApprove = () => {
 		if (onApprove && id) onApprove(id);
@@ -143,6 +156,31 @@ const Card = ({
 
 	const handleDelete = () => {
 		if (onDelete && id) onDelete(id);
+	};
+
+	const handleRemoveFromBucketlist = async () => {
+		setIsLoading(true);
+		try {
+			const res = await fetch("/api/bucketlist", {
+				method: "DELETE",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ raceId: id }),
+			});
+
+			if (res.ok) {
+				setFavorited(false);
+				if (onRemoveSuccess) {
+					onRemoveSuccess();
+				}
+				if (onFavoriteChange) {
+					onFavoriteChange();
+				}
+			}
+		} catch (error) {
+			console.error("Error removing from bucketlist:", error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	const cardContent = (
@@ -217,7 +255,7 @@ const Card = ({
 					<p className="text-base font-sans line-clamp-3 h-20">{description}</p>
 				</div>
 
-				<div className={`flex flex-wrap gap-4 mt-auto ${isAdminMode ? 'border-b pb-8 border-secondaryaccent/40' : ''}`}>
+				<div className={`flex flex-wrap gap-4 mt-auto ${(isAdminMode || isBucketlistMode) ? 'border-b pb-8 border-secondaryaccent/40' : ''}`}>
 					<span
 						className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base"
 						aria-label="Terrain type"
@@ -235,6 +273,14 @@ const Card = ({
 						{difficulty}
 					</span>
 				</div>
+
+				{isBucketlistMode && (
+					<div className="flex flex-col gap-3 mt-8">
+						<div className="flex gap-3">
+							<SecondaryButton text={bu("remove_from_list")} icon="delete" size="medium" onClick={handleRemoveFromBucketlist} />
+						</div>
+					</div>
+				)}
 
 				{isAdminMode && (
 					<div className="flex flex-col gap-3 mt-8">
@@ -264,15 +310,23 @@ const Card = ({
 		</>
 	);
 
-	if (isAdminMode) {
+	if (isAdminMode || isBucketlistMode) {
 		return (
-
-			<article
-				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg flex flex-col h-full"
-				aria-labelledby="race-title"
-			>
-				{cardContent}
-			</article>
+			<>
+				{showError && (
+					<ErrorToaster
+						headerMessage={a("toaster.auth_required")}
+						text={a("toaster.auth_subtext")}
+						onClose={() => setShowError(false)}
+					/>
+				)}
+				<article
+					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg flex flex-col h-full"
+					aria-labelledby="race-title"
+				>
+					{cardContent}
+				</article>
+			</>
 		);
 	}
 
