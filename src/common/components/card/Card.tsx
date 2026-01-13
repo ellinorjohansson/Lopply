@@ -7,6 +7,7 @@ import ApproveButton from "../buttons/ApproveButton";
 import RejectButton from "../buttons/RejectButton";
 import DeleteButton from "../buttons/DeleteButton";
 import ErrorToaster from "../toasters/ErrorToaster";
+import SuccedToaster from "../toasters/SuccedToaster";
 
 export interface RaceCardProps {
 	image: string;
@@ -44,10 +45,12 @@ const Card = ({
 	const [favorited, setFavorited] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showError, setShowError] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
 	const { data: session } = useSession();
 	const r = useTranslation("races");
 	const b = useTranslation("buttons");
 	const a = useTranslation("authentication");
+	const bu = useTranslation("bucketlist");
 
 	useEffect(() => {
 		const checkIfFavorited = async () => {
@@ -106,6 +109,7 @@ const Card = ({
 
 				if (res.ok) {
 					setFavorited(true);
+					setShowSuccess(true);
 				}
 			}
 		} catch (error) {
@@ -277,6 +281,13 @@ const Card = ({
 					headerMessage={a("toaster.auth_required")}
 					text={a("toaster.auth_subtext")}
 					onClose={() => setShowError(false)}
+				/>
+			)}
+			{showSuccess && (
+				<SuccedToaster
+					headerMessage={bu("added_to_bucketlist")}
+					text={bu("added_subtext")}
+					onClose={() => setShowSuccess(false)}
 				/>
 			)}
 			<Link

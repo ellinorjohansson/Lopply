@@ -218,6 +218,8 @@
     "bucketlist_subtext": "Races you've saved for future adventures",
     "no_races_saved": "No races saved yet",
     "no_races_subtext": "Start exploring and add races to your bucket list!",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "added_to_bucketlist": "Added to Bucketlist",
+    "added_subtext": "This race has been saved to your bucketlist"
   }
 }
