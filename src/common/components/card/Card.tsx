@@ -28,6 +28,7 @@ export interface RaceCardProps {
 	onRemoveSuccess?: () => void;
 	onFavoriteSuccess?: () => void;
 	showRemoveButton?: boolean;
+	isFavorited?: boolean;
 }
 
 const Card = ({
@@ -48,8 +49,9 @@ const Card = ({
 	onRemoveSuccess,
 	onFavoriteSuccess,
 	showRemoveButton = false,
+	isFavorited = false,
 }: RaceCardProps) => {
-	const [favorited, setFavorited] = useState(false);
+	const [favorited, setFavorited] = useState(isFavorited);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showError, setShowError] = useState(false);
 	const [showSuccess, setShowSuccess] = useState(false);
@@ -61,28 +63,8 @@ const Card = ({
 	const bu = useTranslation("bucketlist");
 
 	useEffect(() => {
-		const checkIfFavorited = async () => {
-			if (!session || !id) return;
-
-			try {
-				const res = await fetch("/api/bucketlist", {
-					method: "GET",
-					headers: { "Content-Type": "application/json" },
-				});
-
-				if (res.ok) {
-					const data = await res.json();
-					const races = data.data || [];
-					const isFavorited = races.some((race: { _id: string }) => race._id === id);
-					setFavorited(isFavorited);
-				}
-			} catch (error) {
-				console.error("Error checking if favorited:", error);
-			}
-		};
-
-		checkIfFavorited();
-	}, [session, id]);
+		setFavorited(isFavorited);
+	}, [isFavorited]);
 
 	const toggleFavorite = async (e: React.MouseEvent) => {
 		e.preventDefault();

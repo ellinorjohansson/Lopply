@@ -31,9 +31,8 @@ const Bucketlist = () => {
     fetchBucketlist();
   }, []);
 
-  const handleFavoriteChange = async () => {
-    const bucketlistRaces = await getBucketlistRaces();
-    setRaces(bucketlistRaces);
+  const handleFavoriteChange = async (raceId: string) => {
+    setRaces((prevRaces) => prevRaces.filter((race) => race._id !== raceId));
   };
 
   const sortedRaces = [...races].sort((a, b) => {
@@ -125,10 +124,11 @@ const Bucketlist = () => {
                   difficulty={race.difficulty}
                   description={race.description || ""}
                   raceUrl={race.raceUrl}
-                  onFavoriteChange={handleFavoriteChange}
+                  onFavoriteChange={() => handleFavoriteChange(race._id as string)}
                   onRemoveSuccess={() => setShowRemoveSuccess(true)}
                   onFavoriteSuccess={() => setShowFavoriteSuccess(true)}
                   showRemoveButton={true}
+                  isFavorited={true}
                 />
               ))}
             </div>
