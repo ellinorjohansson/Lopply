@@ -62,6 +62,7 @@ export default function ShowRaces({
       }
 
       const mappedRaces: RaceCardProps[] = futureRaces.map((race) => ({
+        id: race._id,
         image: race.imageUrl,
         title: race.name,
         location: race.location,

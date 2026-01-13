@@ -1,10 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import ApproveButton from "../buttons/ApproveButton";
 import RejectButton from "../buttons/RejectButton";
 import DeleteButton from "../buttons/DeleteButton";
+import ErrorToaster from "../toasters/ErrorToaster";
 
 export interface RaceCardProps {
 	image: string;
@@ -20,6 +22,7 @@ export interface RaceCardProps {
 	onApprove?: (_id: string) => void;
 	onReject?: (_id: string) => void;
 	onDelete?: (_id: string) => void;
+	onFavoriteChange?: () => void;
 }
 
 const Card = ({
@@ -36,15 +39,80 @@ const Card = ({
 	onApprove,
 	onReject,
 	onDelete,
+	onFavoriteChange,
 }: RaceCardProps) => {
 	const [favorited, setFavorited] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const [showError, setShowError] = useState(false);
+	const { data: session } = useSession();
 	const r = useTranslation("races");
 	const b = useTranslation("buttons");
+	const a = useTranslation("authentication");
 
-	const toggleFavorite = (e: React.MouseEvent) => {
+	useEffect(() => {
+		const checkIfFavorited = async () => {
+			if (!session || !id) return;
+
+			try {
+				const res = await fetch("/api/bucketlist", {
+					method: "GET",
+					headers: { "Content-Type": "application/json" },
+				});
+
+				if (res.ok) {
+					const data = await res.json();
+					const races = data.data || [];
+					const isFavorited = races.some((race: { _id: string }) => race._id === id);
+					setFavorited(isFavorited);
+				}
+			} catch (error) {
+				console.error("Error checking if favorited:", error);
+			}
+		};
+
+		checkIfFavorited();
+	}, [session, id]);
+
+	const toggleFavorite = async (e: React.MouseEvent) => {
 		e.preventDefault();
 		e.stopPropagation();
-		setFavorited((prev) => !prev);
+
+		if (!session) {
+			setShowError(true);
+			return;
+		}
+
+		setIsLoading(true);
+		try {
+			if (favorited) {
+				const res = await fetch("/api/bucketlist", {
+					method: "DELETE",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ raceId: id }),
+				});
+
+				if (res.ok) {
+					setFavorited(false);
+					if (onFavoriteChange) {
+						onFavoriteChange();
+					}
+				}
+			} else {
+				const res = await fetch("/api/bucketlist", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ raceId: id }),
+				});
+
+				if (res.ok) {
+					setFavorited(true);
+				}
+			}
+		} catch (error) {
+			console.error("Error toggling favorite:", error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	const terrainIcons: { [key: string]: string } = {
@@ -95,7 +163,8 @@ const Card = ({
 				{!isAdminMode && (
 					<button
 						onClick={toggleFavorite}
-						className="absolute top-4 right-4 bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer"
+						disabled={isLoading}
+						className="absolute top-4 right-4 bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer disabled:opacity-50"
 						aria-pressed={favorited}
 						aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
 					>
@@ -202,19 +271,28 @@ const Card = ({
 	}
 
 	return (
-		<Link
-			href={raceUrl}
-			target="_blank"
-			rel="noopener noreferrer"
-			className="block"
-		>
-			<article
-				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer hover:scale-103 transition flex flex-col h-full"
-				aria-labelledby="race-title"
+		<>
+			{showError && (
+				<ErrorToaster
+					headerMessage={a("toaster.auth_required")}
+					text={a("toaster.auth_subtext")}
+					onClose={() => setShowError(false)}
+				/>
+			)}
+			<Link
+				href={raceUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="block"
 			>
-				{cardContent}
-			</article>
-		</Link>
+				<article
+					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer hover:scale-103 transition flex flex-col h-full"
+					aria-labelledby="race-title"
+				>
+					{cardContent}
+				</article>
+			</Link>
+		</>
 	);
 };
 
