@@ -46,6 +46,7 @@ const Card = ({
 	const [isLoading, setIsLoading] = useState(false);
 	const [showError, setShowError] = useState(false);
 	const [showSuccess, setShowSuccess] = useState(false);
+	const [showRemoveSuccess, setShowRemoveSuccess] = useState(false);
 	const { data: session } = useSession();
 	const r = useTranslation("races");
 	const b = useTranslation("buttons");
@@ -96,6 +97,7 @@ const Card = ({
 
 				if (res.ok) {
 					setFavorited(false);
+					setShowRemoveSuccess(true);
 					if (onFavoriteChange) {
 						onFavoriteChange();
 					}
@@ -288,6 +290,13 @@ const Card = ({
 					headerMessage={bu("added_to_bucketlist")}
 					text={bu("added_subtext")}
 					onClose={() => setShowSuccess(false)}
+				/>
+			)}
+			{showRemoveSuccess && (
+				<SuccedToaster
+					headerMessage={bu("removed_from_bucketlist")}
+					text={bu("removed_subtext")}
+					onClose={() => setShowRemoveSuccess(false)}
 				/>
 			)}
 			<Link

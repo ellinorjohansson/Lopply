@@ -220,6 +220,8 @@
     "no_races_subtext": "Start exploring and add races to your bucket list!",
     "loading": "Loading...",
     "added_to_bucketlist": "Added to Bucketlist",
-    "added_subtext": "This race has been saved to your bucketlist"
+    "added_subtext": "This race has been saved to your bucketlist",
+    "removed_from_bucketlist": "Removed from Bucketlist",
+    "removed_subtext": "This race has been removed from your bucketlist"
   }
 }
