@@ -71,7 +71,7 @@ const Bucketlist = () => {
           </div>
 
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0 place-items-center lg:place-items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
             {races.map((race) => (
               <Card
                 key={race._id}
