@@ -52,6 +52,7 @@ export default function FeaturedRaces() {
       {races.map((race) => (
         <Card
           key={race._id}
+          id={race._id}
           image={race.imageUrl}
           title={race.name}
           location={race.location}
