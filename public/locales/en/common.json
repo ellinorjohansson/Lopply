@@ -51,7 +51,10 @@
     "loading": "Loading races...",
     "no_races": "No races found matching your filters.",
     "load_more": "Load more",
-    "no_races_found": "No featured races available."
+    "no_races_found": "No featured races available.",
+    "sort_by": "Sort by",
+    "upcoming_first": "Upcoming races first",
+    "farthest_first": "Farthest races first"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
@@ -94,7 +97,9 @@
     "logging_in": "Logging in...",
     "toaster": {
       "logged_out": "Logged out",
-      "logged_out_text": "You have successfully logged out."
+      "logged_out_text": "You have successfully logged out.",
+      "auth_required": "Authentication required",
+      "auth_subtext": "Please sign in to add races to your bucketlist"
     }
   },
   "home_page": {
@@ -109,7 +114,7 @@
       "explore_visually": "Explore Visually",
       "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
       "match_by_preferences": "Match By Preferences",
-      "find_races_based": "Find races based on terrain, distance, and timing",
+      "find_races_based": "Find races based on terrain, distance, and location",
       "build_your_bucket_list": "Build Your Bucket List",
       "save_your_dream": "Save your dream races and create your personal running adventure roadmap",
       "match_your_training": "Match Your Training",
@@ -210,5 +215,17 @@
     "error": "Error",
     "update_error": "Failed to update user role",
     "delete_error": "Failed to delete user"
+  },
+  "bucketlist": {
+    "my_bucketlist": "My bucket list",
+    "bucketlist_subtext": "Races you've saved for future adventures",
+    "no_races_saved": "No races saved yet",
+    "no_races_subtext": "Start exploring and add races to your bucket list!",
+    "loading": "Loading...",
+    "added_to_bucketlist": "Added to Bucketlist",
+    "added_subtext": "This race has been saved to your bucketlist",
+    "removed_from_bucketlist": "Removed from Bucketlist",
+    "removed_subtext": "This race has been removed from your bucketlist",
+    "remove_from_list": "Remove from list"
   }
 }

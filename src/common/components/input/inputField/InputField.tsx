@@ -26,10 +26,11 @@ const InputField = ({
 	const inputId = id || `input-${label.toLowerCase().replace(/\s+/g, "-")}`;
 
 	const sizeClasses = {
-		small: "px-4 md:p-1 text-sm sm:text-base w-full md:max-w-[280px]",
-		medium: "px-4 md:p-1 text-sm sm:text-base w-full md:max-w-[630px]",
-		large: "px-4 md:p-1 text-sm sm:text-base w-full md:max-w-[920px]",
+		small: "px-4 py-2 text-sm sm:text-base w-full md:max-w-[280px]",
+		medium: "px-4 py-2 text-sm sm:text-base w-full md:max-w-[630px]",
+		large: "px-4 py-2 text-sm sm:text-base w-full md:max-w-[920px]",
 	}[size];
+
 
 	return (
 		<div className="flex flex-col">

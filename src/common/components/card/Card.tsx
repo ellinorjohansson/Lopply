@@ -1,10 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import ApproveButton from "../buttons/ApproveButton";
 import RejectButton from "../buttons/RejectButton";
 import DeleteButton from "../buttons/DeleteButton";
+import SecondaryButton from "../buttons/SecondaryButton";
+import ErrorToaster from "../toasters/ErrorToaster";
+import SuccedToaster from "../toasters/SuccedToaster";
 
 export interface RaceCardProps {
 	image: string;
@@ -20,6 +24,11 @@ export interface RaceCardProps {
 	onApprove?: (_id: string) => void;
 	onReject?: (_id: string) => void;
 	onDelete?: (_id: string) => void;
+	onFavoriteChange?: () => void;
+	onRemoveSuccess?: () => void;
+	onFavoriteSuccess?: () => void;
+	showRemoveButton?: boolean;
+	isFavorited?: boolean;
 }
 
 const Card = ({
@@ -36,15 +45,74 @@ const Card = ({
 	onApprove,
 	onReject,
 	onDelete,
+	onFavoriteChange,
+	onRemoveSuccess,
+	onFavoriteSuccess,
+	showRemoveButton = false,
+	isFavorited = false,
 }: RaceCardProps) => {
-	const [favorited, setFavorited] = useState(false);
+	const [favorited, setFavorited] = useState(isFavorited);
+	const [isLoading, setIsLoading] = useState(false);
+	const [showError, setShowError] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
+	const [showRemoveSuccess, setShowRemoveSuccess] = useState(false);
+	const { data: session } = useSession();
 	const r = useTranslation("races");
 	const b = useTranslation("buttons");
+	const a = useTranslation("authentication");
+	const bu = useTranslation("bucketlist");
 
-	const toggleFavorite = (e: React.MouseEvent) => {
+	useEffect(() => {
+		setFavorited(isFavorited);
+	}, [isFavorited]);
+
+	const toggleFavorite = async (e: React.MouseEvent) => {
 		e.preventDefault();
 		e.stopPropagation();
-		setFavorited((prev) => !prev);
+
+		if (!session) {
+			setShowError(true);
+			return;
+		}
+
+		setIsLoading(true);
+		try {
+			if (favorited) {
+				const res = await fetch("/api/bucketlist", {
+					method: "DELETE",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ raceId: id }),
+				});
+
+				if (res.ok) {
+					setFavorited(false);
+					if (onFavoriteSuccess) {
+						onFavoriteSuccess();
+					}
+					if (onFavoriteChange) {
+						onFavoriteChange();
+					}
+				}
+			} else {
+				const res = await fetch("/api/bucketlist", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ raceId: id }),
+				});
+
+				if (res.ok) {
+					setFavorited(true);
+					setShowSuccess(true);
+					if (onFavoriteSuccess) {
+						onFavoriteSuccess();
+					}
+				}
+			}
+		} catch (error) {
+			console.error("Error toggling favorite:", error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	const terrainIcons: { [key: string]: string } = {
@@ -58,6 +126,7 @@ const Card = ({
 	const terrainIcon = terrainIcons[terrain.toLowerCase()];
 
 	const isAdminMode = !!(onApprove && onReject && id) || !!(onDelete && id);
+	const isBucketlistMode = showRemoveButton && !isAdminMode;
 
 	const handleApprove = () => {
 		if (onApprove && id) onApprove(id);
@@ -69,6 +138,31 @@ const Card = ({
 
 	const handleDelete = () => {
 		if (onDelete && id) onDelete(id);
+	};
+
+	const handleRemoveFromBucketlist = async () => {
+		setIsLoading(true);
+		try {
+			const res = await fetch("/api/bucketlist", {
+				method: "DELETE",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ raceId: id }),
+			});
+
+			if (res.ok) {
+				setFavorited(false);
+				if (onRemoveSuccess) {
+					onRemoveSuccess();
+				}
+				if (onFavoriteChange) {
+					onFavoriteChange();
+				}
+			}
+		} catch (error) {
+			console.error("Error removing from bucketlist:", error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	const cardContent = (
@@ -95,7 +189,8 @@ const Card = ({
 				{!isAdminMode && (
 					<button
 						onClick={toggleFavorite}
-						className="absolute top-4 right-4 bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer"
+						disabled={isLoading}
+						className="absolute top-4 right-4 bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer disabled:opacity-50"
 						aria-pressed={favorited}
 						aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
 					>
@@ -142,7 +237,7 @@ const Card = ({
 					<p className="text-base font-sans line-clamp-3 h-20">{description}</p>
 				</div>
 
-				<div className={`flex flex-wrap gap-4 mt-auto ${isAdminMode ? 'border-b pb-8 border-secondaryaccent/40' : ''}`}>
+				<div className={`flex flex-wrap gap-4 mt-auto ${(isAdminMode || isBucketlistMode) ? 'border-b pb-8 border-secondaryaccent/40' : ''}`}>
 					<span
 						className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base"
 						aria-label="Terrain type"
@@ -160,6 +255,14 @@ const Card = ({
 						{difficulty}
 					</span>
 				</div>
+
+				{isBucketlistMode && (
+					<div className="flex flex-col gap-3 mt-8">
+						<div className="flex gap-3">
+							<SecondaryButton text={bu("remove_from_list")} icon="delete" size="medium" onClick={handleRemoveFromBucketlist} />
+						</div>
+					</div>
+				)}
 
 				{isAdminMode && (
 					<div className="flex flex-col gap-3 mt-8">
@@ -189,32 +292,63 @@ const Card = ({
 		</>
 	);
 
-	if (isAdminMode) {
+	if (isAdminMode || isBucketlistMode) {
 		return (
-
-			<article
-				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg flex flex-col h-full"
-				aria-labelledby="race-title"
-			>
-				{cardContent}
-			</article>
+			<>
+				{showError && (
+					<ErrorToaster
+						headerMessage={a("toaster.auth_required")}
+						text={a("toaster.auth_subtext")}
+						onClose={() => setShowError(false)}
+					/>
+				)}
+				<article
+					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg flex flex-col h-full"
+					aria-labelledby="race-title"
+				>
+					{cardContent}
+				</article>
+			</>
 		);
 	}
 
 	return (
-		<Link
-			href={raceUrl}
-			target="_blank"
-			rel="noopener noreferrer"
-			className="block"
-		>
-			<article
-				className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer hover:scale-103 transition flex flex-col h-full"
-				aria-labelledby="race-title"
+		<>
+			{showError && (
+				<ErrorToaster
+					headerMessage={a("toaster.auth_required")}
+					text={a("toaster.auth_subtext")}
+					onClose={() => setShowError(false)}
+				/>
+			)}
+			{showSuccess && (
+				<SuccedToaster
+					headerMessage={bu("added_to_bucketlist")}
+					text={bu("added_subtext")}
+					onClose={() => setShowSuccess(false)}
+				/>
+			)}
+			{showRemoveSuccess && (
+				<SuccedToaster
+					headerMessage={bu("removed_from_bucketlist")}
+					text={bu("removed_subtext")}
+					onClose={() => setShowRemoveSuccess(false)}
+				/>
+			)}
+			<Link
+				href={raceUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="block"
 			>
-				{cardContent}
-			</article>
-		</Link>
+				<article
+					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer hover:scale-103 transition flex flex-col h-full"
+					aria-labelledby="race-title"
+				>
+					{cardContent}
+				</article>
+			</Link>
+		</>
 	);
 };
 

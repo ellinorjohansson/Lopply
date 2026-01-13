@@ -12,15 +12,15 @@ const SecondaryButton = ({ text, icon, size = "medium", onClick, type }: Seconda
 
 	const sizeClasses = {
 		small: "py-2 px-4 text-sm",
-		medium: "py-2 px-23 text-base",
-		large: "py-1 px-23 sm:px-40 md:px-50 text-base"
+		medium: "py-2 px-14 text-base",
+		large: "py-2 px-20 text-base"
 	}[size];
 
 	return (
 		<button
 			onClick={onClick}
 			type={type || "button"}
-			className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-primary border border-secondaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition`}
+			className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-primary border border-secondaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition whitespace-nowrap`}
 		>
 			<span className="material-symbols-outlined mr-2">
 				{icon}

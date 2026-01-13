@@ -22,8 +22,8 @@ const ConfirmModal = ({ open, title, message, onConfirm, onCancel }: ConfirmModa
         <p className="text-secondaryaccent">{message}</p>
 
         <div className="flex justify-end gap-3 mt-4">
-          <SecondaryButton text={c("cancel")} size="medium" onClick={onCancel} />
           <PrimaryButton text={c("confirm")} size="medium" onClick={onConfirm} />
+          <SecondaryButton text={c("cancel")} size="large" onClick={onCancel} />
         </div>
       </div>
     </div>
