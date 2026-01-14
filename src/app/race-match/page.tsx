@@ -11,7 +11,7 @@ const RaceMatch = () => {
   return (
     <main>
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <div className="bg-primaryaccent/20 text-primaryaccent mx-auto w-70 rounded-3xl px-6 py-2 flex justify-center mt-18 md:mt-25">
+        <div className="bg-primaryaccent/20 text-primaryaccent mx-auto w-70 rounded-3xl px-6 py-2 flex justify-center mt-5 md:mt-12">
           <span className="flex items-center gap-2"><span className="material-symbols-outlined">
             star_shine
           </span>{r("math_powered")}</span>
@@ -21,7 +21,7 @@ const RaceMatch = () => {
             {r("find_your_favorite")}
           </h2>
 
-          <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-1xl md:text-2xl">
+          <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-1xl md:text-2xl w-full md:w-190">
             {r("find_your_subtext")}
           </p>
         </div>
