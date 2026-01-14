@@ -12,22 +12,27 @@ const RaceMatch = () => {
   const router = useRouter();
 
   const [selectedTerrains, setSelectedTerrains] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("raceMatchPreferences");
     return saved ? JSON.parse(saved).terrains || [] : [];
   });
   const [selectedDistances, setSelectedDistances] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("raceMatchPreferences");
     return saved ? JSON.parse(saved).distances || [] : [];
   });
   const [selectedLocations, setSelectedLocations] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("raceMatchPreferences");
     return saved ? JSON.parse(saved).locations || [] : [];
   });
   const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("raceMatchPreferences");
     return saved ? JSON.parse(saved).difficulties || [] : [];
   });
   const [selectedMonths, setSelectedMonths] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("raceMatchPreferences");
     return saved ? JSON.parse(saved).months || [] : [];
   });
