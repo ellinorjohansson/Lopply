@@ -94,7 +94,10 @@ const Results = () => {
         });
 
         const sorted = racesWithMatch.sort((a: { matchPercentage: number; }, b: { matchPercentage: number; }) => b.matchPercentage - a.matchPercentage);
-        setMatchedRaces(sorted);
+
+        const filteredRaces = sorted.filter((race: { matchPercentage: number; }) => race.matchPercentage > 0);
+
+        setMatchedRaces(filteredRaces);
       } catch (error) {
         console.error("Error fetching races:", error);
       } finally {
