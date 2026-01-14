@@ -39,7 +39,8 @@
     "add_race": "Add race",
     "approve": "Approve",
     "reject": "Reject",
-    "delete": "Delete"
+    "delete": "Delete",
+    "find_my_perfect_races": "Find my perfect races"
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
@@ -231,6 +232,12 @@
   "race_match": {
     "find_your_favorite": "Find your perfect race",
     "find_your_subtext": "Answer a few questions about your preferences and we'll match you with races that fit your style",
-    "math_powered": "Match-powered matching"
+    "math_powered": "Match-powered matching",
+    "your_race_preferences": "Your race preferences",
+    "select_all_that": "Select all that apply to get the best matches",
+    "preffered_terrain": "Preffered terrain",
+    "preffered_distance": "Preffered distance",
+    "preffered_location": "Preffered location",
+    "preffered_months": "Preffered months"
   }
 }
