@@ -2,6 +2,7 @@ import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import SecondaryButton from "@/common/components/buttons/SecondaryButton";
 import Checkbox from "@/common/components/input/checkbox/Checkbox";
 import { useTranslation } from "@/common/hooks/useTranslation";
+import Link from "next/link";
 
 const RaceMatch = () => {
   const r = useTranslation("race_match");
@@ -82,7 +83,9 @@ const RaceMatch = () => {
         </fieldset>
 
         <div className="flex justify-center mt-15">
-          <PrimaryButton size="large" text={b("find_my_perfect_races")} icon="star_shine" />
+          <Link href="/race-match/results" scroll={true}>
+            <PrimaryButton size="large" text={b("find_my_perfect_races")} icon="star_shine" />
+          </Link>
         </div>
       </form>
     </main>
