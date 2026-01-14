@@ -20,11 +20,13 @@ const SecondaryButton = ({ text, icon, size = "medium", onClick, type }: Seconda
 		<button
 			onClick={onClick}
 			type={type || "button"}
-			className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-primary border border-secondaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition whitespace-nowrap`}
+			className={`${sizeClasses} font-sans flex items-center ${icon ? '' : 'justify-center'} cursor-pointer bg-primary border border-secondaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition whitespace-nowrap`}
 		>
-			<span className="material-symbols-outlined mr-2">
-				{icon}
-			</span>
+			{icon && (
+				<span className="material-symbols-outlined mr-2">
+					{icon}
+				</span>
+			)}
 			{text}
 		</button>
 	);
