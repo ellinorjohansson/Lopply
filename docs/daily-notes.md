@@ -86,3 +86,11 @@
 
 - I started of todays session by doing some fixes mostly small devices style issues that i discouved by looking at the page on my phone. I also fixed so when a user goes to another page it starts from the top and not from the button like it did before (if the "go to another page" button was in the middle or buttom of the page then the page the user goes to starts at the buttom.) I fixed that issue by adding a component and then added it to layout.
 - I also fixed the explore race page by adding title, filter and so the page only load 12 races at each time so it has an end.
+
+**2026-01-13**
+
+- Today i worked with the implementation of bucketlist so the user that are signed in can add a race to their bucketlist by checking the heart icon and delete it from bucketlist by unchecking it or use the remove button. Also added error or succeed toaster if someone wants to add a race to bucket list but isn't signed in there will be a error toaster but if someone is signed in there will be a succeedtoaster. Also if someone remove a race from bucketlist there will be a succeed toaster.
+
+**2026-01-14**
+
+- Mission of today was to implement the race match page where user can fill out a form and based on what the user choose the page will calculate and then show matched races based on % match. It went well, was hard to do the calculation but i it worked out. I choose to only have the options that i have to start with and if i have time over maybe i will add more options to choose.
