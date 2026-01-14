@@ -43,7 +43,7 @@
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
-    "explore_subtext": "Flat or hilly. Short or long. Easy-ish or “why did I sign up?”.",
+    "explore_subtext": "Flat or hilly. Short or long. Easy-ish or “why did I sign up?”",
     "no_image": "The image ran off before we could catch it",
     "terrain_type": "Terrain type",
     "distance": "Distance",
@@ -227,5 +227,10 @@
     "removed_from_bucketlist": "Removed from Bucketlist",
     "removed_subtext": "This race has been removed from your bucketlist",
     "remove_from_list": "Remove from list"
+  },
+  "race_match": {
+    "find_your_favorite": "Find your perfect race",
+    "find_your_subtext": "Answer a few questions about your preferences and we'll match you with races that fit your style",
+    "math_powered": "Match-powered matching"
   }
 }
