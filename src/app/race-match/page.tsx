@@ -65,6 +65,15 @@ const RaceMatch = () => {
         </fieldset>
 
         <fieldset className="mb-8">
+          <legend className="text-secondaryaccent font-semibold mb-4">{r("preffered_difficulty")}</legend>
+          <div className="flex flex-wrap gap-3">
+            <SecondaryButton size="small" text={r("difficulty.easy")} />
+            <SecondaryButton size="small" text={r("difficulty.medium")} />
+            <SecondaryButton size="small" text={r("difficulty.hard")} />
+          </div>
+        </fieldset>
+
+        <fieldset className="mb-8">
           <legend className="text-secondaryaccent font-semibold mb-4">{r("preffered_months")}</legend>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             <SecondaryButton size="small" text={r("months.jan")} />

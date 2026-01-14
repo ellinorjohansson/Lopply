@@ -261,6 +261,12 @@
       "south_america": "South America",
       "oceania": "Oceania"
     },
+    "preffered_difficulty": "Preffered difficulty",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
     "months": {
       "jan": "Jan",
       "feb": "Feb",
