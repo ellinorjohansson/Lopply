@@ -5,6 +5,7 @@ type CheckboxProps = {
   label: string;
   icon?: string;
   defaultChecked?: boolean;
+  checked?: boolean;
   name?: string;
   value?: string;
   onChange?: (_checked: boolean) => void;
@@ -14,15 +15,20 @@ const Checkbox = ({
   label,
   icon,
   defaultChecked = false,
+  checked: controlledChecked,
   name,
   value,
   onChange,
 }: CheckboxProps) => {
-  const [checked, setChecked] = useState<boolean>(defaultChecked);
+  const [internalChecked, setInternalChecked] = useState<boolean>(defaultChecked);
+
+  const checked = controlledChecked !== undefined ? controlledChecked : internalChecked;
 
   const handleChange = () => {
     const newChecked = !checked;
-    setChecked(newChecked);
+    if (controlledChecked === undefined) {
+      setInternalChecked(newChecked);
+    }
     onChange?.(newChecked);
   };
 
