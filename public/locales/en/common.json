@@ -7,12 +7,12 @@
   },
   "menu": {
     "home": "Home",
-    "race_match": "Race Match",
-    "add_race": "Add Race",
-    "explore_races": "Explore Races",
-    "bucket_list": "Bucket List",
+    "race_match": "Race match",
+    "add_race": "Add race",
+    "explore_races": "Explore races",
+    "bucket_list": "Bucket list",
     "login_sign_up": "Login / Sign up",
-    "admin_panel": "Admin Panel",
+    "admin_panel": "Admin panel",
     "label": {
       "discover": "Discover",
       "my_journey": "My Journey",
@@ -33,7 +33,7 @@
     "hero_alt": "Scenic mountain landscape in orange, beige and yellow, ending in a lake, with a sunset painting the sky in shades of blue."
   },
   "buttons": {
-    "explore_races": "Explore Races",
+    "explore_races": "Explore races",
     "how_it_works": "How it works",
     "cancel": "Cancel",
     "add_race": "Add race",
@@ -104,15 +104,15 @@
     }
   },
   "home_page": {
-    "discover_your_next": "Discover Your Next",
-    "running_adventure": "Running Adventure",
+    "discover_your_next": "Discover your next",
+    "running_adventure": "Running adventure",
     "explore_races_by_terrain_text": "Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.",
-    "featured_races": "Featured Races",
+    "featured_races": "Featured races",
     "handpicked_adventures_across": "Handpicked adventures across stunning terrains worldwide",
-    "how_lopply_works": "How Lopply Works",
+    "how_lopply_works": "How Lopply works",
     "a_new_way_to_discover": "A new way to discover and plan your running adventures",
     "how_lopply_works_section": {
-      "explore_visually": "Explore Visually",
+      "explore_visually": "Explore visually",
       "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
       "match_by_preferences": "Match By Preferences",
       "find_races_based": "Find races based on terrain, distance, and location",
@@ -247,8 +247,8 @@
       "forest": "Forest"
     },
     "distance": {
-      "5k": "5K",
-      "10k": "10K",
+      "5k": "5 km",
+      "10k": "10 km",
       "half_marathon": "Half Marathon",
       "marathon": "Marathon",
       "ultra": "Ultra"
@@ -283,10 +283,10 @@
     }
   },
   "results": {
-    "your_race_matches": "Your Race Matches",
+    "your_race_matches": "Your race matches",
     "personalized_matches": "Your personalized matches",
     "matches_subtitle": "Based on your preferences, we have matched you with races that fit your style",
-    "update_preferences": "Update Preferences",
+    "update_preferences": "Update preferences",
     "match_percentage": "Match"
   }
 }
