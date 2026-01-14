@@ -44,6 +44,16 @@ const RaceMatch = () => {
     }
   };
 
+  const allMonths = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+  const toggleAllMonths = () => {
+    if (selectedMonths.length === allMonths.length) {
+      setSelectedMonths([]);
+    } else {
+      setSelectedMonths(allMonths);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -125,7 +135,16 @@ const RaceMatch = () => {
         </fieldset>
 
         <fieldset className="mb-8">
-          <legend className="text-secondaryaccent font-semibold mb-4">{r("preffered_months")}</legend>
+          <div className="flex justify-between items-center mb-4">
+            <legend className="text-secondaryaccent font-semibold">{r("preffered_months")}</legend>
+            <button
+              type="button"
+              onClick={toggleAllMonths}
+              className="text-sm text-primaryaccent hover:underline font-medium"
+            >
+              {selectedMonths.length === allMonths.length ? "Deselect all" : "Select all"}
+            </button>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             <SecondaryButton size="small" text={r("months.jan")} onClick={() => toggleSelection("jan", selectedMonths, setSelectedMonths)} isActive={selectedMonths.includes("jan")} />
             <SecondaryButton size="small" text={r("months.feb")} onClick={() => toggleSelection("feb", selectedMonths, setSelectedMonths)} isActive={selectedMonths.includes("feb")} />
