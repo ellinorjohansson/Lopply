@@ -71,8 +71,33 @@ const Results = () => {
             if (isMatched) matchedCategories++;
           }
 
-          if (locations.length > 0 && locations.some((loc: string) => race.location.toLowerCase().includes(loc.toLowerCase()))) {
-            matchedCategories++;
+          if (locations.length > 0) {
+            const locationString = race.location.toLowerCase();
+            const isMatched = locations.some((loc: string) => {
+              const region = loc.toLowerCase();
+
+              if (region === "europe") {
+                return ["france", "germany", "italy", "spain", "uk", "united kingdom", "sweden", "norway", "denmark", "finland", "netherlands", "belgium", "austria", "switzerland", "portugal", "greece", "poland", "czech", "ireland", "iceland"].some(country => locationString.includes(country));
+              }
+              if (region === "africa") {
+                return ["kenya", "tanzania", "south africa", "morocco", "egypt", "ethiopia", "uganda", "namibia", "botswana", "zimbabwe"].some(country => locationString.includes(country));
+              }
+              if (region === "usa") {
+                return locationString.includes("usa") || locationString.includes("united states") || locationString.includes("america");
+              }
+              if (region === "asia") {
+                return ["japan", "china", "thailand", "singapore", "malaysia", "indonesia", "vietnam", "korea", "philippines", "taiwan", "india", "nepal", "bhutan"].some(country => locationString.includes(country));
+              }
+              if (region === "south_america") {
+                return ["brazil", "argentina", "chile", "peru", "colombia", "ecuador", "bolivia", "uruguay", "paraguay", "venezuela"].some(country => locationString.includes(country));
+              }
+              if (region === "oceania") {
+                return ["australia", "new zealand", "fiji", "papua new guinea", "samoa", "tahiti"].some(country => locationString.includes(country));
+              }
+
+              return locationString.includes(region);
+            });
+            if (isMatched) matchedCategories++;
           }
 
           if (difficulties.length > 0 && difficulties.some((diff: string) => race.difficulty.toLowerCase().includes(diff.toLowerCase()))) {
@@ -110,7 +135,7 @@ const Results = () => {
 
   if (loading) {
     return (
-      <main className="mx-auto max-w-6xl px-4 py-12">
+      <main className="mx-auto min-h-screen max-w-6xl px-4 py-12">
         <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-1xl md:text-2xl">{races("loading")}</p>
       </main>
     );
@@ -118,12 +143,20 @@ const Results = () => {
 
   if (matchedRaces.length === 0) {
     return (
-      <main className="mx-auto max-w-6xl px-4 py-12">
+      <main className="mx-auto min-h-screen max-w-6xl px-4 py-12">
         <h2 className="text-6xl sm:pl-9 md:text-7xl">Your Race Matches</h2>
-        <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-1xl md:text-2xl">{races("no_races")}</p>
+        <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-xl md:text-2xl">
+          {races("no_races")}
+        </p>
+        <div className="flex justify-center mt-50 mb-15">
+          <Link href="/race-match">
+            <SecondaryButton size="medium" text="Update Preferences" icon="tune" />
+          </Link>
+        </div>
       </main>
     );
   }
+
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-12">
@@ -145,9 +178,9 @@ const Results = () => {
 
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-15 p-4 justify-items-center auto-rows-fr">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-15 p-4 justify-items-center auto-rows-fr mx-auto w-full">
         {matchedRaces.map((race) => (
-          <div key={race._id} className="relative h-full w-full flex">
+          <div key={race._id} className="relative h-full w-80 flex">
             <Card
               id={race._id}
               image={race.imageUrl}

@@ -4,30 +4,37 @@ import SecondaryButton from "@/common/components/buttons/SecondaryButton";
 import Checkbox from "@/common/components/input/checkbox/Checkbox";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const RaceMatch = () => {
   const r = useTranslation("race_match");
   const b = useTranslation("buttons");
   const router = useRouter();
 
-  const getInitialPreferences = () => {
-    if (typeof window !== "undefined") {
-      const savedPreferences = localStorage.getItem("raceMatchPreferences");
-      if (savedPreferences) {
-        return JSON.parse(savedPreferences);
-      }
-    }
-    return { terrains: [], distances: [], locations: [], difficulties: [], months: [] };
-  };
+  const [selectedTerrains, setSelectedTerrains] = useState<string[]>(() => {
+    const saved = localStorage.getItem("raceMatchPreferences");
+    return saved ? JSON.parse(saved).terrains || [] : [];
+  });
+  const [selectedDistances, setSelectedDistances] = useState<string[]>(() => {
+    const saved = localStorage.getItem("raceMatchPreferences");
+    return saved ? JSON.parse(saved).distances || [] : [];
+  });
+  const [selectedLocations, setSelectedLocations] = useState<string[]>(() => {
+    const saved = localStorage.getItem("raceMatchPreferences");
+    return saved ? JSON.parse(saved).locations || [] : [];
+  });
+  const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>(() => {
+    const saved = localStorage.getItem("raceMatchPreferences");
+    return saved ? JSON.parse(saved).difficulties || [] : [];
+  });
+  const [selectedMonths, setSelectedMonths] = useState<string[]>(() => {
+    const saved = localStorage.getItem("raceMatchPreferences");
+    return saved ? JSON.parse(saved).months || [] : [];
+  });
 
-  const initialPreferences = getInitialPreferences();
-
-  const [selectedTerrains, setSelectedTerrains] = useState<string[]>(initialPreferences.terrains);
-  const [selectedDistances, setSelectedDistances] = useState<string[]>(initialPreferences.distances);
-  const [selectedLocations, setSelectedLocations] = useState<string[]>(initialPreferences.locations);
-  const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>(initialPreferences.difficulties);
-  const [selectedMonths, setSelectedMonths] = useState<string[]>(initialPreferences.months);
+  useEffect(() => {
+    return () => { };
+  }, []);
 
   const toggleSelection = (value: string, array: string[], setter: (_val: string[]) => void) => {
     if (array.includes(value)) {
