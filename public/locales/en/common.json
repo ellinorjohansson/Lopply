@@ -7,12 +7,12 @@
   },
   "menu": {
     "home": "Home",
-    "race_match": "Race Match",
-    "add_race": "Add Race",
-    "explore_races": "Explore Races",
-    "bucket_list": "Bucket List",
+    "race_match": "Race match",
+    "add_race": "Add race",
+    "explore_races": "Explore races",
+    "bucket_list": "Bucket list",
     "login_sign_up": "Login / Sign up",
-    "admin_panel": "Admin Panel",
+    "admin_panel": "Admin panel",
     "label": {
       "discover": "Discover",
       "my_journey": "My Journey",
@@ -33,17 +33,18 @@
     "hero_alt": "Scenic mountain landscape in orange, beige and yellow, ending in a lake, with a sunset painting the sky in shades of blue."
   },
   "buttons": {
-    "explore_races": "Explore Races",
+    "explore_races": "Explore races",
     "how_it_works": "How it works",
     "cancel": "Cancel",
     "add_race": "Add race",
     "approve": "Approve",
     "reject": "Reject",
-    "delete": "Delete"
+    "delete": "Delete",
+    "find_my_perfect_races": "Find my perfect races"
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
-    "explore_subtext": "Flat or hilly. Short or long. Easy-ish or “why did I sign up?”.",
+    "explore_subtext": "Flat or hilly. Short or long. Easy-ish or “why did I sign up?”",
     "no_image": "The image ran off before we could catch it",
     "terrain_type": "Terrain type",
     "distance": "Distance",
@@ -103,15 +104,15 @@
     }
   },
   "home_page": {
-    "discover_your_next": "Discover Your Next",
-    "running_adventure": "Running Adventure",
+    "discover_your_next": "Discover your next",
+    "running_adventure": "Running adventure",
     "explore_races_by_terrain_text": "Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.",
-    "featured_races": "Featured Races",
+    "featured_races": "Featured races",
     "handpicked_adventures_across": "Handpicked adventures across stunning terrains worldwide",
-    "how_lopply_works": "How Lopply Works",
+    "how_lopply_works": "How Lopply works",
     "a_new_way_to_discover": "A new way to discover and plan your running adventures",
     "how_lopply_works_section": {
-      "explore_visually": "Explore Visually",
+      "explore_visually": "Explore visually",
       "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
       "match_by_preferences": "Match By Preferences",
       "find_races_based": "Find races based on terrain, distance, and location",
@@ -227,5 +228,65 @@
     "removed_from_bucketlist": "Removed from Bucketlist",
     "removed_subtext": "This race has been removed from your bucketlist",
     "remove_from_list": "Remove from list"
+  },
+  "race_match": {
+    "find_your_favorite": "Find your perfect race",
+    "find_your_subtext": "Answer a few questions about your preferences and we'll match you with races that fit your style",
+    "math_powered": "Match-powered matching",
+    "your_race_preferences": "Your race preferences",
+    "select_all_that": "Select all that apply to get the best matches",
+    "preffered_terrain": "Preffered terrain",
+    "preffered_distance": "Preffered distance",
+    "preffered_location": "Preffered location",
+    "preffered_months": "Preffered months",
+    "terrain": {
+      "urban": "Urban",
+      "coastal": "Coastal",
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "forest": "Forest"
+    },
+    "distance": {
+      "5k": "5 km",
+      "10k": "10 km",
+      "half_marathon": "Half Marathon",
+      "marathon": "Marathon",
+      "ultra": "Ultra"
+    },
+    "location": {
+      "europe": "Europe",
+      "africa": "Africa",
+      "usa": "USA",
+      "asia": "Asia",
+      "south_america": "South America",
+      "oceania": "Oceania"
+    },
+    "preffered_difficulty": "Preffered difficulty",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    }
+  },
+  "results": {
+    "your_race_matches": "Your race matches",
+    "personalized_matches": "Your personalized matches",
+    "matches_subtitle": "Based on your preferences, we have matched you with races that fit your style",
+    "update_preferences": "Update preferences",
+    "match_percentage": "Match"
   }
 }

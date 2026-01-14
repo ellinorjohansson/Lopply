@@ -119,7 +119,7 @@ const Card = ({
 		urban: "apartment",
 		costal: "water",
 		mountain: "landscape",
-		desert: "landscape_2",
+		desert: "wb_sunny",
 		forest: "forest"
 	};
 

@@ -6,9 +6,10 @@ export interface SecondaryButtonProps {
 	size: "small" | "medium" | "large";
 	onClick?: () => void;
 	type?: "button" | "submit" | "reset";
+	isActive?: boolean;
 }
 
-const SecondaryButton = ({ text, icon, size = "medium", onClick, type }: SecondaryButtonProps) => {
+const SecondaryButton = ({ text, icon, size = "medium", onClick, type, isActive = false }: SecondaryButtonProps) => {
 
 	const sizeClasses = {
 		small: "py-2 px-4 text-sm",
@@ -16,15 +17,21 @@ const SecondaryButton = ({ text, icon, size = "medium", onClick, type }: Seconda
 		large: "py-2 px-20 text-base"
 	}[size];
 
+	const activeClasses = isActive
+		? "bg-primaryaccent text-secondaryaccent border-primaryaccent"
+		: "bg-primary text-secondaryaccent border-secondaryaccent";
+
 	return (
 		<button
 			onClick={onClick}
 			type={type || "button"}
-			className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-primary border border-secondaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition whitespace-nowrap`}
+			className={`${sizeClasses} font-sans flex items-center ${icon ? '' : 'justify-center'} cursor-pointer border rounded-3xl hover:brightness-80 transition whitespace-nowrap ${activeClasses}`}
 		>
-			<span className="material-symbols-outlined mr-2">
-				{icon}
-			</span>
+			{icon && (
+				<span className="material-symbols-outlined mr-2">
+					{icon}
+				</span>
+			)}
 			{text}
 		</button>
 	);
