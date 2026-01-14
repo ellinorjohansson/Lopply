@@ -24,6 +24,7 @@ interface RaceWithMatch extends Race {
 
 const Results = () => {
   const races = useTranslation("races");
+  const results = useTranslation("results");
 
   const [matchedRaces, setMatchedRaces] = useState<RaceWithMatch[]>([]);
   const [loading, setLoading] = useState(true);
@@ -144,13 +145,13 @@ const Results = () => {
   if (matchedRaces.length === 0) {
     return (
       <main className="mx-auto min-h-screen max-w-6xl px-4 py-12">
-        <h2 className="text-6xl sm:pl-9 md:text-7xl">Your Race Matches</h2>
+        <h2 className="text-6xl sm:pl-9 md:text-7xl">{results("your_race_matches")}</h2>
         <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-xl md:text-2xl">
           {races("no_races")}
         </p>
         <div className="flex justify-center mt-50 mb-15">
           <Link href="/race-match">
-            <SecondaryButton size="medium" text="Update Preferences" icon="tune" />
+            <SecondaryButton size="medium" text={results("update_preferences")} icon="tune" />
           </Link>
         </div>
       </main>
@@ -164,15 +165,15 @@ const Results = () => {
         <div className="bg-primaryaccent/20 text-primaryaccent mx-auto w-70 rounded-3xl px-6 py-2 flex justify-center mt-5 md:mt-12">
           <span className="flex items-center gap-2"><span className="material-symbols-outlined">
             favorite
-          </span>Your personalized matches</span>
+          </span>{results("personalized_matches")}</span>
         </div>
         <div className="mt-10 md:ml-0 ml-3">
-          <h2 className="text-6xl sm:pl-9 md:text-7xl">Your Race Matches</h2>
-          <p className="sm:pl-9 mt-1 md:mt-1 mb-6 text-1xl md:text-2xl">Based on your preferences, we have matched you with races that fit your style</p>
+          <h2 className="text-6xl sm:pl-9 md:text-7xl">{results("your_race_matches")}</h2>
+          <p className="sm:pl-9 mt-1 md:mt-1 mb-6 text-1xl md:text-2xl">{results("matches_subtitle")}</p>
         </div>
         <div className="flex justify-center mt-15 mb-15">
           <Link href="/race-match">
-            <SecondaryButton size="medium" text="Update Preferences" icon="tune" />
+            <SecondaryButton size="medium" text={results("update_preferences")} icon="tune" />
           </Link>
         </div>
 
@@ -196,7 +197,7 @@ const Results = () => {
             <div className="bg-primaryaccent text-primary absolute top-[-12] left-[-12] px-4 py-2 rounded-full shadow-lg z-10 flex justify-center">
               <span className="flex items-center gap-2 text-secondaryaccent"><span className="material-symbols-outlined text-secondaryaccent">
                 star_shine
-              </span>{race.matchPercentage}% Match</span>
+              </span>{race.matchPercentage}% {results("match_percentage")}</span>
             </div>
           </div>
         ))}

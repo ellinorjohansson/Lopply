@@ -281,5 +281,12 @@
       "nov": "Nov",
       "dec": "Dec"
     }
+  },
+  "results": {
+    "your_race_matches": "Your Race Matches",
+    "personalized_matches": "Your personalized matches",
+    "matches_subtitle": "Based on your preferences, we have matched you with races that fit your style",
+    "update_preferences": "Update Preferences",
+    "match_percentage": "Match"
   }
 }
