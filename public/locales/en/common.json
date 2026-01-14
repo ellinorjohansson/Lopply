@@ -238,6 +238,42 @@
     "preffered_terrain": "Preffered terrain",
     "preffered_distance": "Preffered distance",
     "preffered_location": "Preffered location",
-    "preffered_months": "Preffered months"
+    "preffered_months": "Preffered months",
+    "terrain": {
+      "urban": "Urban",
+      "coastal": "Coastal",
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "forest": "Forest"
+    },
+    "distance": {
+      "5k": "5K",
+      "10k": "10K",
+      "half_marathon": "Half Marathon",
+      "marathon": "Marathon",
+      "ultra": "Ultra"
+    },
+    "location": {
+      "europe": "Europe",
+      "africa": "Africa",
+      "usa": "USA",
+      "asia": "Asia",
+      "south_america": "South America",
+      "oceania": "Oceania"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    }
   }
 }

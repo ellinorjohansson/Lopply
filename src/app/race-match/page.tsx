@@ -32,52 +32,52 @@ const RaceMatch = () => {
         <fieldset className="mb-8">
           <legend className="text-secondaryaccent font-semibold mb-4">{r("preffered_terrain")}</legend>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            <Checkbox icon="apartment" label="Urban" />
-            <Checkbox icon="water" label="Coastal" />
-            <Checkbox icon="landscape" label="Mountain" />
-            <Checkbox icon="wb_sunny" label="Desert" />
-            <Checkbox icon="forest" label="Forest" />
+            <Checkbox icon="apartment" label={r("terrain.urban")} />
+            <Checkbox icon="water" label={r("terrain.coastal")} />
+            <Checkbox icon="landscape" label={r("terrain.mountain")} />
+            <Checkbox icon="wb_sunny" label={r("terrain.desert")} />
+            <Checkbox icon="forest" label={r("terrain.forest")} />
           </div>
         </fieldset>
 
         <fieldset className="mb-8">
           <legend className="text-secondaryaccent font-semibold mb-4">{r("preffered_distance")}</legend>
           <div className="flex flex-wrap gap-3">
-            <SecondaryButton size="small" text="5K" />
-            <SecondaryButton size="small" text="10K" />
-            <SecondaryButton size="small" text="Half Marathon" />
-            <SecondaryButton size="small" text="Marathon" />
-            <SecondaryButton size="small" text="Ultra" />
+            <SecondaryButton size="small" text={r("distance.5k")} />
+            <SecondaryButton size="small" text={r("distance.10k")} />
+            <SecondaryButton size="small" text={r("distance.half_marathon")} />
+            <SecondaryButton size="small" text={r("distance.marathon")} />
+            <SecondaryButton size="small" text={r("distance.ultra")} />
           </div>
         </fieldset>
 
         <fieldset className="mb-8">
           <legend className="text-secondaryaccent font-semibold mb-4">{r("preffered_location")}</legend>
           <div className="flex flex-wrap gap-3">
-            <SecondaryButton size="small" text="Europe" />
-            <SecondaryButton size="small" text="Africa" />
-            <SecondaryButton size="small" text="USA" />
-            <SecondaryButton size="small" text="Asia" />
-            <SecondaryButton size="small" text="South America" />
-            <SecondaryButton size="small" text="Oceania" />
+            <SecondaryButton size="small" text={r("location.europe")} />
+            <SecondaryButton size="small" text={r("location.africa")} />
+            <SecondaryButton size="small" text={r("location.usa")} />
+            <SecondaryButton size="small" text={r("location.asia")} />
+            <SecondaryButton size="small" text={r("location.south_america")} />
+            <SecondaryButton size="small" text={r("location.oceania")} />
           </div>
         </fieldset>
 
         <fieldset className="mb-8">
           <legend className="text-secondaryaccent font-semibold mb-4">{r("preffered_months")}</legend>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            <SecondaryButton size="small" text="Jan" />
-            <SecondaryButton size="small" text="Feb" />
-            <SecondaryButton size="small" text="Mar" />
-            <SecondaryButton size="small" text="Apr" />
-            <SecondaryButton size="small" text="May" />
-            <SecondaryButton size="small" text="Jun" />
-            <SecondaryButton size="small" text="Jul" />
-            <SecondaryButton size="small" text="Aug" />
-            <SecondaryButton size="small" text="Sep" />
-            <SecondaryButton size="small" text="Oct" />
-            <SecondaryButton size="small" text="Nov" />
-            <SecondaryButton size="small" text="Dec" />
+            <SecondaryButton size="small" text={r("months.jan")} />
+            <SecondaryButton size="small" text={r("months.feb")} />
+            <SecondaryButton size="small" text={r("months.mar")} />
+            <SecondaryButton size="small" text={r("months.apr")} />
+            <SecondaryButton size="small" text={r("months.may")} />
+            <SecondaryButton size="small" text={r("months.jun")} />
+            <SecondaryButton size="small" text={r("months.jul")} />
+            <SecondaryButton size="small" text={r("months.aug")} />
+            <SecondaryButton size="small" text={r("months.sep")} />
+            <SecondaryButton size="small" text={r("months.oct")} />
+            <SecondaryButton size="small" text={r("months.nov")} />
+            <SecondaryButton size="small" text={r("months.dec")} />
           </div>
         </fieldset>
 
