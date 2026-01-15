@@ -17,7 +17,10 @@
       "discover": "Discover",
       "my_journey": "My Journey",
       "account": "Account"
-    }
+    },
+    "signed_in_as": "Signed in as:",
+    "admin": "Admin",
+    "user": "User"
   },
   "switch": {
     "races": "Pending races",
