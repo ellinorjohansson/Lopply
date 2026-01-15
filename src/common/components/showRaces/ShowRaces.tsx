@@ -12,12 +12,14 @@ interface ShowRacesProps {
   terrainFilter?: string[];
   distanceFilter?: string[];
   difficultyFilter?: string[];
+  searchQuery?: string;
 }
 
 export default function ShowRaces({
   terrainFilter = [],
   distanceFilter = [],
-  difficultyFilter = []
+  difficultyFilter = [],
+  searchQuery = ""
 }: ShowRacesProps) {
   const [allRaces, setAllRaces] = useState<RaceCardProps[]>([]);
   const [loading, setLoading] = useState(true);
@@ -63,6 +65,14 @@ export default function ShowRaces({
         );
       }
 
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase().trim();
+        futureRaces = futureRaces.filter((race) =>
+          race.name.toLowerCase().includes(query) ||
+          race.location.toLowerCase().includes(query)
+        );
+      }
+
       const mappedRaces: RaceCardProps[] = futureRaces.map((race) => ({
         id: race._id,
         image: race.imageUrl,
@@ -89,7 +99,7 @@ export default function ShowRaces({
     }
 
     fetchRaces();
-  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy]);
+  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy, searchQuery]);
 
   if (loading) {
     return (
