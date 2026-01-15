@@ -4,7 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Suspense, useState } from "react";
 import SuccedToaster from "../toasters/SuccedToaster";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 function LogoutToaster() {
   const searchParams = useSearchParams();
@@ -29,6 +29,7 @@ const Header = () => {
   const menuT = useTranslation("menu");
   const generalT = useTranslation("general");
   const { data: session } = useSession();
+  const router = useRouter();
 
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
@@ -37,7 +38,9 @@ const Header = () => {
   const closeNav = () => setIsNavOpen(false);
 
   const handleLogout = () => {
-    signOut({ callbackUrl: "/user?loggedOut=true" });
+    signOut({ redirect: false }).then(() => {
+      router.push("/user?loggedOut=true");
+    });
   };
 
   return (
