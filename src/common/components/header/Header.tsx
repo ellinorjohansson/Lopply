@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <>
       <header className="flex items-center p-4 bg-secondary">
-        <ToolTip text="Open navigation" position="right">
+        <ToolTip text={buttonsT("open_nav")} position="right">
           <button
             aria-label="Open left panel"
             className="flex items-center cursor-pointer ml-5"
@@ -95,7 +95,7 @@ const Header = () => {
           }`}
       >
         <div className="absolute top-5 right-6">
-          <ToolTip text="Close navigation" position="left">
+          <ToolTip text={buttonsT("close_nav")} position="left">
             <button
               aria-label="Close navigation"
               className="text-secondaryaccent cursor-pointer hover:text-primaryaccent transition-colors"

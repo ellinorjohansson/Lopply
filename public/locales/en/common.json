@@ -45,7 +45,10 @@
     "delete": "Delete",
     "find_my_perfect_races": "Find my perfect races",
     "logout": "Logout",
-    "close": "Close"
+    "close": "Close",
+    "save_to_bucketlist": "Save to bucket list",
+    "close_nav": "Close navigation",
+    "open_nav": "Open navigation"
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
