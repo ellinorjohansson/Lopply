@@ -265,7 +265,7 @@ const Card = ({
 				</div>
 
 				{isBucketlistMode && (
-					<div className="flex flex-col gap-3 mt-8">
+					<div className="flex flex-col gap-3 mt-8 mb-5 ">
 						<div className="flex gap-3">
 							<SecondaryButton text={bucketT("remove_from_list")} icon="delete" size="medium" onClick={handleRemoveFromBucketlist} />
 						</div>
@@ -273,7 +273,7 @@ const Card = ({
 				)}
 
 				{isAdminMode && (
-					<div className="flex flex-col gap-3 mt-8">
+					<div className="flex flex-col gap-3 mt-4 mb-3">
 						{onApprove && onReject && (
 							<p
 								className="max-w-md truncate cursor-pointer"

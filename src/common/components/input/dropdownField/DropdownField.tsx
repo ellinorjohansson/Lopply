@@ -33,7 +33,7 @@ const DropdownField = ({
   }[size];
 
   const containerClasses = {
-    small: "max-w-[280px]",
+    small: "max-w-[450px] md:max-w-[290px]",
     medium: "max-w-[630px]",
   }[size];
 
