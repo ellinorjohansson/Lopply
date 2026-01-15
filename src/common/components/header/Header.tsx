@@ -10,14 +10,14 @@ function LogoutToaster() {
   const searchParams = useSearchParams();
   const initialToasterState = searchParams.get("loggedOut") === "true";
   const [showLogoutToaster, setShowLogoutToaster] = useState(initialToasterState);
-  const a = useTranslation("authentication");
+  const authT = useTranslation("authentication");
 
   if (!showLogoutToaster) return null;
 
   return (
     <SuccedToaster
-      headerMessage={a("toaster.logged_out")}
-      text={a("toaster.logged_out_text")}
+      headerMessage={authT("toaster.logged_out")}
+      text={authT("toaster.logged_out_text")}
       onClose={() => setShowLogoutToaster(false)}
     />
   );

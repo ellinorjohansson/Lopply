@@ -23,7 +23,7 @@ export default function ShowRaces({
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(12);
   const [sortBy, setSortBy] = useState<"upcoming" | "farthest" | "">("");
-  const r = useTranslation("races");
+  const racesT = useTranslation("races");
 
   useEffect(() => {
     async function fetchRaces() {
@@ -95,7 +95,7 @@ export default function ShowRaces({
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
         <p className="col-span-full text-center py-12 text-secondaryaccent">
-          {r("loading")}
+          {racesT("loading")}
         </p>
       </div>
     );
@@ -107,12 +107,12 @@ export default function ShowRaces({
     <>
       <div className="mb-6 px-4">
         <DropdownField
-          placeholder={r("sort_by")}
+          placeholder={racesT("sort_by")}
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as "upcoming" | "farthest" | "")}
           options={[
-            { value: "upcoming", label: r("upcoming_first") },
-            { value: "farthest", label: r("farthest_first") },
+            { value: "upcoming", label: racesT("upcoming_first") },
+            { value: "farthest", label: racesT("farthest_first") },
           ]}
           size="small"
         />
@@ -124,14 +124,14 @@ export default function ShowRaces({
           ))
         ) : (
           <p className="col-span-full text-center py-12 text-secondaryaccent">
-            {r("no_races")}
+            {racesT("no_races")}
           </p>
         )}
       </div>
       {visibleCount < allRaces.length && (
         <div className="flex justify-center mt-6">
           <PrimaryButton
-            text={r("load_more")}
+            text={racesT("load_more")}
             size="medium"
             onClick={() => setVisibleCount((prev) => prev + 12)}
           />

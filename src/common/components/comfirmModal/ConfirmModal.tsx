@@ -12,7 +12,7 @@ interface ConfirmModalProps {
 }
 
 const ConfirmModal = ({ open, title, message, onConfirm, onCancel }: ConfirmModalProps) => {
-  const c = useTranslation("confirm");
+  const confirmT = useTranslation("confirm");
   if (!open) return null;
 
   return (
@@ -22,8 +22,8 @@ const ConfirmModal = ({ open, title, message, onConfirm, onCancel }: ConfirmModa
         <p className="text-secondaryaccent">{message}</p>
 
         <div className="flex justify-end gap-3 mt-4">
-          <PrimaryButton text={c("confirm")} size="medium" onClick={onConfirm} />
-          <SecondaryButton text={c("cancel")} size="large" onClick={onCancel} />
+          <PrimaryButton text={confirmT("confirm")} size="medium" onClick={onConfirm} />
+          <SecondaryButton text={confirmT("cancel")} size="large" onClick={onCancel} />
         </div>
       </div>
     </div>

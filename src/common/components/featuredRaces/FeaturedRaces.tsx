@@ -9,7 +9,7 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 export default function FeaturedRaces() {
   const [races, setRaces] = useState<IRace[]>([]);
   const [loading, setLoading] = useState(true);
-  const r = useTranslation("races");
+  const racesT = useTranslation("races");
 
   useEffect(() => {
     async function fetchFeaturedRaces() {
@@ -35,14 +35,14 @@ export default function FeaturedRaces() {
 
   if (loading) {
     return (
-      <div className="text-center text-secondaryaccent py-8">{r("loading")}</div>
+      <div className="text-center text-secondaryaccent py-8">{racesT("loading")}</div>
     );
   }
 
   if (races.length === 0) {
     return (
       <div className="text-center text-secondaryaccent py-8">
-        {r("no_races_found")}
+        {racesT("no_races_found")}
       </div>
     );
   }

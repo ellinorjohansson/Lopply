@@ -23,7 +23,7 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
   const [selectedRaceId, setSelectedRaceId] = useState<string | null>(null);
   const [actionType, setActionType] = useState<'approved' | 'rejected' | 'delete' | null>(null);
 
-  const p = useTranslation("pending_races");
+  const pendingT = useTranslation("pending_races");
 
   const refetchPending = useCallback(async () => {
     try {
@@ -100,10 +100,10 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
     } else {
       setErrorMessage(
         actionType === 'approved'
-          ? p("approve_error")
+          ? pendingT("approve_error")
           : actionType === 'rejected'
-            ? p("reject_error")
-            : p("delete_error")
+            ? pendingT("reject_error")
+            : pendingT("delete_error")
       );
       setShowErrorToaster(true);
     }
@@ -114,18 +114,18 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
 
 
   if (loading) {
-    return <span className="flex justify-center items-center min-h-screen text-secondaryaccent">{p("loading")}</span>;
+    return <span className="flex justify-center items-center min-h-screen text-secondaryaccent">{pendingT("loading")}</span>;
   }
 
   return (
     <>
       <section className="flex flex-col min-h-screen p-4 m-2">
         <div className="flex flex-col gap-1 mb-2">
-          <h3 className="text-2xl font-semibold mt-13">{p("pending_races")}</h3>
-          <span className="text-secondaryaccent text-base">{p("review_submissions")}</span>
+          <h3 className="text-2xl font-semibold mt-13">{pendingT("pending_races")}</h3>
+          <span className="text-secondaryaccent text-base">{pendingT("review_submissions")}</span>
         </div>
         {races.length === 0 ? (
-          <p className="text-center items-center mt-10 text-secondaryaccent">{p("no_pending_races")}</p>
+          <p className="text-center items-center mt-10 text-secondaryaccent">{pendingT("no_pending_races")}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center">
             {races.map((race) => (
@@ -147,10 +147,10 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
             ))}
           </div>
         )}<div className="flex flex-col gap-1 mt-8 mb-2">
-          <h3 className="text-2xl font-medium mt-16">{p("all_races")}</h3>
+          <h3 className="text-2xl font-medium mt-16">{pendingT("all_races")}</h3>
         </div>
         {allRaces.length === 0 ? (
-          <p className="text-center items-center text-secondaryaccent">{p("no_races")}</p>
+          <p className="text-center items-center text-secondaryaccent">{pendingT("no_races")}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center mb-10">
             {allRaces.map((race) => (
@@ -174,14 +174,14 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
       </section>
       {showSuccessToaster && (
         <SuccedToaster
-          headerMessage={p("success")}
-          text={p("action_completed")}
+          headerMessage={pendingT("success")}
+          text={pendingT("action_completed")}
           onClose={() => setShowSuccessToaster(false)}
         />
       )}
       {showErrorToaster && (
         <ErrorToaster
-          headerMessage={p("error")}
+          headerMessage={pendingT("error")}
           text={errorMessage}
           onClose={() => setShowErrorToaster(false)}
         />
@@ -190,17 +190,17 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
         open={confirmOpen}
         title={
           actionType === 'approved'
-            ? p("confirm_approve_title")
+            ? pendingT("confirm_approve_title")
             : actionType === 'rejected'
-              ? p("confirm_reject_title")
-              : p("confirm_delete_title")
+              ? pendingT("confirm_reject_title")
+              : pendingT("confirm_delete_title")
         }
         message={
           actionType === 'approved'
-            ? p("confirm_approve_message")
+            ? pendingT("confirm_approve_message")
             : actionType === 'rejected'
-              ? p("confirm_reject_message")
-              : p("confirm_delete_message")
+              ? pendingT("confirm_reject_message")
+              : pendingT("confirm_delete_message")
         }
         onConfirm={handleConfirmAction}
         onCancel={() => {

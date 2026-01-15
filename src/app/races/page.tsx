@@ -6,7 +6,7 @@ import FilterButton from "@/common/components/buttons/FilterButton";
 import { useTranslation } from "@/common/hooks/useTranslation";
 
 export default function RacesPage() {
-  const r = useTranslation("races");
+  const racesT = useTranslation("races");
 
   const [selectedTerrain, setSelectedTerrain] = useState<string[]>([]);
   const [selectedDistance, setSelectedDistance] = useState<string[]>([]);
@@ -25,11 +25,11 @@ export default function RacesPage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="mb-18 mt-18 md:mt-25 md:mb-25 md:ml-0 ml-3">
           <h2 className="text-6xl sm:pl-9 md:text-7xl">
-            {r("explore_your_next_race")}
+            {racesT("explore_your_next_race")}
           </h2>
 
           <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-1xl md:text-2xl">
-            {r("explore_subtext")}
+            {racesT("explore_subtext")}
           </p>
         </div>
       </section>
@@ -39,7 +39,7 @@ export default function RacesPage() {
           <form>
             <fieldset className="mb-8">
               <legend className="text-lg text-primaryaccent">
-                {r("terrain_type")}
+                {racesT("terrain_type")}
               </legend>
 
               <div className="flex flex-wrap gap-3 mt-2">
@@ -78,7 +78,7 @@ export default function RacesPage() {
 
             <fieldset className="mb-8">
               <legend className="text-lg text-primaryaccent">
-                {r("distance")}
+                {racesT("distance")}
               </legend>
 
               <div className="flex flex-wrap gap-3 mt-2">
@@ -122,7 +122,7 @@ export default function RacesPage() {
 
             <fieldset>
               <legend className="text-lg text-primaryaccent">
-                {r("difficulty")}
+                {racesT("difficulty")}
               </legend>
 
               <div className="flex flex-wrap gap-3 mt-2">
