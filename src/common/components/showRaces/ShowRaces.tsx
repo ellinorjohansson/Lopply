@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Card, { RaceCardProps } from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
 import { getRaces } from "@/services/raceService";
@@ -23,7 +23,7 @@ export default function ShowRaces({
   difficultyFilter = [],
   searchQuery = ""
 }: ShowRacesProps) {
-  const [allRaces, setAllRaces] = useState<RaceCardProps[]>([]);
+  const [rawRaces, setRawRaces] = useState<IRace[]>([]);
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(12);
   const [sortBy, setSortBy] = useState<"upcoming" | "farthest" | "">("");
@@ -48,78 +48,79 @@ export default function ShowRaces({
   useEffect(() => {
     async function fetchRaces() {
       setLoading(true);
-
       const racesData: IRace[] = await getRaces();
-
-      const currentDate = new Date();
-      let futureRaces = racesData.filter((race) => new Date(race.date) >= currentDate);
-
-      if (terrainFilter.length > 0) {
-        futureRaces = futureRaces.filter((race) =>
-          terrainFilter.includes(race.terrain)
-        );
-      }
-
-      if (distanceFilter.length > 0) {
-        const distanceMap: { [key: string]: number } = {
-          "5K": 5,
-          "10K": 10,
-          "Half Marathon": 21,
-          "Marathon": 42,
-        };
-        futureRaces = futureRaces.filter((race) => {
-          const dist = Number(race.distance);
-          let match = false;
-          if (distanceFilter.includes("1-10K") && dist >= 1 && dist <= 10) match = true;
-          if (distanceFilter.includes("10-20K") && dist > 10 && dist <= 20) match = true;
-          if (distanceFilter.includes("20K+") && dist > 20) match = true;
-          if (distanceFilter.some(label => distanceMap[label] === dist)) match = true;
-          return match;
-        });
-      }
-
-      if (difficultyFilter.length > 0) {
-        futureRaces = futureRaces.filter((race) =>
-          difficultyFilter.includes(race.difficulty)
-        );
-      }
-
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase().trim();
-        futureRaces = futureRaces.filter((race) =>
-          race.name.toLowerCase().includes(query) ||
-          race.location.toLowerCase().includes(query)
-        );
-      }
-
-      const mappedRaces: RaceCardProps[] = futureRaces.map((race) => ({
-        id: race._id,
-        image: race.imageUrl,
-        title: race.name,
-        location: race.location,
-        date: new Date(race.date).toISOString().slice(0, 10),
-        distance: race.distance,
-        terrain: race.terrain,
-        difficulty: race.difficulty,
-        description: race.description || "",
-        raceUrl: race.raceUrl,
-        isFavorited: bucketlistRaceIds.has(race._id as string),
-      }));
-
-      const sortedRaces = [...mappedRaces].sort((a, b) => {
-        if (!sortBy) return 0;
-        const dateA = new Date(a.date).getTime();
-        const dateB = new Date(b.date).getTime();
-        return sortBy === "upcoming" ? dateA - dateB : dateB - dateA;
-      });
-
-      setAllRaces(sortedRaces);
+      setRawRaces(racesData);
       setLoading(false);
-      setVisibleCount(12);
     }
 
     fetchRaces();
-  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy, searchQuery, session, bucketlistRaceIds]);
+  }, []);
+
+  const filteredAndSortedRaces = useMemo(() => {
+    const currentDate = new Date();
+    let futureRaces = rawRaces.filter((race) => new Date(race.date) >= currentDate);
+
+    if (terrainFilter.length > 0) {
+      futureRaces = futureRaces.filter((race) =>
+        terrainFilter.includes(race.terrain)
+      );
+    }
+
+    if (distanceFilter.length > 0) {
+      const distanceMap: { [key: string]: number } = {
+        "5K": 5,
+        "10K": 10,
+        "Half Marathon": 21,
+        "Marathon": 42,
+      };
+      futureRaces = futureRaces.filter((race) => {
+        const dist = Number(race.distance);
+        let match = false;
+        if (distanceFilter.includes("1-10K") && dist >= 1 && dist <= 10) match = true;
+        if (distanceFilter.includes("10-20K") && dist > 10 && dist <= 20) match = true;
+        if (distanceFilter.includes("20K+") && dist > 20) match = true;
+        if (distanceFilter.some(label => distanceMap[label] === dist)) match = true;
+        return match;
+      });
+    }
+
+    if (difficultyFilter.length > 0) {
+      futureRaces = futureRaces.filter((race) =>
+        difficultyFilter.includes(race.difficulty)
+      );
+    }
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      futureRaces = futureRaces.filter((race) =>
+        race.name.toLowerCase().includes(query) ||
+        race.location.toLowerCase().includes(query)
+      );
+    }
+
+    const mappedRaces: RaceCardProps[] = futureRaces.map((race) => ({
+      id: race._id,
+      image: race.imageUrl,
+      title: race.name,
+      location: race.location,
+      date: new Date(race.date).toISOString().slice(0, 10),
+      distance: race.distance,
+      terrain: race.terrain,
+      difficulty: race.difficulty,
+      description: race.description || "",
+      raceUrl: race.raceUrl,
+      isFavorited: bucketlistRaceIds.has(race._id as string),
+    }));
+
+    const sortedRaces = [...mappedRaces].sort((a, b) => {
+      if (!sortBy) return 0;
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return sortBy === "upcoming" ? dateA - dateB : dateB - dateA;
+    });
+
+    return sortedRaces;
+  }, [rawRaces, terrainFilter, distanceFilter, difficultyFilter, searchQuery, sortBy, bucketlistRaceIds]);
 
   if (loading) {
     return (
@@ -131,7 +132,7 @@ export default function ShowRaces({
     );
   }
 
-  const racesToShow = allRaces.slice(0, visibleCount);
+  const racesToShow = filteredAndSortedRaces.slice(0, visibleCount);
 
   return (
     <>
@@ -158,7 +159,7 @@ export default function ShowRaces({
           </p>
         )}
       </div>
-      {visibleCount < allRaces.length && (
+      {visibleCount < filteredAndSortedRaces.length && (
         <div className="flex justify-center mt-6">
           <PrimaryButton
             text={racesT("load_more")}
