@@ -131,16 +131,16 @@
     "how_lopply_works_section": {
       "explore_visually": "Explore visually",
       "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
-      "match_by_preferences": "Match By Preferences",
-      "find_races_based": "Find races based on terrain, distance, and location",
-      "build_your_bucket_list": "Build Your Bucket List",
+      "match_by_preferences": "Match by preferences",
+      "find_races_based": "Find races based on your preferences",
+      "build_your_bucket_list": "Build your bucket list",
       "save_your_dream": "Save your dream races and create your personal running adventure roadmap",
-      "match_your_training": "Match Your Training",
+      "match_your_training": "Match your training",
       "find_races_that": "Find races that fit your training timeline and preparation schedule"
     }
   },
   "add_race_page": {
-    "add_new_race": "Add New Race",
+    "add_new_race": "Add new race",
     "submit_a_race": "Submit a race for approval by adminitrators",
     "race_title": "Race title *",
     "locations": "Location *",
