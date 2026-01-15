@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import Card, { RaceCardProps } from "@/common/components/card/Card";
+import RaceCardSkeleton from "@/common/modules/skeleton/RaceCardSkeleton";
 import { IRace } from "@/models/Race";
 import { getRaces } from "@/services/raceService";
 import { getBucketlistRaces } from "@/services/bucketlistService";
@@ -125,9 +126,9 @@ export default function ShowRaces({
   if (loading) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
-        <p className="col-span-full text-center py-12 text-secondaryaccent">
-          {racesT("loading")}
-        </p>
+        {[...Array(12)].map((_, i) => (
+          <RaceCardSkeleton key={i} />
+        ))}
       </div>
     );
   }
