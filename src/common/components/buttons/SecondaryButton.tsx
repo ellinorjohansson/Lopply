@@ -13,7 +13,7 @@ const SecondaryButton = ({ text, icon, size = "medium", onClick, type, isActive 
 
 	const sizeClasses = {
 		small: "py-2 px-4 text-sm",
-		medium: "py-2 px-14 text-base",
+		medium: "py-2 px-15 text-base",
 		large: "py-2 px-20 text-base"
 	}[size];
 

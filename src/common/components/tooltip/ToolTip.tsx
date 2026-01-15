@@ -5,9 +5,10 @@ interface ToolTipProps {
   text: string;
   children: ReactNode;
   position?: "top" | "bottom" | "left" | "right";
+  hideOnMobile?: boolean;
 }
 
-const ToolTip = ({ text, children, position = "top" }: ToolTipProps) => {
+const ToolTip = ({ text, children, position = "top", hideOnMobile = false }: ToolTipProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const positionClasses = {
@@ -37,7 +38,7 @@ const ToolTip = ({ text, children, position = "top" }: ToolTipProps) => {
       {isVisible && (
         <span
           role="tooltip"
-          className={`absolute ${positionClasses} z-50 px-3 py-2 text-sm font-medium text-secondaryaccent bg-primary rounded-lg shadow-lg whitespace-nowrap pointer-events-none`}
+          className={`absolute ${positionClasses} z-50 px-3 py-2 text-sm font-medium text-secondaryaccent bg-primary rounded-lg shadow-lg whitespace-nowrap pointer-events-none ${hideOnMobile ? "hidden md:block" : ""}`}
         >
           {text}
           <span className={`absolute ${arrowClasses} w-0 h-0 border-4`}></span>
