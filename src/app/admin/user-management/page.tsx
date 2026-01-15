@@ -14,7 +14,7 @@ interface User {
 }
 
 const UserManagement = () => {
-  const u = useTranslation("user_management");
+  const userT = useTranslation("user_management");
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(false);
   const [showSuccessToaster, setShowSuccessToaster] = useState(false);
@@ -66,16 +66,16 @@ const UserManagement = () => {
     if (actionType === 'delete') {
       success = await deleteUser(selectedUserId);
       if (success) {
-        setSuccessMessage(u("user_deleted"));
+        setSuccessMessage(userT("user_deleted"));
       } else {
-        setErrorMessage(u("delete_error"));
+        setErrorMessage(userT("delete_error"));
       }
     } else if (actionType === 'role' && pendingRole !== null) {
       success = await updateUserRole(selectedUserId, pendingRole);
       if (success) {
-        setSuccessMessage(u("role_updated"));
+        setSuccessMessage(userT("role_updated"));
       } else {
-        setErrorMessage(u("update_error"));
+        setErrorMessage(userT("update_error"));
       }
     }
 
@@ -120,19 +120,19 @@ const UserManagement = () => {
 
   const getConfirmMessage = () => {
     if (actionType === 'delete') {
-      return u("confirm_delete_message");
+      return userT("confirm_delete_message");
     } else if (actionType === 'role' && pendingRole !== null) {
-      const role = pendingRole ? u("admin") : u("user");
-      return u("confirm_role_change_message", { role });
+      const role = pendingRole ? userT("admin") : userT("user");
+      return userT("confirm_role_change_message", { role });
     }
     return "";
   };
 
   const getConfirmTitle = () => {
     if (actionType === 'delete') {
-      return u("confirm_delete_title");
+      return userT("confirm_delete_title");
     } else if (actionType === 'role') {
-      return u("confirm_role_change_title");
+      return userT("confirm_role_change_title");
     }
     return "";
   };
@@ -141,14 +141,14 @@ const UserManagement = () => {
     <>
       {showSuccessToaster && (
         <SuccedToaster
-          headerMessage={u("success")}
+          headerMessage={userT("success")}
           text={successMessage}
           onClose={() => setShowSuccessToaster(false)}
         />
       )}
       {showErrorToaster && (
         <ErrorToaster
-          headerMessage={u("error")}
+          headerMessage={userT("error")}
           text={errorMessage}
           onClose={() => setShowErrorToaster(false)}
         />
@@ -167,41 +167,41 @@ const UserManagement = () => {
       />
       <div className="p-6 max-w-6xl mx-auto mt-20">
         <div className="mb-6">
-          <h3 className="text-3xl font-semibold text-secondaryaccent mb-2">{u("title")}</h3>
-          <p className="text-secondaryaccent/80">{u("subtitle")}</p>
+          <h3 className="text-3xl font-semibold text-secondaryaccent mb-2">{userT("title")}</h3>
+          <p className="text-secondaryaccent/80">{userT("subtitle")}</p>
         </div>
 
         {loading ? (
-          <p className="text-secondaryaccent text-center py-8">{u("loading")}</p>
+          <p className="text-secondaryaccent text-center py-8">{userT("loading")}</p>
         ) : users.length === 0 ? (
-          <p className="text-secondaryaccent text-center py-8">{u("no_users")}</p>
+          <p className="text-secondaryaccent text-center py-8">{userT("no_users")}</p>
         ) : (
           <div className="bg-secondary border border-secondaryaccent p-5 rounded-3xl mb-20">
             <table className="w-full border-collapse">
               <thead className="hidden md:table-header-group">
                 <tr className="border-b border-secondaryaccent/20">
-                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{u("name")}</th>
-                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{u("email")}</th>
-                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{u("role")}</th>
-                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{u("actions")}</th>
+                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{userT("name")}</th>
+                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{userT("email")}</th>
+                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{userT("role")}</th>
+                  <th className="text-left py-3 px-4 text-primaryaccent font-semibold">{userT("actions")}</th>
                 </tr>
               </thead>
               <tbody className="block md:table-row-group">
                 {users.map((user) => (
                   <tr key={user._id} className="block md:table-row border-b border-secondaryaccent md:border-secondaryaccent/10 hover:bg-secondaryaccent/5 mb-4 md:mb-0">
-                    <td className="block md:table-cell py-2 md:py-3 px-4 text-secondaryaccent before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${u("name")}:`}>
+                    <td className="block md:table-cell py-2 md:py-3 px-4 text-secondaryaccent before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${userT("name")}:`}>
                       {user.name || "-"}
                     </td>
-                    <td className="block md:table-cell py-2 md:py-3 px-4 text-secondaryaccent before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${u("email")}:`}>
+                    <td className="block md:table-cell py-2 md:py-3 px-4 text-secondaryaccent before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${userT("email")}:`}>
                       {user.email}
                     </td>
-                    <td className="block md:table-cell py-2 md:py-3 px-4 before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${u("role")}:`}>
+                    <td className="block md:table-cell py-2 md:py-3 px-4 before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${userT("role")}:`}>
                       <DropdownFieldUserManagement
                         value={user.admin}
                         onChange={(newRole) => handleRoleChange(user._id, newRole)}
                       />
                     </td>
-                    <td className="block md:table-cell py-2 md:py-3 px-4 before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${u("actions")}:`}>
+                    <td className="block md:table-cell py-2 md:py-3 px-4 before:content-[attr(data-label)] before:font-semibold before:text-primaryaccent before:block before:mb-1 md:before:hidden" data-label={`${userT("actions")}:`}>
                       <button onClick={() => handleDeleteClick(user._id)}>
                         <span className="material-symbols-outlined text-secondaryaccent cursor-pointer" >
                           delete

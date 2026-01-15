@@ -8,7 +8,7 @@ interface AuthSwitchProps {
 }
 
 const AuthSwitch = ({ mode, onChange }: AuthSwitchProps) => {
-  const s = useTranslation("switch");
+  const switchT = useTranslation("switch");
   return (
     <div className="flex w-full rounded-full border border-secondaryaccent overflow-hidden bg-primary text-secondaryaccent">
       <button
@@ -16,7 +16,7 @@ const AuthSwitch = ({ mode, onChange }: AuthSwitchProps) => {
           }`}
         onClick={() => onChange("login")}
       >
-        {s("login")}
+        {switchT("login")}
       </button>
 
       <button
@@ -24,7 +24,7 @@ const AuthSwitch = ({ mode, onChange }: AuthSwitchProps) => {
           }`}
         onClick={() => onChange("signup")}
       >
-        {s("signup")}
+        {switchT("signup")}
       </button>
     </div>
   );

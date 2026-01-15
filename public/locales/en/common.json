@@ -17,7 +17,10 @@
       "discover": "Discover",
       "my_journey": "My Journey",
       "account": "Account"
-    }
+    },
+    "signed_in_as": "Signed in as:",
+    "admin": "Admin",
+    "user": "User"
   },
   "switch": {
     "races": "Pending races",
@@ -78,7 +81,10 @@
       "access_denied": "Access denied. Admin privileges required.",
       "invalid_credentials": "Invalid credentials",
       "login_success": "Login success as admin",
-      "welcome": "Welcome back to Lopply!"
+      "welcome": "Welcome back to Lopply!",
+      "already_signed_in": "Already signed in",
+      "logged_in_message": "You are currently logged in. Please log out to change or add another account.",
+      "logout": "Logout"
     },
     "user": {
       "user_text_discover": "Discover your next running adventure",
@@ -88,7 +94,13 @@
       "optional_name": "Your name is optional and has nothing to do with authentication.",
       "signup_success": "Sign up succeed!",
       "login_success": "Login succeed!",
-      "signup_success_text": "Welcome to Lopply!"
+      "signup_success_text": "Welcome to Lopply!",
+      "already_signed_in": "Already signed in",
+      "logged_in_message": "You are currently logged in. Please log out to change or add another account.",
+      "logout": "Logout",
+      "logging_in": "Logging in...",
+      "signing_up": "Signing up...",
+      "network_error": "Network error. Please try again."
     },
     "name": "Name",
     "email": "Email",
@@ -232,7 +244,7 @@
   "race_match": {
     "find_your_favorite": "Find your perfect race",
     "find_your_subtext": "Answer a few questions about your preferences and we'll match you with races that fit your style",
-    "math_powered": "Match-powered matching",
+    "math_powered": "Math-powered matching",
     "your_race_preferences": "Your race preferences",
     "select_all_that": "Select all that apply to get the best matches",
     "preffered_terrain": "Preffered terrain",

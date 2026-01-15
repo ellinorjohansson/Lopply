@@ -8,17 +8,17 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 const AdminOverview = () => {
   const [activeTab, setActiveTab] = useState<"races" | "users">("races");
   const [pendingCount, setPendingCount] = useState(0);
-  const t = useTranslation("admin_panel");
+  const adminT = useTranslation("admin_panel");
 
   return (
     <main className="w-full">
       <section className="mt-24 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:pl-9 md:text-4xl">
-            {t("admin_dashboard")}
+            {adminT("admin_dashboard")}
           </h2>
           <p className="text-secondaryaccent sm:pl-9 mt-1 mb-6 text-lg">
-            {t("manage_races_and_users")}
+            {adminT("manage_races_and_users")}
           </p>
 
           <div className="sm:pl-9 mb-6">

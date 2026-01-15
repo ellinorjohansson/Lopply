@@ -4,20 +4,20 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Suspense, useState } from "react";
 import SuccedToaster from "../toasters/SuccedToaster";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 function LogoutToaster() {
   const searchParams = useSearchParams();
   const initialToasterState = searchParams.get("loggedOut") === "true";
   const [showLogoutToaster, setShowLogoutToaster] = useState(initialToasterState);
-  const a = useTranslation("authentication");
+  const authT = useTranslation("authentication");
 
   if (!showLogoutToaster) return null;
 
   return (
     <SuccedToaster
-      headerMessage={a("toaster.logged_out")}
-      text={a("toaster.logged_out_text")}
+      headerMessage={authT("toaster.logged_out")}
+      text={authT("toaster.logged_out_text")}
       onClose={() => setShowLogoutToaster(false)}
     />
   );
@@ -26,9 +26,10 @@ function LogoutToaster() {
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const m = useTranslation("menu");
-  const g = useTranslation("general");
+  const menuT = useTranslation("menu");
+  const generalT = useTranslation("general");
   const { data: session } = useSession();
+  const router = useRouter();
 
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
@@ -37,7 +38,9 @@ const Header = () => {
   const closeNav = () => setIsNavOpen(false);
 
   const handleLogout = () => {
-    signOut({ callbackUrl: "/user?loggedOut=true" });
+    signOut({ redirect: false }).then(() => {
+      router.push("/user?loggedOut=true");
+    });
   };
 
   return (
@@ -54,10 +57,10 @@ const Header = () => {
         </button>
 
         <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
-          {g("lopply")}
+          {generalT("lopply")}
         </h1>
         {session?.user?.name && (
-          <span className="text-secondaryaccent ml-3 sm:ml-8">{g("hello")} {session.user.name}</span>
+          <span className="text-secondaryaccent ml-3 sm:ml-8">{generalT("hello")} {session.user.name}</span>
         )}
         {session && (
           <div className="ml-auto flex items-center mr-5">
@@ -97,7 +100,7 @@ const Header = () => {
         </button>
 
         <div className="p-4 mt-4 sm:hidden">
-          <h1 className="text-3xl text-secondaryaccent">{g("lopply")}</h1>
+          <h1 className="text-3xl text-secondaryaccent">{generalT("lopply")}</h1>
         </div>
 
         {/* Discover Section */}
@@ -113,7 +116,7 @@ const Header = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl hover:bg-primaryaccent/20 transition-all"
               >
                 <span className="material-symbols-outlined">home</span>
-                {m("home")}
+                {menuT("home")}
               </Link>
             </li>
             <li className="mb-4 md:mb-3">
@@ -123,7 +126,7 @@ const Header = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">favorite</span>
-                {m("race_match")}
+                {menuT("race_match")}
               </Link>
             </li>
             <li className="mb-4 md:mb-3">
@@ -133,7 +136,7 @@ const Header = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">add</span>
-                {m("add_race")}
+                {menuT("add_race")}
               </Link>
             </li>
             <li className="mb-4 md:mb-3">
@@ -143,7 +146,7 @@ const Header = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">search</span>
-                {m("explore_races")}
+                {menuT("explore_races")}
               </Link>
             </li>
           </ul>
@@ -152,7 +155,7 @@ const Header = () => {
         {/* My Journey Section */}
         <div className="p-4">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
-            {m("label.my_journey")}
+            {menuT("label.my_journey")}
           </span>
           <ul>
             <li className="mb-4 md:mb-3">
@@ -164,7 +167,7 @@ const Header = () => {
                 <span className="material-symbols-outlined">
                   list_alt_check
                 </span>
-                {m("bucket_list")}
+                {menuT("bucket_list")}
               </Link>
             </li>
           </ul>
@@ -173,7 +176,7 @@ const Header = () => {
         {/* Account Section */}
         <div className="p-4">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
-            {m("label.account")}
+            {menuT("label.account")}
           </span>
           <ul>
             <li className="mb-4 md:mb-3">
@@ -183,7 +186,7 @@ const Header = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">person</span>
-                {m("login_sign_up")}
+                {menuT("login_sign_up")}
               </Link>
             </li>
             <li className="mb-4 md:mb-3">
@@ -193,11 +196,19 @@ const Header = () => {
                 className="flex items-center gap-2 text-secondaryaccent font-sans text-base relative hover:text-primaryaccent hover:py-1 hover:px-1 hover:rounded-2xl transition-all hover:bg-primaryaccent/20"
               >
                 <span className="material-symbols-outlined">shield</span>
-                {m("admin_panel")}
+                {menuT("admin_panel")}
               </Link>
             </li>
           </ul>
         </div>
+
+        {session && (
+          <div className="absolute bottom-4 left-4 right-4">
+            <span className="text-xs text-secondaryaccent/60">
+              {menuT("signed_in_as")} <span className="font-medium text-secondaryaccent">{session.user?.admin ? menuT("admin") : menuT("user")}</span>
+            </span>
+          </div>
+        )}
       </div>
     </>
   );

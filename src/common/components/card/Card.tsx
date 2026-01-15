@@ -57,10 +57,10 @@ const Card = ({
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showRemoveSuccess, setShowRemoveSuccess] = useState(false);
 	const { data: session } = useSession();
-	const r = useTranslation("races");
-	const b = useTranslation("buttons");
-	const a = useTranslation("authentication");
-	const bu = useTranslation("bucketlist");
+	const racesT = useTranslation("races");
+	const buttonsT = useTranslation("buttons");
+	const authT = useTranslation("authentication");
+	const bucketT = useTranslation("bucketlist");
 
 	useEffect(() => {
 		setFavorited(isFavorited);
@@ -182,7 +182,7 @@ const Card = ({
 						<span className="material-symbols-outlined text-3xl! opacity-70">
 							image_not_supported
 						</span>
-						<span className="text-sm mt-2 opacity-60 w-40 text-center">{r("no_image")}</span>
+						<span className="text-sm mt-2 opacity-60 w-40 text-center">{racesT("no_image")}</span>
 					</div>
 				)}
 
@@ -259,7 +259,7 @@ const Card = ({
 				{isBucketlistMode && (
 					<div className="flex flex-col gap-3 mt-8">
 						<div className="flex gap-3">
-							<SecondaryButton text={bu("remove_from_list")} icon="delete" size="medium" onClick={handleRemoveFromBucketlist} />
+							<SecondaryButton text={bucketT("remove_from_list")} icon="delete" size="medium" onClick={handleRemoveFromBucketlist} />
 						</div>
 					</div>
 				)}
@@ -278,11 +278,11 @@ const Card = ({
 						<div className="flex gap-3">
 							{onApprove && onReject ? (
 								<>
-									<ApproveButton text={b("approve")} onClick={handleApprove} />
-									<RejectButton text={b("reject")} onClick={handleReject} />
+									<ApproveButton text={buttonsT("approve")} onClick={handleApprove} />
+									<RejectButton text={buttonsT("reject")} onClick={handleReject} />
 								</>
 							) : (
-								<DeleteButton text={b("delete")} onClick={handleDelete} />
+								<DeleteButton text={buttonsT("delete")} onClick={handleDelete} />
 							)}
 						</div>
 					</div>
@@ -297,8 +297,8 @@ const Card = ({
 			<>
 				{showError && (
 					<ErrorToaster
-						headerMessage={a("toaster.auth_required")}
-						text={a("toaster.auth_subtext")}
+						headerMessage={authT("toaster.auth_required")}
+						text={authT("toaster.auth_subtext")}
 						onClose={() => setShowError(false)}
 					/>
 				)}
@@ -316,22 +316,22 @@ const Card = ({
 		<>
 			{showError && (
 				<ErrorToaster
-					headerMessage={a("toaster.auth_required")}
-					text={a("toaster.auth_subtext")}
+					headerMessage={authT("toaster.auth_required")}
+					text={authT("toaster.auth_subtext")}
 					onClose={() => setShowError(false)}
 				/>
 			)}
 			{showSuccess && (
 				<SuccedToaster
-					headerMessage={bu("added_to_bucketlist")}
-					text={bu("added_subtext")}
+					headerMessage={bucketT("added_to_bucketlist")}
+					text={bucketT("added_subtext")}
 					onClose={() => setShowSuccess(false)}
 				/>
 			)}
 			{showRemoveSuccess && (
 				<SuccedToaster
-					headerMessage={bu("removed_from_bucketlist")}
-					text={bu("removed_subtext")}
+					headerMessage={bucketT("removed_from_bucketlist")}
+					text={bucketT("removed_subtext")}
 					onClose={() => setShowRemoveSuccess(false)}
 				/>
 			)}
