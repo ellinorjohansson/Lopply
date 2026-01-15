@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Suspense, useState } from "react";
 import SuccedToaster from "../toasters/SuccedToaster";
 import { useSearchParams, useRouter } from "next/navigation";
+import ToolTip from "../tooltip/ToolTip";
 
 function LogoutToaster() {
   const searchParams = useSearchParams();
@@ -28,6 +29,7 @@ const Header = () => {
 
   const menuT = useTranslation("menu");
   const generalT = useTranslation("general");
+  const buttonsT = useTranslation("buttons");
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -46,15 +48,17 @@ const Header = () => {
   return (
     <>
       <header className="flex items-center p-4 bg-secondary">
-        <button
-          aria-label="Open left panel"
-          className="flex items-center cursor-pointer ml-5"
-          onClick={toggleNav}
-        >
-          <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
-            left_panel_open
-          </span>
-        </button>
+        <ToolTip text="Open navigation" position="right">
+          <button
+            aria-label="Open left panel"
+            className="flex items-center cursor-pointer ml-5"
+            onClick={toggleNav}
+          >
+            <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
+              left_panel_open
+            </span>
+          </button>
+        </ToolTip>
 
         <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           {generalT("lopply")}
@@ -66,17 +70,18 @@ const Header = () => {
           <div className="ml-auto flex items-center mr-5">
             <button
               aria-label="Logout"
-              className="flex items-center cursor-pointer"
               onClick={handleLogout}
+              className="group flex items-center cursor-pointer text-secondaryaccent hover:text-primaryaccent transition-colors"
             >
-              <span className="material-symbols-outlined text-4xl! text-secondaryaccent hover:text-primaryaccent transition-colors">
+              <span className="material-symbols-outlined text-4xl! transition-colors">
                 logout
               </span>
-              <span className="hidden sm:inline text-secondaryaccent font-semibold ml-1">
-                Logout
+              <span className="hidden sm:inline font-semibold ml-1 transition-colors">
+                {buttonsT("logout")}
               </span>
             </button>
           </div>
+
         )}
       </header>
 
@@ -89,15 +94,19 @@ const Header = () => {
         className={`fixed top-0 left-0 h-full w-64 bg-primary z-50 transform transition-transform duration-300 ${isNavOpen ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <button
-          aria-label="Close navigation"
-          className="absolute top-4 right-4 text-secondaryaccent cursor-pointer hover:text-primaryaccent transition-colors"
-          onClick={toggleNav}
-        >
-          <span className="material-symbols-outlined text-4xl sm:text-6xl">
-            close
-          </span>
-        </button>
+        <div className="absolute top-5 right-6">
+          <ToolTip text="Close navigation" position="left">
+            <button
+              aria-label="Close navigation"
+              className="text-secondaryaccent cursor-pointer hover:text-primaryaccent transition-colors"
+              onClick={toggleNav}
+            >
+              <span className="material-symbols-outlined text-4xl sm:text-6xl">
+                {buttonsT("close")}
+              </span>
+            </button>
+          </ToolTip>
+        </div>
 
         <div className="p-4 mt-4 sm:hidden">
           <h1 className="text-3xl text-secondaryaccent">{generalT("lopply")}</h1>
@@ -106,7 +115,7 @@ const Header = () => {
         {/* Discover Section */}
         <div className="p-4 mt-5 sm:mt-16">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
-            Discover
+            {menuT("label.discover")}
           </span>
           <ul>
             <li className="mb-4 md:mb-3">

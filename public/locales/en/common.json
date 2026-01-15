@@ -43,7 +43,9 @@
     "approve": "Approve",
     "reject": "Reject",
     "delete": "Delete",
-    "find_my_perfect_races": "Find my perfect races"
+    "find_my_perfect_races": "Find my perfect races",
+    "logout": "Logout",
+    "close": "Close"
   },
   "races": {
     "explore_your_next_race": "Explore your next race",
