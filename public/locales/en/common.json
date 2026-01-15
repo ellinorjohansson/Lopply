@@ -10,7 +10,7 @@
     "race_match": "Race match",
     "add_race": "Add race",
     "explore_races": "Explore races",
-    "bucket_list": "Bucket list",
+    "bucket_list": "Bucketlist",
     "login_sign_up": "Login / Sign up",
     "admin_panel": "Admin panel",
     "label": {
@@ -46,7 +46,7 @@
     "find_my_perfect_races": "Find my perfect races",
     "logout": "Logout",
     "close": "Close",
-    "save_to_bucketlist": "Save to bucket list",
+    "save_to_bucketlist": "Save to bucketlist",
     "close_nav": "Close navigation",
     "open_nav": "Open navigation"
   },
@@ -133,7 +133,7 @@
       "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",
       "match_by_preferences": "Match by preferences",
       "find_races_based": "Find races based on your preferences",
-      "build_your_bucket_list": "Build your bucket list",
+      "build_your_bucket_list": "Build your bucketlist",
       "save_your_dream": "Save your dream races and create your personal running adventure roadmap",
       "match_your_training": "Match your training",
       "find_races_that": "Find races that fit your training timeline and preparation schedule"
@@ -235,10 +235,10 @@
     "delete_error": "Failed to delete user"
   },
   "bucketlist": {
-    "my_bucketlist": "My bucket list",
+    "my_bucketlist": "My bucketlist",
     "bucketlist_subtext": "Races you've saved for future adventures",
     "no_races_saved": "No races saved yet",
-    "no_races_subtext": "Start exploring and add races to your bucket list!",
+    "no_races_subtext": "Start exploring and add races to your bucketlist!",
     "loading": "Loading...",
     "added_to_bucketlist": "Added to Bucketlist",
     "added_subtext": "This race has been saved to your bucketlist",
