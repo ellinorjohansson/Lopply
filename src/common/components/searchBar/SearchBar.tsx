@@ -30,7 +30,7 @@ const SearchBar = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="w-full pl-14 pr-12 py-3 bg-primary text-secondaryaccent placeholder:text-secondaryaccent/50 border border-secondaryaccent/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primaryaccent focus:border-transparent transition-all [&::-webkit-search-cancel-button]:hidden"
+          className="w-full pl-14 pr-12 py-3 bg-primary text-secondaryaccent placeholder:text-secondaryaccent/50 border border-secondaryaccent/20 rounded-3xl focus:outline-none focus:ring-2 focus:ring-primaryaccent focus:border-transparent transition-all [&::-webkit-search-cancel-button]:hidden"
           aria-label={ariaLabel || label}
         />
         {value && (

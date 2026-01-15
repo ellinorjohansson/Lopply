@@ -7,6 +7,7 @@ import { IRace } from "@/models/Race";
 import Card from "@/common/components/card/Card";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import DropdownField from "@/common/components/input/dropdownField/DropdownField";
+import SearchBar from "@/common/components/searchBar/SearchBar";
 import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 import Link from "next/link";
 
@@ -17,6 +18,7 @@ const Bucketlist = () => {
   const [races, setRaces] = useState<IRace[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState<"upcoming" | "farthest" | "">("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [showRemoveSuccess, setShowRemoveSuccess] = useState(false);
   const [showFavoriteSuccess, setShowFavoriteSuccess] = useState(false);
 
@@ -35,7 +37,16 @@ const Bucketlist = () => {
     setRaces((prevRaces) => prevRaces.filter((race) => race._id !== raceId));
   };
 
-  const sortedRaces = [...races].sort((a, b) => {
+  const filteredRaces = races.filter((race) => {
+    if (!searchQuery.trim()) return true;
+    const query = searchQuery.toLowerCase().trim();
+    return (
+      race.name.toLowerCase().includes(query) ||
+      race.location.toLowerCase().includes(query)
+    );
+  });
+
+  const sortedRaces = [...filteredRaces].sort((a, b) => {
     if (!sortBy) return 0;
     const dateA = new Date(a.date).getTime();
     const dateB = new Date(b.date).getTime();
@@ -99,6 +110,15 @@ const Bucketlist = () => {
         ) : (
           <>
             <div className="mb-6 px-4">
+              <SearchBar
+                value={searchQuery}
+                onChange={setSearchQuery}
+                label={bucketT("search_label")}
+                placeholder={bucketT("search_placeholder")}
+                ariaLabel={bucketT("search_aria_label")}
+              />
+            </div>
+            <div className="mb-6 px-4">
               <DropdownField
                 placeholder={racesT("sort_by")}
                 value={sortBy}
@@ -110,28 +130,42 @@ const Bucketlist = () => {
                 size="small"
               />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
-              {sortedRaces.map((race) => (
-                <Card
-                  key={race._id}
-                  id={race._id}
-                  image={race.imageUrl}
-                  title={race.name}
-                  location={race.location}
-                  date={new Date(race.date).toLocaleDateString()}
-                  distance={race.distance}
-                  terrain={race.terrain}
-                  difficulty={race.difficulty}
-                  description={race.description || ""}
-                  raceUrl={race.raceUrl}
-                  onFavoriteChange={() => handleFavoriteChange(race._id as string)}
-                  onRemoveSuccess={() => setShowRemoveSuccess(true)}
-                  onFavoriteSuccess={() => setShowFavoriteSuccess(true)}
-                  showRemoveButton={true}
-                  isFavorited={true}
-                />
-              ))}
-            </div>
+            {sortedRaces.length === 0 ? (
+              <div className="flex flex-col justify-center items-center h-64 text-center space-y-3">
+                <span className="material-symbols-outlined text-7xl! text-secondaryaccent">
+                  search_off
+                </span>
+                <h3 className="text-2xl md:text-3xl font-semibold">
+                  {bucketT("no_search_results")}
+                </h3>
+                <p className="text-base md:text-xl">
+                  {bucketT("adjust_search_terms")}
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
+                {sortedRaces.map((race) => (
+                  <Card
+                    key={race._id}
+                    id={race._id}
+                    image={race.imageUrl}
+                    title={race.name}
+                    location={race.location}
+                    date={new Date(race.date).toLocaleDateString()}
+                    distance={race.distance}
+                    terrain={race.terrain}
+                    difficulty={race.difficulty}
+                    description={race.description || ""}
+                    raceUrl={race.raceUrl}
+                    onFavoriteChange={() => handleFavoriteChange(race._id as string)}
+                    onRemoveSuccess={() => setShowRemoveSuccess(true)}
+                    onFavoriteSuccess={() => setShowFavoriteSuccess(true)}
+                    showRemoveButton={true}
+                    isFavorited={true}
+                  />
+                ))}
+              </div>
+            )}
           </>
         )}
       </section>
