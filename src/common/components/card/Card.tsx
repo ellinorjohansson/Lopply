@@ -9,6 +9,7 @@ import DeleteButton from "../buttons/DeleteButton";
 import SecondaryButton from "../buttons/SecondaryButton";
 import ErrorToaster from "../toasters/ErrorToaster";
 import SuccedToaster from "../toasters/SuccedToaster";
+import ToolTip from "../tooltip/ToolTip";
 
 export interface RaceCardProps {
 	image: string;
@@ -187,20 +188,24 @@ const Card = ({
 				)}
 
 				{!isAdminMode && (
-					<button
-						onClick={toggleFavorite}
-						disabled={isLoading}
-						className="absolute top-4 right-4 bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer disabled:opacity-50"
-						aria-pressed={favorited}
-						aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
-					>
-						<span
-							className={`material-symbols-rounded ${favorited ? "text-primaryaccent" : "text-secondary/50"}`}
-							aria-hidden="true"
-						>
-							{favorited ? "favorite" : "favorite_border"}
-						</span>
-					</button>
+					<div className="absolute top-4 right-4">
+						<ToolTip text={buttonsT("save_to_bucketlist")} position="left">
+							<button
+								onClick={toggleFavorite}
+								disabled={isLoading}
+								className=" bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer disabled:opacity-50"
+								aria-pressed={favorited}
+								aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
+							>
+								<span
+									className={`material-symbols-rounded ${favorited ? "text-primaryaccent" : "text-secondary/50"}`}
+									aria-hidden="true"
+								>
+									{favorited ? "favorite" : "favorite_border"}
+								</span>
+							</button>
+						</ToolTip>
+					</div>
 				)}
 			</div>
 
