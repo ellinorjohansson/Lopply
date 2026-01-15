@@ -27,8 +27,23 @@ export default function ShowRaces({
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(12);
   const [sortBy, setSortBy] = useState<"upcoming" | "farthest" | "">("");
+  const [bucketlistRaceIds, setBucketlistRaceIds] = useState<Set<string>>(new Set());
   const racesT = useTranslation("races");
   const { data: session } = useSession();
+
+  useEffect(() => {
+    async function fetchBucketlist() {
+      if (session) {
+        const bucketlistRaces = await getBucketlistRaces();
+        const bucketlistIds = new Set(bucketlistRaces.map(race => race._id as string));
+        setBucketlistRaceIds(bucketlistIds);
+      } else {
+        setBucketlistRaceIds(new Set());
+      }
+    }
+
+    fetchBucketlist();
+  }, [session]);
 
   useEffect(() => {
     async function fetchRaces() {
@@ -77,11 +92,6 @@ export default function ShowRaces({
         );
       }
 
-      // Fetch bucketlist races for current session
-      const currentBucketlistIds = session
-        ? new Set((await getBucketlistRaces()).map(race => race._id as string))
-        : new Set<string>();
-
       const mappedRaces: RaceCardProps[] = futureRaces.map((race) => ({
         id: race._id,
         image: race.imageUrl,
@@ -93,7 +103,7 @@ export default function ShowRaces({
         difficulty: race.difficulty,
         description: race.description || "",
         raceUrl: race.raceUrl,
-        isFavorited: currentBucketlistIds.has(race._id as string),
+        isFavorited: bucketlistRaceIds.has(race._id as string),
       }));
 
       const sortedRaces = [...mappedRaces].sort((a, b) => {
@@ -109,7 +119,7 @@ export default function ShowRaces({
     }
 
     fetchRaces();
-  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy, searchQuery, session]);
+  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy, searchQuery, session, bucketlistRaceIds]);
 
   if (loading) {
     return (

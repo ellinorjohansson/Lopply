@@ -16,7 +16,7 @@ const SearchBar = ({
   ariaLabel
 }: SearchBarProps) => {
   return (
-    <div className="mb-8">
+    <div>
       <label htmlFor="search-input" className="text-lg text-primaryaccent block mb-3">
         {label}
       </label>
