@@ -9,7 +9,7 @@ interface AdminSwitchProps {
 }
 
 const AdminSwitch = ({ mode, onChange, pendingCount = 0 }: AdminSwitchProps) => {
-  const s = useTranslation("switch");
+  const switchT = useTranslation("switch");
   return (
     <div className="flex w-full rounded-full border border-secondaryaccent overflow-hidden bg-primary text-secondaryaccent">
       <button
@@ -17,7 +17,7 @@ const AdminSwitch = ({ mode, onChange, pendingCount = 0 }: AdminSwitchProps) => 
           }`}
         onClick={() => onChange("races")}
       >
-        {s("races")} {pendingCount > 0 && `(${pendingCount})`}
+        {switchT("races")} {pendingCount > 0 && `(${pendingCount})`}
       </button>
 
       <button
@@ -25,7 +25,7 @@ const AdminSwitch = ({ mode, onChange, pendingCount = 0 }: AdminSwitchProps) => 
           }`}
         onClick={() => onChange("users")}
       >
-        {s("users")}
+        {switchT("users")}
       </button>
     </div>
   );

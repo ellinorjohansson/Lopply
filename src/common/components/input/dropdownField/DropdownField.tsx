@@ -3,7 +3,8 @@
 import { ReactNode } from "react";
 
 export interface DropdownProps {
-  label: string;
+  label?: string;
+  placeholder?: string;
   size?: "small" | "medium";
   error?: string;
   value?: string;
@@ -15,6 +16,7 @@ export interface DropdownProps {
 
 const DropdownField = ({
   label,
+  placeholder,
   size = "medium",
   error,
   value,
@@ -23,27 +25,34 @@ const DropdownField = ({
   helpButton,
   options,
 }: DropdownProps) => {
-  const selectId = id || `select-${label.toLowerCase().replace(/\s+/g, "-")}`;
+  const selectId = id || `select-${label?.toLowerCase().replace(/\s+/g, "-") || "dropdown"}`;
 
   const sizeClasses = {
-    small: "px-4 text-sm sm:text-base w-full max-w-[280px]",
-    medium: "px-4 text-sm sm:text-base w-full max-w-[630px]",
+    small: "px-4 pr-8 text-sm sm:text-base w-full",
+    medium: "px-4 pr-8 text-sm sm:text-base w-full",
+  }[size];
+
+  const containerClasses = {
+    small: "max-w-[280px]",
+    medium: "max-w-[630px]",
   }[size];
 
   return (
     <div className="flex flex-col">
-      <div className="flex items-center justify-between mb-1">
-        <div className="flex items-center">
-          <label htmlFor={selectId} className="font-sans font-medium text-secondaryaccent">
-            {label}
-          </label>
-          {error && <span className="text-errortext text-sm ml-3">{error}</span>}
+      {label && (
+        <div className="flex items-center justify-between mb-1">
+          <div className="flex items-center">
+            <label htmlFor={selectId} className="font-sans font-medium text-secondaryaccent">
+              {label}
+            </label>
+            {error && <span className="text-errortext text-sm ml-3">{error}</span>}
+          </div>
+
+          {helpButton && <div className="shrink-0 ml-3">{helpButton}</div>}
         </div>
+      )}
 
-        {helpButton && <div className="shrink-0 ml-3">{helpButton}</div>}
-      </div>
-
-      <div className="relative">
+      <div className={`relative inline-flex ${containerClasses}`}>
         <select
           id={selectId}
           value={value}
@@ -54,6 +63,11 @@ const DropdownField = ({
             focus:border-primaryaccent
           `}
         >
+          {placeholder && (
+            <option value="">
+              {placeholder}
+            </option>
+          )}
           {options.map((opt) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}
@@ -61,7 +75,7 @@ const DropdownField = ({
           ))}
         </select>
 
-        <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-secondaryaccent pointer-events-none">
+        <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-secondaryaccent pointer-events-none">
           keyboard_arrow_down
         </span>
       </div>

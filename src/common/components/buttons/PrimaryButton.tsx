@@ -4,6 +4,7 @@ export interface PrimaryButtonProps {
 	text: string;
 	icon?: string;
 	size: "small" | "medium" | "large";
+	type?: string;
 	onClick?: () => void;
 }
 

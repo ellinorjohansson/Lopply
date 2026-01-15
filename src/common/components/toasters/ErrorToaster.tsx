@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export interface ErrorToasterProps {
 	headerMessage: string;
@@ -9,6 +9,8 @@ export interface ErrorToasterProps {
 }
 
 const ErrorToaster = ({ headerMessage, text, onClose }: ErrorToasterProps) => {
+	const [zIndex] = useState(() => Date.now());
+
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			onClose();
@@ -19,12 +21,13 @@ const ErrorToaster = ({ headerMessage, text, onClose }: ErrorToasterProps) => {
 
 	return (
 		<div
+			style={{ zIndex }}
 			className="
 				fixed bottom-10 right-20 bg-error text-secondaryaccent shadow-lg  p-4 animate-slide-up rounded-2xl max-w-xs sm:max-w-sm md:max-w-md
 				wrap-break-words"
 		>
-			<h3 className="font-semibold text-sm">{headerMessage}</h3>
-			<p className="text-xs">{text}</p>
+			<h3 className="font-semibold text-base">{headerMessage}</h3>
+			<p className="text-sm">{text}</p>
 		</div>
 	);
 };

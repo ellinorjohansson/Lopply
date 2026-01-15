@@ -7,7 +7,7 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 
 const UserAuth = () => {
   const [mode, setMode] = useState<"login" | "signup">("login");
-  const a = useTranslation("authentication");
+  const authT = useTranslation("authentication");
 
   return (
     <section className="flex items-center justify-center w-full min-h-screen p-4">
@@ -16,7 +16,7 @@ const UserAuth = () => {
                       w-full max-w-150 sm:max-w-180
                       flex flex-col gap-6">
         <span className="text-secondaryaccent text-base flex justify-center mb-3">
-          {a("user.user_text_discover")}
+          {authT("user.user_text_discover")}
         </span>
 
         <AuthSwitch mode={mode} onChange={setMode} />

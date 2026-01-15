@@ -4,13 +4,14 @@ import InputField from "@/common/components/input/inputField/InputField";
 import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const UserLogIn = () => {
-	const a = useTranslation("authentication");
-	const v = useTranslation("validation")
+	const authT = useTranslation("authentication");
+	const validationT = useTranslation("validation")
 	const router = useRouter();
+	const { status } = useSession();
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -24,8 +25,8 @@ const UserLogIn = () => {
 
 		const newErrors: { email?: string; password?: string } = {};
 
-		if (!email) newErrors.email = v("empty_field");
-		if (!password) newErrors.password = v("empty_field");
+		if (!email) newErrors.email = validationT("empty_field");
+		if (!password) newErrors.password = validationT("empty_field");
 
 		setErrors(newErrors);
 
@@ -39,7 +40,7 @@ const UserLogIn = () => {
 			setLoading(false);
 
 			if (result?.error) {
-				setErrors({ email: a("admin.invalid_credentials") });
+				setErrors({ email: authT("admin.invalid_credentials") });
 			} else {
 				setShowSuccessToaster(true);
 				setTimeout(() => {
@@ -49,18 +50,46 @@ const UserLogIn = () => {
 		}
 	};
 
+	const handleLogout = () => {
+		signOut({ redirect: false }).then(() => {
+			setEmail("");
+			setPassword("");
+			setErrors({});
+		});
+	};
+
+	if (status === "loading") {
+		return null;
+	}
+
+	if (status === "authenticated") {
+		return (
+			<div className="flex flex-col gap-6">
+				<div className="flex flex-col gap-2">
+					<h4 className="text-2xl md:text-3xl mt-10 font-medium text-accent">
+						{authT("user.already_signed_in")}
+					</h4>
+					<span className="text-secondaryaccent">
+						{authT("user.logged_in_message")}
+					</span>
+				</div>
+				<PrimaryButton text={authT("user.logout")} size="large" onClick={handleLogout} />
+			</div>
+		);
+	}
+
 	return (
 		<>
 			{showSuccessToaster && (
 				<SuccedToaster
-					headerMessage={a("user.login_success")}
-					text={a("user.signup_success_text")}
+					headerMessage={authT("user.login_success")}
+					text={authT("user.signup_success_text")}
 					onClose={() => setShowSuccessToaster(false)}
 				/>
 			)}
 			<form onSubmit={handleSubmit} className="flex flex-col gap-6">
 				<InputField
-					label={a("email")}
+					label={authT("email")}
 					size="medium"
 					type="email"
 					value={email}
@@ -68,14 +97,14 @@ const UserLogIn = () => {
 					error={errors.email}
 				/>
 				<InputField
-					label={a("password")}
+					label={authT("password")}
 					size="medium"
 					type="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					error={errors.password}
 				/>
-				<PrimaryButton text={loading ? "Logging in..." : a("user.login")} size="large" />
+				<PrimaryButton text={loading ? authT("user.logging_in") : authT("user.login")} size="large" />
 			</form>
 		</>
 	);

@@ -86,3 +86,18 @@
 
 - I started of todays session by doing some fixes mostly small devices style issues that i discouved by looking at the page on my phone. I also fixed so when a user goes to another page it starts from the top and not from the button like it did before (if the "go to another page" button was in the middle or buttom of the page then the page the user goes to starts at the buttom.) I fixed that issue by adding a component and then added it to layout.
 - I also fixed the explore race page by adding title, filter and so the page only load 12 races at each time so it has an end.
+
+**2026-01-13**
+
+- Today i worked with the implementation of bucketlist so the user that are signed in can add a race to their bucketlist by checking the heart icon and delete it from bucketlist by unchecking it or use the remove button. Also added error or succeed toaster if someone wants to add a race to bucket list but isn't signed in there will be a error toaster but if someone is signed in there will be a succeedtoaster. Also if someone remove a race from bucketlist there will be a succeed toaster.
+
+**2026-01-14**
+
+- Mission of today was to implement the race match page where user can fill out a form and based on what the user choose the page will calculate and then show matched races based on % match. It went well, was hard to do the calculation but i it worked out. I choose to only have the options that i have to start with and if i have time over maybe i will add more options to choose.
+
+**2026-01-15**
+
+- Today i have fixed so if the user is signed in it has to logout before it can login to another account or sign up. I did that to prevent from misunderstanding when bucketlist isn't still there for someone who changed account and didn't realize you loged out from one and signed in to another.
+- Another thing i did today was to add tooltip bar so when you hover over for example the icon button in header to open navigation or close there is now a popup that says "open navigation" or close and so on. I also added it to the icon button for saving a race to bucketlist.
+- One more thing i did was to add searchbar for explore races and bucket list pages so the user can search for race title or location.
+- Everything went well today beside some issues/bug after adding tooltip because some things stopped working or disapeard, but i solved it and now everything works.

@@ -3,14 +3,16 @@
 import { useState } from "react";
 import ShowRaces from "@/common/components/showRaces/ShowRaces";
 import FilterButton from "@/common/components/buttons/FilterButton";
+import SearchBar from "@/common/components/searchBar/SearchBar";
 import { useTranslation } from "@/common/hooks/useTranslation";
 
 export default function RacesPage() {
-  const r = useTranslation("races");
+  const racesT = useTranslation("races");
 
   const [selectedTerrain, setSelectedTerrain] = useState<string[]>([]);
   const [selectedDistance, setSelectedDistance] = useState<string[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const toggleFilter = (value: string, currentFilters: string[], setFilters: (_filters: string[]) => void) => {
     if (currentFilters.includes(value)) {
@@ -25,21 +27,21 @@ export default function RacesPage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="mb-18 mt-18 md:mt-25 md:mb-25 md:ml-0 ml-3">
           <h2 className="text-6xl sm:pl-9 md:text-7xl">
-            {r("explore_your_next_race")}
+            {racesT("explore_your_next_race")}
           </h2>
 
           <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-1xl md:text-2xl">
-            {r("explore_subtext")}
+            {racesT("explore_subtext")}
           </p>
         </div>
       </section>
 
-      <section className="w-full bg-secondary py-15">
+      <section className="w-full bg-secondary py-10">
         <div className="mx-auto max-w-6xl px-8 md:px-12">
-          <form>
+          <form role="search" onSubmit={(e) => e.preventDefault()}>
             <fieldset className="mb-8">
               <legend className="text-lg text-primaryaccent">
-                {r("terrain_type")}
+                {racesT("terrain_type")}
               </legend>
 
               <div className="flex flex-wrap gap-3 mt-2">
@@ -78,7 +80,7 @@ export default function RacesPage() {
 
             <fieldset className="mb-8">
               <legend className="text-lg text-primaryaccent">
-                {r("distance")}
+                {racesT("distance")}
               </legend>
 
               <div className="flex flex-wrap gap-3 mt-2">
@@ -122,10 +124,10 @@ export default function RacesPage() {
 
             <fieldset>
               <legend className="text-lg text-primaryaccent">
-                {r("difficulty")}
+                {racesT("difficulty")}
               </legend>
 
-              <div className="flex flex-wrap gap-3 mt-2">
+              <div className="flex flex-wrap gap-3 mt-2 mb-8">
                 <FilterButton
                   text="Easy"
                   isActive={selectedDifficulty.includes("Easy")}
@@ -143,6 +145,13 @@ export default function RacesPage() {
                 />
               </div>
             </fieldset>
+            <SearchBar
+              value={searchQuery}
+              onChange={setSearchQuery}
+              label="Search races"
+              placeholder="Search by race name or location..."
+              ariaLabel="Search races by name or location"
+            />
           </form>
         </div>
       </section>
@@ -152,6 +161,7 @@ export default function RacesPage() {
           terrainFilter={selectedTerrain}
           distanceFilter={selectedDistance}
           difficultyFilter={selectedDifficulty}
+          searchQuery={searchQuery}
         />
       </section>
     </main>
