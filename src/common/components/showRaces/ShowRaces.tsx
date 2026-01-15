@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Card, { RaceCardProps } from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
 import { getRaces } from "@/services/raceService";
+import { getBucketlistRaces } from "@/services/bucketlistService";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import DropdownField from "@/common/components/input/dropdownField/DropdownField";
+import { useSession } from "next-auth/react";
 
 interface ShowRacesProps {
   terrainFilter?: string[];
@@ -26,10 +28,12 @@ export default function ShowRaces({
   const [visibleCount, setVisibleCount] = useState(12);
   const [sortBy, setSortBy] = useState<"upcoming" | "farthest" | "">("");
   const racesT = useTranslation("races");
+  const { data: session } = useSession();
 
   useEffect(() => {
     async function fetchRaces() {
       setLoading(true);
+
       const racesData: IRace[] = await getRaces();
 
       const currentDate = new Date();
@@ -73,6 +77,11 @@ export default function ShowRaces({
         );
       }
 
+      // Fetch bucketlist races for current session
+      const currentBucketlistIds = session
+        ? new Set((await getBucketlistRaces()).map(race => race._id as string))
+        : new Set<string>();
+
       const mappedRaces: RaceCardProps[] = futureRaces.map((race) => ({
         id: race._id,
         image: race.imageUrl,
@@ -84,6 +93,7 @@ export default function ShowRaces({
         difficulty: race.difficulty,
         description: race.description || "",
         raceUrl: race.raceUrl,
+        isFavorited: currentBucketlistIds.has(race._id as string),
       }));
 
       const sortedRaces = [...mappedRaces].sort((a, b) => {
@@ -99,7 +109,7 @@ export default function ShowRaces({
     }
 
     fetchRaces();
-  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy, searchQuery]);
+  }, [terrainFilter, distanceFilter, difficultyFilter, sortBy, searchQuery, session]);
 
   if (loading) {
     return (

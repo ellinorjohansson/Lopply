@@ -87,6 +87,8 @@ const Card = ({
 
 				if (res.ok) {
 					setFavorited(false);
+					setShowRemoveSuccess(false);
+					setTimeout(() => setShowRemoveSuccess(true), 0);
 					if (onFavoriteSuccess) {
 						onFavoriteSuccess();
 					}
@@ -103,7 +105,8 @@ const Card = ({
 
 				if (res.ok) {
 					setFavorited(true);
-					setShowSuccess(true);
+					setShowSuccess(false);
+					setTimeout(() => setShowSuccess(true), 0);
 					if (onFavoriteSuccess) {
 						onFavoriteSuccess();
 					}
