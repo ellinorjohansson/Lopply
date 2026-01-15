@@ -4,16 +4,29 @@ import { useEffect, useState } from "react";
 import Card from "@/common/components/card/Card";
 import { IRace } from "@/models/Race";
 import { getRaces } from "@/services/raceService";
+import { getBucketlistRaces } from "@/services/bucketlistService";
 import { useTranslation } from "@/common/hooks/useTranslation";
+import { useSession } from "next-auth/react";
 
 export default function FeaturedRaces() {
   const [races, setRaces] = useState<IRace[]>([]);
   const [loading, setLoading] = useState(true);
+  const [bucketlistRaceIds, setBucketlistRaceIds] = useState<Set<string>>(new Set());
   const racesT = useTranslation("races");
+  const { data: session } = useSession();
 
   useEffect(() => {
     async function fetchFeaturedRaces() {
       try {
+        // Fetch bucketlist races if user is logged in
+        if (session) {
+          const bucketlistRaces = await getBucketlistRaces();
+          const bucketlistIds = new Set(bucketlistRaces.map(race => race._id as string));
+          setBucketlistRaceIds(bucketlistIds);
+        } else {
+          setBucketlistRaceIds(new Set());
+        }
+
         const allRaces = await getRaces();
         const currentDate = new Date();
         const futureRaces = allRaces.filter(
@@ -31,7 +44,7 @@ export default function FeaturedRaces() {
       }
     }
     fetchFeaturedRaces();
-  }, []);
+  }, [session]);
 
   if (loading) {
     return (
@@ -62,6 +75,7 @@ export default function FeaturedRaces() {
           difficulty={race.difficulty}
           description={race.description || ""}
           raceUrl={race.raceUrl}
+          isFavorited={bucketlistRaceIds.has(race._id as string)}
         />
       ))}
     </div>

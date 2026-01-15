@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ShowRaces from "@/common/components/showRaces/ShowRaces";
 import FilterButton from "@/common/components/buttons/FilterButton";
+import SearchBar from "@/common/components/searchBar/SearchBar";
 import { useTranslation } from "@/common/hooks/useTranslation";
 
 export default function RacesPage() {
@@ -11,6 +12,7 @@ export default function RacesPage() {
   const [selectedTerrain, setSelectedTerrain] = useState<string[]>([]);
   const [selectedDistance, setSelectedDistance] = useState<string[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const toggleFilter = (value: string, currentFilters: string[], setFilters: (_filters: string[]) => void) => {
     if (currentFilters.includes(value)) {
@@ -34,9 +36,9 @@ export default function RacesPage() {
         </div>
       </section>
 
-      <section className="w-full bg-secondary py-15">
+      <section className="w-full bg-secondary py-10">
         <div className="mx-auto max-w-6xl px-8 md:px-12">
-          <form>
+          <form role="search" onSubmit={(e) => e.preventDefault()}>
             <fieldset className="mb-8">
               <legend className="text-lg text-primaryaccent">
                 {racesT("terrain_type")}
@@ -125,7 +127,7 @@ export default function RacesPage() {
                 {racesT("difficulty")}
               </legend>
 
-              <div className="flex flex-wrap gap-3 mt-2">
+              <div className="flex flex-wrap gap-3 mt-2 mb-8">
                 <FilterButton
                   text="Easy"
                   isActive={selectedDifficulty.includes("Easy")}
@@ -143,6 +145,13 @@ export default function RacesPage() {
                 />
               </div>
             </fieldset>
+            <SearchBar
+              value={searchQuery}
+              onChange={setSearchQuery}
+              label="Search races"
+              placeholder="Search by race name or location..."
+              ariaLabel="Search races by name or location"
+            />
           </form>
         </div>
       </section>
@@ -152,6 +161,7 @@ export default function RacesPage() {
           terrainFilter={selectedTerrain}
           distanceFilter={selectedDistance}
           difficultyFilter={selectedDifficulty}
+          searchQuery={searchQuery}
         />
       </section>
     </main>
