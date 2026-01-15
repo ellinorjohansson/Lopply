@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Card from "@/common/components/card/Card";
+import RaceCardSkeleton from "@/common/modules/skeleton/RaceCardSkeleton";
 import { IRace } from "@/models/Race";
 import { getRaces } from "@/services/raceService";
 import { getBucketlistRaces } from "@/services/bucketlistService";
@@ -48,7 +49,11 @@ export default function FeaturedRaces() {
 
   if (loading) {
     return (
-      <div className="text-center text-secondaryaccent py-8">{racesT("loading")}</div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center">
+        {[...Array(3)].map((_, i) => (
+          <RaceCardSkeleton key={i} />
+        ))}
+      </div>
     );
   }
 

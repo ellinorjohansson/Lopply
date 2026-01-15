@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import Card from "@/common/components/card/Card";
+import RaceCardSkeleton from "@/common/modules/skeleton/RaceCardSkeleton";
 import SecondaryButton from "@/common/components/buttons/SecondaryButton";
 import Link from "next/link";
 
@@ -137,7 +138,12 @@ const Results = () => {
   if (loading) {
     return (
       <main className="mx-auto min-h-screen max-w-6xl px-4 py-12">
-        <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-1xl md:text-2xl">{racesT("loading")}</p>
+        <h2 className="text-6xl sm:pl-9 md:text-7xl">{resultsT("your_race_matches")}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-15 p-4 justify-items-center auto-rows-fr mx-auto w-full mt-8">
+          {[...Array(12)].map((_, i) => (
+            <RaceCardSkeleton key={i} />
+          ))}
+        </div>
       </main>
     );
   }

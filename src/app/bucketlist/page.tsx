@@ -5,6 +5,7 @@ import { useTranslation } from "@/common/hooks/useTranslation";
 import { getBucketlistRaces } from "@/services/bucketlistService";
 import { IRace } from "@/models/Race";
 import Card from "@/common/components/card/Card";
+import RaceCardSkeleton from "@/common/modules/skeleton/RaceCardSkeleton";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import DropdownField from "@/common/components/input/dropdownField/DropdownField";
 import SearchBar from "@/common/components/searchBar/SearchBar";
@@ -81,8 +82,10 @@ const Bucketlist = () => {
         </div>
 
         {isLoading ? (
-          <div className="flex justify-center items-center h-64">
-            <p className="text-lg">{bucketT("loading")}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
+            {[...Array(6)].map((_, i) => (
+              <RaceCardSkeleton key={i} />
+            ))}
           </div>
         ) : races.length === 0 ? (
           <div className="flex flex-col justify-center items-center h-64 mt-40 mb-40 text-center space-y-3">
