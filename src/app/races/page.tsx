@@ -149,8 +149,8 @@ export default function RacesPage() {
               value={searchQuery}
               onChange={setSearchQuery}
               label="Search races"
-              placeholder="Search by race name or location..."
-              ariaLabel="Search races by name or location"
+              placeholder={racesT("search_races")}
+              ariaLabel={racesT("search_aria_label")}
             />
           </form>
         </div>

@@ -63,7 +63,9 @@
     "no_races_found": "No featured races available.",
     "sort_by": "Sort by",
     "upcoming_first": "Upcoming races first",
-    "farthest_first": "Farthest races first"
+    "farthest_first": "Farthest races first",
+    "search_races": "Search races by name or location...",
+    "search_aria_label": "Search bucketlist races by name or location"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
@@ -246,7 +248,7 @@
     "removed_subtext": "This race has been removed from your bucketlist",
     "remove_from_list": "Remove from list",
     "search_label": "Search your bucketlist",
-    "search_placeholder": "Search by race name or location",
+    "search_placeholder": "Search by race name or location...",
     "search_aria_label": "Search bucketlist races by name or location",
     "no_search_results": "No races found",
     "adjust_search_terms": "Try adjusting your search terms"
