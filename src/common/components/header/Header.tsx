@@ -71,7 +71,7 @@ const Header = () => {
         </h1>
 
         {session?.user?.name && (
-          <span className="text-secondaryaccent ml-3 sm:ml-8">{generalT("hello")} {session.user.name}</span>
+          <span className="text-secondaryaccent ml-3 sm:ml-8 max-w-80 md:max-w-90 truncate inline-block">{generalT("hello")} {session.user.name}</span>
         )}
         {session && (
           <div className="ml-auto flex items-center mr-5">
