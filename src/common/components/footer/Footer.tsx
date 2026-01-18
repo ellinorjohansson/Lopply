@@ -13,7 +13,7 @@ const Footer = () => {
         <p className="w-50 text-sm mx-auto sm:mx-0">
           {footerT("text.discover_and_conquer")}
         </p>
-        <p className="text-sm mt-2 mx-auto sm:mx-0">{footerT("text.all_rights")}</p>
+        <p className="text-sm mt-2 mx-auto sm:mx-0">&copy; {new Date().getFullYear()} {footerT("text.all_rights")}</p>
       </div>
 
       {/* Right Column */}
