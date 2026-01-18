@@ -152,10 +152,12 @@ const Results = () => {
     return (
       <main className="mx-auto min-h-screen max-w-6xl px-4 py-12">
         <h2 className="text-6xl sm:pl-9 md:text-7xl">{resultsT("your_race_matches")}</h2>
-        <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-xl md:text-2xl">
-          {racesT("no_races")}
-        </p>
-        <div className="flex justify-center mt-50 mb-15">
+        <div className="flex justify-center mt-50">
+          <p className="sm:pl-9 mt-1 md:mt-4 mb-6 text-xl md:text-2xl">
+            {racesT("no_races")}
+          </p>
+        </div>
+        <div className="flex justify-center">
           <Link href="/race-match">
             <SecondaryButton size="medium" text={resultsT("update_preferences")} icon="tune" />
           </Link>
