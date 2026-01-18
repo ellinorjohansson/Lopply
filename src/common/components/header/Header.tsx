@@ -61,8 +61,15 @@ const Header = () => {
         </ToolTip>
 
         <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
-          {generalT("lopply")}
+          <Link
+            href="/"
+            aria-label="Go to homepage"
+            className="hover:text-primaryaccent transition-colors"
+          >
+            {generalT("lopply")}
+          </Link>
         </h1>
+
         {session?.user?.name && (
           <span className="text-secondaryaccent ml-3 sm:ml-8">{generalT("hello")} {session.user.name}</span>
         )}
