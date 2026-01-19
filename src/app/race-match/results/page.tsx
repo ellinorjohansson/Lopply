@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useTranslation } from "@/common/hooks/useTranslation";
+import { getBucketlistRaces } from "@/services/bucketlistService";
 import Card from "@/common/components/card/Card";
 import RaceCardSkeleton from "@/common/modules/skeleton/RaceCardSkeleton";
 import SecondaryButton from "@/common/components/buttons/SecondaryButton";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 interface Race {
   _id: string;
@@ -26,9 +28,25 @@ interface RaceWithMatch extends Race {
 const Results = () => {
   const racesT = useTranslation("races");
   const resultsT = useTranslation("results");
+  const { data: session } = useSession();
 
   const [matchedRaces, setMatchedRaces] = useState<RaceWithMatch[]>([]);
   const [loading, setLoading] = useState(true);
+  const [bucketlistRaceIds, setBucketlistRaceIds] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    async function fetchBucketlist() {
+      if (session) {
+        const bucketlistRaces = await getBucketlistRaces();
+        const bucketlistIds = new Set(bucketlistRaces.map(race => race._id as string));
+        setBucketlistRaceIds(bucketlistIds);
+      } else {
+        setBucketlistRaceIds(new Set());
+      }
+    }
+
+    fetchBucketlist();
+  }, [session]);
 
   useEffect(() => {
     const fetchAndMatchRaces = async () => {
@@ -201,6 +219,7 @@ const Results = () => {
               difficulty={race.difficulty}
               description={race.description || ""}
               raceUrl={race.raceUrl}
+              isFavorited={bucketlistRaceIds.has(race._id)}
             />
             <div className="bg-primaryaccent text-primary absolute top-[-12] left-[-12] px-4 py-2 rounded-full shadow-lg z-10 flex justify-center">
               <span className="flex items-center gap-2 text-secondaryaccent"><span className="material-symbols-outlined text-secondaryaccent">
