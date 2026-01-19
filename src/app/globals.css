@@ -28,10 +28,6 @@ h2 {
   color: var(--color-primaryaccent);
 }
 
-legend {
-  font-family: var(--font-instrument-sans), sans-serif;
-}
-
 @layer utilities {
   .font-logo {
     font-family: var(--font-instrument-serif), serif !important;
@@ -47,6 +43,16 @@ p {
 }
 
 span {
+  font-family: var(--font-instrument-sans), sans-serif;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-kavoon), serif !important;
+  }
+}
+
+legend {
   font-family: var(--font-instrument-sans), sans-serif;
 }
 

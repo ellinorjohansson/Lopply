@@ -20,6 +20,7 @@ const Footer = () => {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="flex items-center gap-1 cursor-pointer text-primaryaccent mt-6 mb-10 sm:mt-0 sm:mb-0"
+        aria-label={footerT("scroll_to_top")}
       >
         <span className="text-base">{footerT("scroll_to_top")}</span>
         <span className="material-symbols-outlined text-2xl">arrow_upward</span>

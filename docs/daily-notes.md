@@ -106,3 +106,4 @@
 
 - Today i worked with my branch that is like a fix branch with small changes here and there. So i checked a11y tests, fixed color when secondarybutton is active, center toast on small devices, fixed user name in header to only be one row, helperbutton content sometimes was outside of screen, bucketlist cards was not clickble and fixed so @2026 in footer updates automaticly. Went well and was nice to fix small things so now most of the page is done (for now).
 - I also added meta tags and favicon.
+- I also added vitest and v8 and wrote tests for race matching page to see so it works like it should and ddoesn't have any errors. Went well even if it feels like a lot of time since i did tests with vitest.
