@@ -144,7 +144,11 @@ const Card = ({
 		if (onDelete && id) onDelete(id);
 	};
 
-	const handleRemoveFromBucketlist = async () => {
+	const handleRemoveFromBucketlist = async (e?: React.MouseEvent) => {
+		if (e) {
+			e.preventDefault();
+			e.stopPropagation();
+		}
 		setIsLoading(true);
 		try {
 			const res = await fetch("/api/bucketlist", {
@@ -300,7 +304,7 @@ const Card = ({
 		</>
 	);
 
-	if (isAdminMode || isBucketlistMode) {
+	if (isAdminMode) {
 		return (
 			<>
 				{showError && (

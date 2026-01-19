@@ -148,24 +148,25 @@ const Bucketlist = () => {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center auto-rows-fr">
                 {sortedRaces.map((race) => (
-                  <Card
-                    key={race._id}
-                    id={race._id}
-                    image={race.imageUrl}
-                    title={race.name}
-                    location={race.location}
-                    date={new Date(race.date).toLocaleDateString()}
-                    distance={race.distance}
-                    terrain={race.terrain}
-                    difficulty={race.difficulty}
-                    description={race.description || ""}
-                    raceUrl={race.raceUrl}
-                    onFavoriteChange={() => handleFavoriteChange(race._id as string)}
-                    onRemoveSuccess={() => setShowRemoveSuccess(true)}
-                    onFavoriteSuccess={() => setShowFavoriteSuccess(true)}
-                    showRemoveButton={true}
-                    isFavorited={true}
-                  />
+                  <div key={race._id} className="w-full">
+                    <Card
+                      id={race._id}
+                      image={race.imageUrl}
+                      title={race.name}
+                      location={race.location}
+                      date={new Date(race.date).toLocaleDateString()}
+                      distance={race.distance}
+                      terrain={race.terrain}
+                      difficulty={race.difficulty}
+                      description={race.description || ""}
+                      raceUrl={race.raceUrl}
+                      onFavoriteChange={() => handleFavoriteChange(race._id as string)}
+                      onRemoveSuccess={() => setShowRemoveSuccess(true)}
+                      onFavoriteSuccess={() => setShowFavoriteSuccess(true)}
+                      showRemoveButton={true}
+                      isFavorited={true}
+                    />
+                  </div>
                 ))}
               </div>
             )}
