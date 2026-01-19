@@ -351,7 +351,7 @@ const Card = ({
 				href={raceUrl}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="block"
+				className="block h-full"
 			>
 				<article
 					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer hover:scale-103 transition flex flex-col h-full"
