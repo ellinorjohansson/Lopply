@@ -105,3 +105,4 @@
 **2026-01-19**
 
 - Today i worked with my branch that is like a fix branch with small changes here and there. So i checked a11y tests, fixed color when secondarybutton is active, center toast on small devices, fixed user name in header to only be one row, helperbutton content sometimes was outside of screen, bucketlist cards was not clickble and fixed so @2026 in footer updates automaticly. Went well and was nice to fix small things so now most of the page is done (for now).
+- I also added meta tags and favicon.
