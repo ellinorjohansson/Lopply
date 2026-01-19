@@ -101,3 +101,9 @@
 - Another thing i did today was to add tooltip bar so when you hover over for example the icon button in header to open navigation or close there is now a popup that says "open navigation" or close and so on. I also added it to the icon button for saving a race to bucketlist.
 - One more thing i did was to add searchbar for explore races and bucket list pages so the user can search for race title or location.
 - Everything went well today beside some issues/bug after adding tooltip because some things stopped working or disapeard, but i solved it and now everything works.
+
+**2026-01-19**
+
+- Today i worked with my branch that is like a fix branch with small changes here and there. So i checked a11y tests, fixed color when secondarybutton is active, center toast on small devices, fixed user name in header to only be one row, helperbutton content sometimes was outside of screen, bucketlist cards was not clickble and fixed so @2026 in footer updates automaticly. Went well and was nice to fix small things so now most of the page is done (for now).
+- I also added meta tags and favicon.
+- I also added vitest and v8 and wrote tests for race matching page to see so it works like it should and ddoesn't have any errors. Went well even if it feels like a lot of time since i did tests with vitest.

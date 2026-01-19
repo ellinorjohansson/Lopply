@@ -18,7 +18,7 @@ const SecondaryButton = ({ text, icon, size = "medium", onClick, type, isActive 
 	}[size];
 
 	const activeClasses = isActive
-		? "bg-primaryaccent text-secondaryaccent border-primaryaccent"
+		? "bg-primaryaccent text-primary border-primaryaccent"
 		: "bg-primary text-secondaryaccent border-secondaryaccent";
 
 	return (

@@ -16,7 +16,7 @@ const AccentButton = ({ text, icon, size = "medium" }: AccentButtonProps) => {
 
     return (
         <button
-            className={`${sizeClasses} font-sans flex items-center cursor-pointer bg-secondary border border-primaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition`}
+            className={`${sizeClasses} min-h-11 min-w-11 font-sans flex items-center cursor-pointer bg-secondary border border-primaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition`}
         >
 
             {text}

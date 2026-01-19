@@ -63,13 +63,15 @@
     "no_races_found": "No featured races available.",
     "sort_by": "Sort by",
     "upcoming_first": "Upcoming races first",
-    "farthest_first": "Farthest races first"
+    "farthest_first": "Farthest races first",
+    "search_races": "Search races by name or location...",
+    "search_aria_label": "Search bucketlist races by name or location"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
     "text": {
       "discover_and_conquer": "Discover and conquer the world's most epic races. Your next adventure awaits.",
-      "all_rights": "©2026 Lopply. All rights reserved."
+      "all_rights": "Lopply. All rights reserved."
     }
   },
   "error": {
@@ -122,7 +124,7 @@
   },
   "home_page": {
     "discover_your_next": "Discover your next",
-    "running_adventure": "Running adventure",
+    "running_adventure": "running adventure",
     "explore_races_by_terrain_text": "Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.",
     "featured_races": "Featured races",
     "handpicked_adventures_across": "Handpicked adventures across stunning terrains worldwide",
@@ -246,7 +248,7 @@
     "removed_subtext": "This race has been removed from your bucketlist",
     "remove_from_list": "Remove from list",
     "search_label": "Search your bucketlist",
-    "search_placeholder": "Search by race name or location",
+    "search_placeholder": "Search by race name or location...",
     "search_aria_label": "Search bucketlist races by name or location",
     "no_search_results": "No races found",
     "adjust_search_terms": "Try adjusting your search terms"

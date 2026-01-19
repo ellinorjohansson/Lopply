@@ -13,13 +13,14 @@ const Footer = () => {
         <p className="w-50 text-sm mx-auto sm:mx-0">
           {footerT("text.discover_and_conquer")}
         </p>
-        <p className="text-sm mt-2 mx-auto sm:mx-0">{footerT("text.all_rights")}</p>
+        <p className="text-sm mt-2 mx-auto sm:mx-0">&copy; {new Date().getFullYear()} {footerT("text.all_rights")}</p>
       </div>
 
       {/* Right Column */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="flex items-center gap-1 cursor-pointer text-primaryaccent mt-6 mb-10 sm:mt-0 sm:mb-0"
+        aria-label={footerT("scroll_to_top")}
       >
         <span className="text-base">{footerT("scroll_to_top")}</span>
         <span className="material-symbols-outlined text-2xl">arrow_upward</span>
