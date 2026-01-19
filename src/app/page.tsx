@@ -26,11 +26,11 @@ export default function Home() {
           <span className="text-secondaryaccent text-5xl md:text-7xl lg:text-7xl">
             {homeT("discover_your_next")}
           </span>
-          <h2 className="text-primaryaccent text-4xl md:text-7xl lg:text-7xl mb-6">
+          <h2 className="text-primaryaccent text-4xl md:text-7xl lg:text-7xl mb-3 md:mb-6">
             {homeT("running_adventure")}
           </h2>
 
-          <p className="text-xl md:text-2xl lg:text-2xl max-w-2xl mb-10">
+          <p className="text-xl md:text-2xl lg:text-2xl max-w-2xl mb-15">
             {homeT("explore_races_by_terrain_text")}
           </p>
 

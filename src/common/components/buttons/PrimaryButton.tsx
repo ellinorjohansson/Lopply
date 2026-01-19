@@ -19,7 +19,7 @@ const PrimaryButton = ({ text, icon, size = "medium", onClick }: PrimaryButtonPr
 	return (
 		<button
 			onClick={onClick}
-			className={`${sizeClasses} font-sans flex items-center justify-center cursor-pointer bg-primaryaccent text-secondaryaccent rounded-3xl hover:brightness-80 transition whitespace-nowrap`}
+			className={`${sizeClasses} min-h-11 min-w-11 font-sans flex items-center justify-center cursor-pointer bg-primaryaccent text-primary rounded-3xl hover:brightness-80 transition whitespace-nowrap`}
 		>
 			{icon && (
 				<span className="material-symbols-outlined mr-2">
