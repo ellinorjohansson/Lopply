@@ -222,7 +222,7 @@ const Results = () => {
               isFavorited={bucketlistRaceIds.has(race._id)}
             />
             <div className="bg-primaryaccent text-primary absolute top-[-12] left-[-12] px-4 py-2 rounded-full shadow-lg z-10 flex justify-center">
-              <span className="flex items-center gap-2 text-secondaryaccent"><span className="material-symbols-outlined text-secondaryaccent">
+              <span className="flex items-center gap-2 text-primary"><span className="material-symbols-outlined text-primary">
                 star_shine
               </span>{race.matchPercentage}% {resultsT("match_percentage")}</span>
             </div>
