@@ -24,7 +24,7 @@ const FilterButton = ({ text, icon, isActive = false, onClick }: FilterButtonPro
         focus-visible:outline-none
         focus-visible:ring-0
         ${isActive
-          ? "bg-primaryaccent text-secondaryaccent border-primaryaccent focus-visible:border-secondaryaccent"
+          ? "bg-primaryaccent text-primary border-primaryaccent focus-visible:border-secondaryaccent"
           : "bg-secondary text-secondaryaccent border-secondaryaccent hover:bg-primaryaccent/10 focus-visible:border-primaryaccent"
         }
       `}
