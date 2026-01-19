@@ -60,7 +60,7 @@ const Header = () => {
           </button>
         </ToolTip>
 
-        <h1 className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
+        <h1 className="hidden md:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           <Link
             href="/"
             aria-label="Go to homepage"
@@ -71,7 +71,7 @@ const Header = () => {
         </h1>
 
         {session?.user?.name && (
-          <span className="text-secondaryaccent ml-3 sm:ml-8 max-w-80 md:max-w-90 truncate inline-block">{generalT("hello")} {session.user.name}</span>
+          <span className="text-secondaryaccent ml-3 sm:ml-8 max-w-80 md:max-w-50 lg:max-w-90 truncate inline-block">{generalT("hello")} {session.user.name}</span>
         )}
         {session && (
           <div className="ml-auto flex items-center mr-5">
@@ -115,12 +115,12 @@ const Header = () => {
           </ToolTip>
         </div>
 
-        <div className="p-4 mt-4 sm:hidden">
+        <div className="p-4 mt-4 md:hidden">
           <h1 className="text-3xl text-secondaryaccent">{generalT("lopply")}</h1>
         </div>
 
         {/* Discover Section */}
-        <div className="p-4 mt-5 sm:mt-16">
+        <div className="p-4 mt-5 md:mt-16">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
             {menuT("label.discover")}
           </span>
