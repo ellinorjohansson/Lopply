@@ -28,7 +28,10 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "Lopply",
-  description: "",
+  description: "Discover and match with running races around the world. Find your next adventure with Lopply's personalized race recommendations.",
+  icons: {
+    icon: "/images/favicon.avif",
+  },
 };
 
 export default async function RootLayout({
