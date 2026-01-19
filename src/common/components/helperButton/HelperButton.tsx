@@ -33,7 +33,7 @@ const HelperButton = ({ infoText }: HelperButtonProps) => {
 			{open && (
 				<div
 					ref={popupRef}
-					className="absolute md:left-full md:top-0 md:ml-2 md:translate-x-0 right-0 top-full mt-2 bg-secondaryaccent p-3 rounded-lg text-sm w-52 max-w-[calc(100vw-2rem)] z-50 text-secondary"
+					className="absolute right-0 top-full mt-2 lg:left-full lg:top-0 lg:ml-2 lg:mt-0 lg:right-auto bg-secondaryaccent p-3 rounded-lg text-sm w-52 max-w-[calc(100vw-2rem)] z-50 text-secondary"
 				>
 					{infoText}
 				</div>
