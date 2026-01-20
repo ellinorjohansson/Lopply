@@ -6,7 +6,7 @@ import HelperButton from "@/common/components/helperButton/HelperButton";
 import InputField from "@/common/components/input/inputField/InputField";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useState } from "react";
-import TextArea from "@/common/components/input/TextArea";
+import TextArea from "@/common/components/input/textArea/TextArea";
 import ConfirmModal from "@/common/components/comfirmModal/ConfirmModal";
 import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 import ErrorToaster from "@/common/components/toasters/ErrorToaster";
