@@ -7,6 +7,7 @@ import SuccedToaster from "@/common/components/toasters/SuccedToaster";
 import ErrorToaster from "@/common/components/toasters/ErrorToaster";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import ConfirmModal from "@/common/components/comfirmModal/ConfirmModal";
+import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 
 interface PendingRacesProps {
   onCountChange?: (_count: number) => void;
@@ -22,8 +23,10 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [selectedRaceId, setSelectedRaceId] = useState<string | null>(null);
   const [actionType, setActionType] = useState<'approved' | 'rejected' | 'delete' | null>(null);
+  const [visibleAllCount, setVisibleAllCount] = useState(12);
 
   const pendingT = useTranslation("pending_races");
+  const racesT = useTranslation("races");
 
   const refetchPending = useCallback(async () => {
     try {
@@ -152,24 +155,35 @@ const PendingRaces = ({ onCountChange }: PendingRacesProps) => {
         {allRaces.length === 0 ? (
           <p className="text-center items-center text-secondaryaccent">{pendingT("no_races")}</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center mb-10">
-            {allRaces.map((race) => (
-              <Card
-                key={race._id}
-                id={race._id as string}
-                image={race.imageUrl}
-                title={race.name}
-                location={race.location}
-                date={new Date(race.date).toISOString().slice(0, 10)}
-                distance={race.distance}
-                terrain={race.terrain}
-                difficulty={race.difficulty}
-                description={race.description || ""}
-                raceUrl={race.raceUrl}
-                onDelete={handleDelete}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 justify-items-center mb-10">
+              {allRaces.slice(0, visibleAllCount).map((race) => (
+                <Card
+                  key={race._id}
+                  id={race._id as string}
+                  image={race.imageUrl}
+                  title={race.name}
+                  location={race.location}
+                  date={new Date(race.date).toISOString().slice(0, 10)}
+                  distance={race.distance}
+                  terrain={race.terrain}
+                  difficulty={race.difficulty}
+                  description={race.description || ""}
+                  raceUrl={race.raceUrl}
+                  onDelete={handleDelete}
+                />
+              ))}
+            </div>
+            {visibleAllCount < allRaces.length && (
+              <div className="flex justify-center mt-6 mb-10">
+                <PrimaryButton
+                  text={racesT("load_more")}
+                  size="medium"
+                  onClick={() => setVisibleAllCount((prev) => prev + 12)}
+                />
+              </div>
+            )}
+          </>
         )}
       </section>
       {showSuccessToaster && (
