@@ -10,6 +10,8 @@ This project is a web platform for discovering and tracking running races in Swe
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Screenshots](#screenshots)
+  - [Deployed](#deployed)
+  - [Wireaframe](#wireframe)
 - [Documentation](#documentation)
   - [Project Structure](#project-structure)
   - [Database](#database)
@@ -77,9 +79,27 @@ $ npm run test:coverage
 
 ## Screenshots
 
-![Screenshot](/public/images/screenshots/lopply-screenshot2.avif)
+### Deployed
 
-![Screenshot](/public/images/screenshots/lopply-screenshot1.avif)
+![Screenshot](/public/images/screenshots/liveVersion//lopply-screenshot2.avif)
+
+![Screenshot](/public/images/screenshots/liveVersion//lopply-screenshot1.avif)
+
+### Wireframe
+
+[Link to Figma](https://www.figma.com/design/tz8TvD7opvZ2Fh5mfqlrpv/Examensarbete-2025-2026-Front-End?node-id=1-19&t=GlWHkLM8ob72SZ63-1)
+
+### Mobile
+
+![Screenshot](/public/images/screenshots/wireframes/wireframe-mobile.avif)
+
+### Tablet
+
+![Screenshot](/public/images/screenshots/wireframes/wireframe-tablet.avif)
+
+### Desktop
+
+![Screenshot](/public/images/screenshots/wireframes/wireframe-desktop.avif)
 
 ## Documentation
 
@@ -123,7 +143,7 @@ Run tests with: `npm test` or `npm run test:coverage`
 
 ### Lighthouse Report
 
-![Lighthouse Report](/public/images/screenshots/lighthouse-report.png)
+![Lighthouse Report](/public/images/screenshots/lighthouse/lighthouse-report.avif)
 
 The application is optimized for performance, accessibility and user experience with high Lighthouse scores across all metrics.
 
