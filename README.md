@@ -11,7 +11,7 @@ This project is a web platform for discovering and tracking running races in Swe
 - [Installation](#installation)
 - [Screenshots](#screenshots)
   - [Deployed](#deployed)
-  - [Wireaframe](#wireframe)
+  - [Wireaframes](#wireframes)
 - [Documentation](#documentation)
   - [Project Structure](#project-structure)
   - [Database](#database)
@@ -85,7 +85,7 @@ $ npm run test:coverage
 
 ![Screenshot](/public/images/screenshots/liveVersion//lopply-screenshot1.avif)
 
-### Wireframe
+### Wireframes
 
 [Link to Figma](https://www.figma.com/design/tz8TvD7opvZ2Fh5mfqlrpv/Examensarbete-2025-2026-Front-End?node-id=1-19&t=GlWHkLM8ob72SZ63-1)
 
