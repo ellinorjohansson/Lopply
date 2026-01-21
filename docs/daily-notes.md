@@ -111,3 +111,7 @@
 **2026-01-20**
 
 - Today i fixed so only 12 races shows to begin with in admin all races like it is in races page. So when you press load more button 12 more races shows. Thats so the page doesn't overload and crashes when it starts and also for users usability.
+
+**2026-01-21**
+
+- Today i updated readme with relevant information about this project.
