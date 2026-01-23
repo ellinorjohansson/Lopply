@@ -115,3 +115,7 @@
 **2026-01-21**
 
 - Today i updated readme with relevant information about this project.
+
+**2026-01-23**
+
+- Today i wrote my sprint 3 summary and are done with the coding for now. What's left is preparing for presentation and finalize the report.
