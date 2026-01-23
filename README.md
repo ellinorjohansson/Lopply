@@ -11,7 +11,7 @@ This project is a web platform for discovering and tracking running races in Swe
 - [Installation](#installation)
 - [Screenshots](#screenshots)
   - [Deployed](#deployed)
-  - [Wireaframe](#wireframe)
+  - [Wireaframes](#wireframes)
 - [Documentation](#documentation)
   - [Project Structure](#project-structure)
   - [Database](#database)
@@ -41,6 +41,8 @@ This project is a web platform for discovering and tracking running races in Swe
 - ![ESLint](https://img.shields.io/badge/ESLint-%234B32C3.svg?style=for-the-badge&logo=eslint&logoColor=white)
 - ![Prettier](https://img.shields.io/badge/Prettier-%23F7B93E.svg?style=for-the-badge&logo=prettier&logoColor=white)
 - ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+- ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+- ![V8](https://img.shields.io/badge/Coverage-V8-green?style=for-the-badge&logo=v8&logoColor=white)
 
 ## Installation
 
@@ -85,7 +87,7 @@ $ npm run test:coverage
 
 ![Screenshot](/public/images/screenshots/liveVersion//lopply-screenshot1.avif)
 
-### Wireframe
+### Wireframes
 
 [Link to Figma](https://www.figma.com/design/tz8TvD7opvZ2Fh5mfqlrpv/Examensarbete-2025-2026-Front-End?node-id=1-19&t=GlWHkLM8ob72SZ63-1)
 
