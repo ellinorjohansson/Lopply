@@ -1,63 +1,102 @@
-import AccentButton from "@/common/components/buttons/AccentButton";
 import PrimaryButton from "@/common/components/buttons/PrimaryButton";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import Link from "next/link";
 import Image from "next/image";
 import FeaturedRaces from "@/common/components/featuredRaces/FeaturedRaces";
+import AccentButton from "@/common/components/buttons/AccentButton";
 
 export default function Home() {
   const homeT = useTranslation("home_page");
   const buttonsT = useTranslation("buttons");
-  const altT = useTranslation("alt_text");
 
   return (
     <main className="w-full">
-      <section className="relative h-[110vh] w-full flex items-center">
-        <Image
-          src="/images/nature-background.avif"
-          alt={altT("hero_alt")}
-          fill
-          priority
-          className="object-cover mask-bottom-fade"
-          sizes="100vw"
-        />
+      <section className="relative overflow-hidden py-28 px-6 md:px-12">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center overflow-hidden"
+        >
+          <span className="text-[28vw] font-bold text-primaryaccent/5 tracking-tighter whitespace-nowrap">
+            RUN
+          </span>
+        </div>
 
-        <div className="relative z-10 mx-auto px-6 md:px-12 max-w-6xl flex flex-col mb-60">
-          <h2 className="mb-3 md:mb-6 leading-tight">
-            <span className="text-secondaryaccent text-5xl md:text-7xl lg:text-7xl block">
-              {homeT("discover_your_next")}
-            </span>
-            <span className="text-primaryaccent font-display text-4xl md:text-7xl lg:text-7xl block">
-              {homeT("running_adventure")}
-            </span>
-          </h2>
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
 
+            <div className="lg:col-span-7">
+              <header className="mb-8">
+                <p className="uppercase tracking-[0.3em] text-sm text-secondaryaccent mb-6">
+                  Curated running experiences
+                </p>
 
-          <p className="text-xl md:text-2xl lg:text-2xl max-w-2xl mb-15">
-            {homeT("explore_races_by_terrain_text")}
-          </p>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.9] tracking-tight">
+                  <span className="block">Find your next</span>
+                  <span className="block text-primaryaccent">
+                    unforgettable race
+                  </span>
+                </h2>
+              </header>
 
-          <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
-            <Link href="/races" scroll={true}>
-              <PrimaryButton
-                text={buttonsT("explore_races")}
-                icon="search"
-                size="small"
-              />
-            </Link>
+              <p className="text-lg md:text-xl text-secondaryaccent max-w-xl mb-10">
+                Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.
+              </p>
 
-            <Link href="#how-lopply-works" scroll={true}>
-              <AccentButton
-                text={buttonsT("how_it_works")}
-                icon="arrow_forward"
-                size="medium"
-              />
-            </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/races" scroll={true}>
+                  <PrimaryButton
+                    text={buttonsT("explore_races")}
+                    icon="search"
+                    size="small"
+                  />
+                </Link>
+
+                <Link href="#how-lopply-works" scroll={true}>
+                  <AccentButton
+                    text={buttonsT("how_it_works")}
+                    icon="arrow_forward"
+                    size="medium"
+                  />
+                </Link>
+              </div>
+
+            </div>
+
+            <div className="lg:col-span-5 hidden lg:block">
+              <article className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative aspect-3/4">
+                  <Image
+                    src="/images/hero-runner.jpg"
+                    alt="Trail runner in the mountains"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+
+                <div className="absolute bottom-6 left-6 right-6 text-secondaryaccent">
+                  <p className="text-sm opacity-80">
+                    Where mountains test your limits
+                  </p>
+                  <p className="text-sm">
+                    Chase the horizon. Conquer the impossible.
+                  </p>
+                  <p className="text-sm opacity-80">
+                    Every climb tells a story. Every finish line changes you.
+                  </p>
+
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div className="mt-24 border-t border-neutral-200 pt-10 flex flex-wrap gap-12">
           </div>
         </div>
       </section>
 
-      <section className="mt-24 px-6 md:px-12">
+      <section className="px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:pl-9 md:text-4xl">
             {homeT("featured_races")}
@@ -76,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary py-24 mt-24" id="how-lopply-works">
+      <section className="bg-secondary py-24 mt-44" id="how-lopply-works">
         <div className="max-w-5xl mx-auto px-6 md:px-12 text-center">
           <h2 className="text-3xl md:text-4xl mb-2">
             {homeT("how_lopply_works")}
