@@ -354,11 +354,12 @@ const Card = ({
 				className="block h-full"
 			>
 				<article
-					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer hover:scale-103 transition flex flex-col h-full"
+					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer transition-all duration-300 ease-in-out flex flex-col h-full hover:shadow-primaryaccent"
 					aria-labelledby="race-title"
 				>
 					{cardContent}
 				</article>
+
 			</Link>
 		</>
 	);
