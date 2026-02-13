@@ -25,7 +25,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
 
             <div className="lg:col-span-7">
-              <header className="mb-8">
+              <section className="mb-8">
                 <p className="uppercase tracking-[0.3em] text-sm text-secondaryaccent mb-6">
                   Curated running experiences
                 </p>
@@ -36,7 +36,7 @@ export default function Home() {
                     unforgettable race
                   </span>
                 </h2>
-              </header>
+              </section>
 
               <p className="text-lg md:text-xl text-secondaryaccent max-w-xl mb-10">
                 Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.
