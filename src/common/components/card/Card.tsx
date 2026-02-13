@@ -196,7 +196,15 @@ const Card = ({
 
 				{!isAdminMode && (
 					<div className="absolute top-4 right-4">
-						<ToolTip text={buttonsT("save_to_bucketlist")} position="left" hideOnMobile={true}>
+						<ToolTip
+							text={
+								favorited
+									? bucketT("remove_from_list")
+									: buttonsT("save_to_bucketlist")
+							}
+							position="left"
+							hideOnMobile={true}
+						>
 							<button
 								onClick={toggleFavorite}
 								disabled={isLoading}

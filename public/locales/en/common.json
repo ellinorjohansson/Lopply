@@ -181,7 +181,7 @@
       "location_error": "Enter your location as City, Country",
       "distance_helper": "Enter the distance in kilometers (numbers only)",
       "image_helper": "Provide a direct link to the image (image URL)",
-      "description_helper": "Description must be a maximum of 75 characters"
+      "description_helper": "Description must be a maximum of 80 characters"
     }
   },
   "pending_races": {
@@ -246,7 +246,7 @@
     "added_subtext": "This race has been saved to your bucketlist",
     "removed_from_bucketlist": "Removed from Bucketlist",
     "removed_subtext": "This race has been removed from your bucketlist",
-    "remove_from_list": "Remove from list",
+    "remove_from_list": "Remove from bucketlist",
     "search_label": "Search your bucketlist",
     "search_placeholder": "Search by race name or location...",
     "search_aria_label": "Search bucketlist races by name or location",
