@@ -268,6 +268,15 @@ const Card = ({
 					</span>
 				</div>
 
+				{!isAdminMode && !isBucketlistMode && (
+					<div className="flex items-center justify-center gap-2 text-xs tracking-wide text-primaryaccent/85 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+						<span>View full race details</span>
+						<span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
+							arrow_forward
+						</span>
+					</div>
+				)}
+
 				{isBucketlistMode && (
 					<div className="flex flex-col gap-3 mt-8 mb-5 ">
 						<div className="flex gap-3">
@@ -354,11 +363,12 @@ const Card = ({
 				className="block h-full"
 			>
 				<article
-					className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer transition-all duration-300 ease-in-out flex flex-col h-full hover:shadow-primaryaccent"
+					className="group rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg cursor-pointer transition-all duration-300 ease-in-out flex flex-col h-full hover:shadow-primaryaccent"
 					aria-labelledby="race-title"
 				>
 					{cardContent}
 				</article>
+
 
 			</Link>
 		</>
