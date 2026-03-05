@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import { Instrument_Sans, Kavoon, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./client-layout";
@@ -39,10 +39,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const messages = await getMessages();
+  const [messages, locale] = await Promise.all([getMessages(), getLocale()]);
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,1,0&display=swap"

@@ -210,7 +210,7 @@ const Card = ({
 								disabled={isLoading}
 								className=" bg-white/85 rounded-xl w-10 h-10 flex items-center justify-center cursor-pointer disabled:opacity-50"
 								aria-pressed={favorited}
-								aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
+								aria-label={favorited ? buttonsT("remove_from_favorites") : buttonsT("add_to_favorites")}
 							>
 								<span
 									className={`material-symbols-rounded ${favorited ? "text-primaryaccent" : "text-secondary/50"}`}
@@ -232,35 +232,35 @@ const Card = ({
 					{title}
 				</h3>
 
-				<div className="flex items-center gap-3 text-base" aria-label="Race location">
+				<div className="flex items-center gap-3 text-base" aria-label={racesT("aria.location")}>
 					<span className="material-symbols-outlined w-5 h-5 text-primaryaccent" aria-hidden="true">
 						location_on
 					</span>
 					<span className="font-sans">{location}</span>
 				</div>
 
-				<div className="flex items-center gap-3" aria-label="Race date">
+				<div className="flex items-center gap-3" aria-label={racesT("aria.date")}>
 					<span className="material-symbols-outlined w-5 h-5 text-primaryaccent" aria-hidden="true">
 						calendar_today
 					</span>
 					<span className="text-base font-sans">{date}</span>
 				</div>
 
-				<div className="flex items-center gap-3" aria-label="Race distance">
+				<div className="flex items-center gap-3" aria-label={racesT("aria.distance")}>
 					<span className="material-symbols-outlined w-5 h-5 text-primaryaccent" aria-hidden="true">
 						steps
 					</span>
 					<span className="text-base font-sans">{distance} km</span>
 				</div>
 
-				<div className="flex items-center gap-3" aria-label="Race description">
+				<div className="flex items-center gap-3" aria-label={racesT("aria.description")}>
 					<p className="text-base font-sans line-clamp-3 h-20">{description}</p>
 				</div>
 
 				<div className={`flex flex-wrap gap-4 mt-auto ${(isAdminMode || isBucketlistMode) ? 'border-b pb-8 border-secondaryaccent/40' : ''}`}>
 					<span
 						className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base"
-						aria-label="Terrain type"
+						aria-label={racesT("aria.terrain")}
 					>
 						<span className="material-symbols-outlined w-5 h-5" aria-hidden="true">
 							{terrainIcon}
@@ -270,7 +270,7 @@ const Card = ({
 
 					<span
 						className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base"
-						aria-label="Difficulty level"
+						aria-label={racesT("aria.difficulty")}
 					>
 						{difficulty}
 					</span>
@@ -278,7 +278,7 @@ const Card = ({
 
 				{!isAdminMode && !isBucketlistMode && (
 					<div className="flex items-center justify-center gap-2 text-xs tracking-wide text-primaryaccent/85 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-						<span>View full race details</span>
+						<span>{racesT("view_full_race_details")}</span>
 						<span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
 							arrow_forward
 						</span>

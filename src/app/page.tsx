@@ -8,6 +8,7 @@ import AccentButton from "@/common/components/buttons/AccentButton";
 export default function Home() {
   const homeT = useTranslation("home_page");
   const buttonsT = useTranslation("buttons");
+  const altT = useTranslation("alt_text");
 
   return (
     <main className="w-full">
@@ -17,7 +18,7 @@ export default function Home() {
           className="pointer-events-none select-none absolute inset-0 flex items-center justify-center overflow-hidden"
         >
           <span className="text-[28vw] font-bold text-primaryaccent/5 tracking-tighter whitespace-nowrap">
-            RUN
+            {homeT("run")}
           </span>
         </div>
 
@@ -27,20 +28,19 @@ export default function Home() {
             <div className="lg:col-span-7">
               <section className="mb-8">
                 <p className="uppercase tracking-[0.3em] text-sm text-secondaryaccent mb-6">
-                  Curated running experiences
+                  {homeT("curated_running_experiences")}
                 </p>
 
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.9] tracking-tight">
-                  <span className="block">Find your next</span>
+                  <span className="block">{homeT("hero_heading_line_1")}</span>
                   <span className="block text-primaryaccent">
-                    unforgettable race
+                    {homeT("hero_heading_line_2")}
                   </span>
                 </h2>
               </section>
 
               <p className="text-lg md:text-xl text-secondaryaccent max-w-xl mb-10">
-                Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.
-              </p>
+                {homeT("explore_races_by_terrain_text")}</p>
 
               <div className="flex flex-wrap gap-4">
                 <Link href="/races" scroll={true}>
@@ -67,7 +67,7 @@ export default function Home() {
                 <div className="relative aspect-3/4">
                   <Image
                     src="/images/hero-runner.jpg"
-                    alt="Trail runner in the mountains"
+                    alt={altT("hero_alt")}
                     fill
                     className="object-cover"
                   />
@@ -77,13 +77,13 @@ export default function Home() {
 
                 <div className="absolute bottom-6 left-6 right-6 text-secondaryaccent">
                   <p className="text-sm opacity-80">
-                    Where mountains test your limits
+                    {homeT("hero_overlay_line_1")}
                   </p>
                   <p className="text-sm">
-                    Chase the horizon. Conquer the impossible.
+                    {homeT("hero_overlay_line_2")}
                   </p>
                   <p className="text-sm opacity-80">
-                    Every climb tells a story. Every finish line changes you.
+                    {homeT("hero_overlay_line_3")}
                   </p>
 
                 </div>
