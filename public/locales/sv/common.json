@@ -133,6 +133,8 @@
       "user_text_discover": "Upptäck ditt nästa löpäventyr",
       "login": "Logga in",
       "signup": "Registrera",
+      "consent_label": "Jag förstår och godkänner att Lopply sparar mina kontouppgifter (namn, e-post och lösenord) för att skapa och hantera mitt konto.",
+      "consent_required": "Du måste godkänna datalagring för att skapa ett konto.",
       "signup_failed": "Registrering misslyckades",
       "optional_name": "Ditt namn är valfritt och används inte för autentisering.",
       "signup_success": "Registrering lyckades!",
