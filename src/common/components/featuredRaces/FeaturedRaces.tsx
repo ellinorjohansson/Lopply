@@ -9,6 +9,21 @@ import { getBucketlistRaces } from "@/services/bucketlistService";
 import { useTranslation } from "@/common/hooks/useTranslation";
 import { useSession } from "next-auth/react";
 
+const FEATURED_RACES_CACHE_KEY = "lopply:featured-races";
+
+const getLocalDayKey = () => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
+type FeaturedRacesCache = {
+  day: string;
+  races: IRace[];
+};
+
 export default function FeaturedRaces() {
   const [races, setRaces] = useState<IRace[]>([]);
   const [loading, setLoading] = useState(true);
@@ -19,6 +34,8 @@ export default function FeaturedRaces() {
   useEffect(() => {
     async function fetchFeaturedRaces() {
       try {
+        const today = getLocalDayKey();
+
         // Fetch bucketlist races if user is logged in
         if (session) {
           const bucketlistRaces = await getBucketlistRaces();
@@ -26,6 +43,15 @@ export default function FeaturedRaces() {
           setBucketlistRaceIds(bucketlistIds);
         } else {
           setBucketlistRaceIds(new Set());
+        }
+
+        const cachedRaw = localStorage.getItem(FEATURED_RACES_CACHE_KEY);
+        if (cachedRaw) {
+          const cached = JSON.parse(cachedRaw) as FeaturedRacesCache;
+          if (cached.day === today && Array.isArray(cached.races)) {
+            setRaces(cached.races);
+            return;
+          }
         }
 
         const allRaces = await getRaces();
@@ -37,6 +63,12 @@ export default function FeaturedRaces() {
           .sort(() => 0.5 - Math.random())
           .slice(0, 3);
         setRaces(randomRaces);
+
+        const cachePayload: FeaturedRacesCache = {
+          day: today,
+          races: randomRaces,
+        };
+        localStorage.setItem(FEATURED_RACES_CACHE_KEY, JSON.stringify(cachePayload));
       } catch (err) {
         console.error("Error fetching featured races:", err);
         setRaces([]);
