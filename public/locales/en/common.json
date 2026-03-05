@@ -5,7 +5,7 @@
     "search": "Search",
     "back_to_home": "Back to home",
     "try_again": "Try again",
-    "language": "Language",
+    "settings": "Settings",
     "english": "English",
     "swedish": "Swedish"
   },
@@ -133,6 +133,8 @@
       "user_text_discover": "Discover your next running adventure",
       "login": "Login",
       "signup": "Sign Up",
+      "consent_label": "I understand and agree that Lopply stores my account data (name, email and password) to create and manage my account.",
+      "consent_required": "You need to accept data storage to create an account.",
       "signup_failed": "Signup failed",
       "optional_name": "Your name is optional and has nothing to do with authentication.",
       "signup_success": "Sign up succeed!",
@@ -187,6 +189,19 @@
   "add_race_page": {
     "add_new_race": "Add new race",
     "submit_a_race": "Submit a race for approval by adminitrators",
+    "preview": {
+      "title": "Live preview",
+      "subtitle": "This is how your race card will look.",
+      "fallback_title": "Race title preview",
+      "no_date": "Date not selected",
+      "no_location": "Location not added",
+      "no_distance": "Distance not added",
+      "no_difficulty": "Difficulty not selected",
+      "no_terrain": "Terrain not selected",
+      "no_description": "Description will appear here",
+      "no_race_page": "Race page URL not added",
+      "image_alt": "Race image preview"
+    },
     "race_title": "Race title *",
     "locations": "Location *",
     "distance": "Distance *",

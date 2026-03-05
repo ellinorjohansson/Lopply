@@ -17,18 +17,20 @@ const UserSignUp = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [consentChecked, setConsentChecked] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [showSuccessToaster, setShowSuccessToaster] = useState(false);
 
-	const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string }>({});
+	const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string; consent?: string }>({});
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		const newErrors: { name?: string; email?: string; password?: string } = {};
+		const newErrors: { name?: string; email?: string; password?: string; consent?: string } = {};
 
 		if (!email) newErrors.email = validationT("empty_field");
 		if (!password) newErrors.password = validationT("empty_field");
+		if (!consentChecked) newErrors.consent = authT("user.consent_required");
 
 		setErrors(newErrors);
 
@@ -62,6 +64,7 @@ const UserSignUp = () => {
 			setName("");
 			setEmail("");
 			setPassword("");
+			setConsentChecked(false);
 			setErrors({});
 		});
 	};
@@ -123,6 +126,26 @@ const UserSignUp = () => {
 					onChange={(e) => setPassword(e.target.value)}
 					error={errors.password}
 				/>
+				<div className="flex flex-col gap-2">
+					<label className="flex items-start gap-3 text-secondaryaccent cursor-pointer">
+						<input
+							type="checkbox"
+							checked={consentChecked}
+							onChange={(e) => {
+								setConsentChecked(e.target.checked);
+								if (e.target.checked) {
+									setErrors((prev) => ({ ...prev, consent: undefined }));
+								}
+							}}
+							className="mt-1 h-4 w-4 accent-primaryaccent"
+							aria-label={authT("user.consent_label")}
+						/>
+						<span className="text-sm md:text-base">{authT("user.consent_label")}</span>
+					</label>
+					{errors.consent && (
+						<span className="text-sm text-red-400">{errors.consent}</span>
+					)}
+				</div>
 				<PrimaryButton text={loading ? authT("user.signing_up") : authT("user.signup")} size="large" />
 			</form>
 			<span className="text-sm text-secondaryaccent">{validationT("required_field")}</span>

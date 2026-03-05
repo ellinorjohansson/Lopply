@@ -5,7 +5,7 @@
     "search": "Sök",
     "back_to_home": "Tillbaka till startsidan",
     "try_again": "Försök igen",
-    "language": "Språk",
+    "settings": "Inställningar",
     "english": "Engelska",
     "swedish": "Svenska"
   },
@@ -133,6 +133,8 @@
       "user_text_discover": "Upptäck ditt nästa löpäventyr",
       "login": "Logga in",
       "signup": "Registrera",
+      "consent_label": "Jag förstår och godkänner att Lopply sparar mina kontouppgifter (namn, e-post och lösenord) för att skapa och hantera mitt konto.",
+      "consent_required": "Du måste godkänna datalagring för att skapa ett konto.",
       "signup_failed": "Registrering misslyckades",
       "optional_name": "Ditt namn är valfritt och används inte för autentisering.",
       "signup_success": "Registrering lyckades!",
@@ -187,6 +189,19 @@
   "add_race_page": {
     "add_new_race": "Lägg till nytt lopp",
     "submit_a_race": "Skicka in ett lopp för godkännande av administratörer",
+    "preview": {
+      "title": "Förhandsvisning",
+      "subtitle": "Så här kommer ditt loppkort att se ut.",
+      "fallback_title": "Förhandsvisning av lopptitel",
+      "no_date": "Datum ej valt",
+      "no_location": "Plats ej angiven",
+      "no_distance": "Distans ej angiven",
+      "no_difficulty": "Svårighetsgrad ej vald",
+      "no_terrain": "Terräng ej vald",
+      "no_description": "Beskrivningen visas här",
+      "no_race_page": "URL till loppsidan ej angiven",
+      "image_alt": "Förhandsvisning av loppbild"
+    },
     "race_title": "Loppnamn *",
     "locations": "Plats *",
     "distance": "Distans *",

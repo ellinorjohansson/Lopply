@@ -228,7 +228,7 @@ const Header = () => {
 
         <div className="p-4">
           <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
-            {generalT("language")}
+            {generalT("settings")}
           </span>
           <div className="inline-flex items-center border border-secondaryaccent/30 rounded-full p-0.5 bg-primary/40">
             <button
