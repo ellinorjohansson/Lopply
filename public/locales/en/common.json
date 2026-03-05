@@ -189,6 +189,19 @@
   "add_race_page": {
     "add_new_race": "Add new race",
     "submit_a_race": "Submit a race for approval by adminitrators",
+    "preview": {
+      "title": "Live preview",
+      "subtitle": "This is how your race card will look.",
+      "fallback_title": "Race title preview",
+      "no_date": "Date not selected",
+      "no_location": "Location not added",
+      "no_distance": "Distance not added",
+      "no_difficulty": "Difficulty not selected",
+      "no_terrain": "Terrain not selected",
+      "no_description": "Description will appear here",
+      "no_race_page": "Race page URL not added",
+      "image_alt": "Race image preview"
+    },
     "race_title": "Race title *",
     "locations": "Location *",
     "distance": "Distance *",
