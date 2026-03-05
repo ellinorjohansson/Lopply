@@ -46,31 +46,31 @@ export default function RacesPage() {
 
               <div className="flex flex-wrap gap-3 mt-2">
                 <FilterButton
-                  text="Urban"
+                  text={racesT("terrain_filter.urban")}
                   icon="location_city"
                   isActive={selectedTerrain.includes("Urban")}
                   onClick={() => toggleFilter("Urban", selectedTerrain, setSelectedTerrain)}
                 />
                 <FilterButton
-                  text="Mountain"
+                  text={racesT("terrain_filter.mountain")}
                   icon="terrain"
                   isActive={selectedTerrain.includes("Mountain")}
                   onClick={() => toggleFilter("Mountain", selectedTerrain, setSelectedTerrain)}
                 />
                 <FilterButton
-                  text="Forest"
+                  text={racesT("terrain_filter.forest")}
                   icon="forest"
                   isActive={selectedTerrain.includes("Forest")}
                   onClick={() => toggleFilter("Forest", selectedTerrain, setSelectedTerrain)}
                 />
                 <FilterButton
-                  text="Coastal"
+                  text={racesT("terrain_filter.coastal")}
                   icon="waves"
                   isActive={selectedTerrain.includes("Coastal")}
                   onClick={() => toggleFilter("Coastal", selectedTerrain, setSelectedTerrain)}
                 />
                 <FilterButton
-                  text="Desert"
+                  text={racesT("terrain_filter.desert")}
                   icon="wb_sunny"
                   isActive={selectedTerrain.includes("Desert")}
                   onClick={() => toggleFilter("Desert", selectedTerrain, setSelectedTerrain)}
@@ -85,7 +85,7 @@ export default function RacesPage() {
 
               <div className="flex flex-wrap gap-3 mt-2">
                 <FilterButton
-                  text="1-10 km"
+                  text={racesT("distance_filter.one_to_ten")}
                   isActive={selectedDistance.includes("1-10K")}
                   onClick={() => toggleFilter("1-10K", selectedDistance, setSelectedDistance)}
                 />
@@ -100,22 +100,22 @@ export default function RacesPage() {
                   onClick={() => toggleFilter("10K", selectedDistance, setSelectedDistance)}
                 />
                 <FilterButton
-                  text="10-20 km"
+                  text={racesT("distance_filter.ten_to_twenty")}
                   isActive={selectedDistance.includes("10-20K")}
                   onClick={() => toggleFilter("10-20K", selectedDistance, setSelectedDistance)}
                 />
                 <FilterButton
-                  text="20km +"
+                  text={racesT("distance_filter.twenty_plus")}
                   isActive={selectedDistance.includes("20K+")}
                   onClick={() => toggleFilter("20K+", selectedDistance, setSelectedDistance)}
                 />
                 <FilterButton
-                  text="Half Marathon"
+                  text={racesT("distance_filter.half_marathon")}
                   isActive={selectedDistance.includes("Half Marathon")}
                   onClick={() => toggleFilter("Half Marathon", selectedDistance, setSelectedDistance)}
                 />
                 <FilterButton
-                  text="Marathon"
+                  text={racesT("distance_filter.marathon")}
                   isActive={selectedDistance.includes("Marathon")}
                   onClick={() => toggleFilter("Marathon", selectedDistance, setSelectedDistance)}
                 />
@@ -129,17 +129,17 @@ export default function RacesPage() {
 
               <div className="flex flex-wrap gap-3 mt-2 mb-8">
                 <FilterButton
-                  text="Easy"
+                  text={racesT("difficulty_filter.easy")}
                   isActive={selectedDifficulty.includes("Easy")}
                   onClick={() => toggleFilter("Easy", selectedDifficulty, setSelectedDifficulty)}
                 />
                 <FilterButton
-                  text="Medium"
+                  text={racesT("difficulty_filter.medium")}
                   isActive={selectedDifficulty.includes("Medium")}
                   onClick={() => toggleFilter("Medium", selectedDifficulty, setSelectedDifficulty)}
                 />
                 <FilterButton
-                  text="Hard"
+                  text={racesT("difficulty_filter.hard")}
                   isActive={selectedDifficulty.includes("Hard")}
                   onClick={() => toggleFilter("Hard", selectedDifficulty, setSelectedDifficulty)}
                 />
@@ -148,7 +148,7 @@ export default function RacesPage() {
             <SearchBar
               value={searchQuery}
               onChange={setSearchQuery}
-              label="Search races"
+              label={racesT("search_label")}
               placeholder={racesT("search_races")}
               ariaLabel={racesT("search_aria_label")}
             />

@@ -6,6 +6,7 @@ import { Suspense, useState } from "react";
 import SuccedToaster from "../toasters/SuccedToaster";
 import { useSearchParams, useRouter } from "next/navigation";
 import ToolTip from "../tooltip/ToolTip";
+import { useLocale } from "next-intl";
 
 function LogoutToaster() {
   const searchParams = useSearchParams();
@@ -32,6 +33,7 @@ const Header = () => {
   const buttonsT = useTranslation("buttons");
   const { data: session } = useSession();
   const router = useRouter();
+  const locale = useLocale();
 
   const toggleNav = () => {
     setIsNavOpen((prev) => !prev);
@@ -45,12 +47,18 @@ const Header = () => {
     });
   };
 
+  const changeLanguage = (nextLocale: "en" | "sv") => {
+    if (locale === nextLocale) return;
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+    router.refresh();
+  };
+
   return (
     <>
       <header className="flex items-center p-4 bg-secondary">
         <ToolTip text={buttonsT("open_nav")} position="right">
           <button
-            aria-label="Open left panel"
+            aria-label={buttonsT("open_nav")}
             className="flex items-center cursor-pointer ml-5"
             onClick={toggleNav}
           >
@@ -63,7 +71,7 @@ const Header = () => {
         <h1 className="hidden md:block absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-4xl">
           <Link
             href="/"
-            aria-label="Go to homepage"
+            aria-label={generalT("back_to_home")}
             className="hover:text-primaryaccent transition-colors"
           >
             {generalT("lopply")}
@@ -73,10 +81,11 @@ const Header = () => {
         {session?.user?.name && (
           <span className="text-secondaryaccent ml-3 sm:ml-8 max-w-80 md:max-w-50 lg:max-w-90 truncate inline-block">{generalT("hello")} {session.user.name}</span>
         )}
-        {session && (
-          <div className="ml-auto flex items-center mr-5">
+
+        <div className="ml-auto flex items-center gap-2 mr-5">
+          {session && (
             <button
-              aria-label="Logout"
+              aria-label={buttonsT("logout")}
               onClick={handleLogout}
               className="group flex items-center cursor-pointer text-secondaryaccent hover:text-primaryaccent transition-colors"
             >
@@ -87,9 +96,8 @@ const Header = () => {
                 {buttonsT("logout")}
               </span>
             </button>
-          </div>
-
-        )}
+          )}
+        </div>
       </header>
 
       <Suspense fallback={null}>
@@ -104,12 +112,12 @@ const Header = () => {
         <div className="absolute top-5 right-6">
           <ToolTip text={buttonsT("close_nav")} position="left">
             <button
-              aria-label="Close navigation"
+              aria-label={buttonsT("close_nav")}
               className="text-secondaryaccent cursor-pointer hover:text-primaryaccent transition-colors"
               onClick={toggleNav}
             >
               <span className="material-symbols-outlined text-4xl sm:text-6xl">
-                {buttonsT("close")}
+                close
               </span>
             </button>
           </ToolTip>
@@ -216,6 +224,36 @@ const Header = () => {
               </Link>
             </li>
           </ul>
+        </div>
+
+        <div className="p-4">
+          <span className="block text-sm text-secondaryaccent/70 font-medium mb-2">
+            {generalT("language")}
+          </span>
+          <div className="inline-flex items-center border border-secondaryaccent/30 rounded-full p-0.5 bg-primary/40">
+            <button
+              type="button"
+              aria-label={generalT("english")}
+              onClick={() => changeLanguage("en")}
+              className={`px-3 py-1 rounded-full text-xs sm:text-sm cursor-pointer transition-colors ${locale === "en"
+                ? "bg-primaryaccent text-secondary"
+                : "text-secondaryaccent hover:text-primaryaccent"
+                }`}
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              aria-label={generalT("swedish")}
+              onClick={() => changeLanguage("sv")}
+              className={`px-3 py-1 rounded-full text-xs sm:text-sm cursor-pointer transition-colors ${locale === "sv"
+                ? "bg-primaryaccent text-secondary"
+                : "text-secondaryaccent hover:text-primaryaccent"
+                }`}
+            >
+              SV
+            </button>
+          </div>
         </div>
 
         {session && (

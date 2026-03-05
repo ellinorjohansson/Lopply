@@ -2,8 +2,12 @@
   "general": {
     "lopply": "Lopply",
     "hello": "Hello,",
+    "search": "Search",
     "back_to_home": "Back to home",
-    "try_again": "Try again"
+    "try_again": "Try again",
+    "language": "Language",
+    "english": "English",
+    "swedish": "Swedish"
   },
   "menu": {
     "home": "Home",
@@ -46,6 +50,9 @@
     "find_my_perfect_races": "Find my perfect races",
     "logout": "Logout",
     "close": "Close",
+    "clear_search": "Clear search",
+    "add_to_favorites": "Add to favorites",
+    "remove_from_favorites": "Remove from favorites",
     "save_to_bucketlist": "Save to bucketlist",
     "close_nav": "Close navigation",
     "open_nav": "Open navigation"
@@ -64,8 +71,37 @@
     "sort_by": "Sort by",
     "upcoming_first": "Upcoming races first",
     "farthest_first": "Farthest races first",
+    "search_label": "Search races",
     "search_races": "Search races by name or location...",
-    "search_aria_label": "Search bucketlist races by name or location"
+    "search_aria_label": "Search bucketlist races by name or location",
+    "terrain_filter": {
+      "urban": "Urban",
+      "mountain": "Mountain",
+      "forest": "Forest",
+      "coastal": "Coastal",
+      "desert": "Desert"
+    },
+    "distance_filter": {
+      "one_to_ten": "1-10 km",
+      "ten_to_twenty": "10-20 km",
+      "twenty_plus": "20 km+",
+      "half_marathon": "Half Marathon",
+      "marathon": "Marathon"
+    },
+    "difficulty_filter": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "aria": {
+      "location": "Race location",
+      "date": "Race date",
+      "distance": "Race distance",
+      "description": "Race description",
+      "terrain": "Terrain type",
+      "difficulty": "Difficulty level"
+    },
+    "view_full_race_details": "View full race details"
   },
   "footer": {
     "scroll_to_top": "Scroll to top",
@@ -124,12 +160,19 @@
   },
   "home_page": {
     "discover_your_next": "Discover your next",
+    "run": "RUN",
     "running_adventure": "running adventure",
+    "curated_running_experiences": "Curated running experiences",
+    "hero_heading_line_1": "Find your next",
+    "hero_heading_line_2": "unforgettable race",
     "explore_races_by_terrain_text": "Explore races by terrain, challenge and location. Find the perfect event that matches your goals and training timeline.",
     "featured_races": "Featured races",
     "handpicked_adventures_across": "Handpicked adventures across stunning terrains worldwide",
     "how_lopply_works": "How Lopply works",
     "a_new_way_to_discover": "A new way to discover and plan your running adventures",
+    "hero_overlay_line_1": "Where mountains test your limits",
+    "hero_overlay_line_2": "Chase the horizon. Conquer the impossible.",
+    "hero_overlay_line_3": "Every climb tells a story. Every finish line changes you.",
     "how_lopply_works_section": {
       "explore_visually": "Explore visually",
       "browse_races_by_terrain": "Browse races by terrain, location and distance with our interactive explorer",

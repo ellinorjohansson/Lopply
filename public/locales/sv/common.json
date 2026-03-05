@@ -1,0 +1,359 @@
+{
+  "general": {
+    "lopply": "Lopply",
+    "hello": "Hej,",
+    "search": "Sök",
+    "back_to_home": "Tillbaka till startsidan",
+    "try_again": "Försök igen",
+    "language": "Språk",
+    "english": "Engelska",
+    "swedish": "Svenska"
+  },
+  "menu": {
+    "home": "Hem",
+    "race_match": "Loppmatchning",
+    "add_race": "Lägg till lopp",
+    "explore_races": "Utforska lopp",
+    "bucket_list": "Bucketlist",
+    "login_sign_up": "Logga in / Registrera",
+    "admin_panel": "Adminpanel",
+    "label": {
+      "discover": "Upptäck",
+      "my_journey": "Min resa",
+      "account": "Konto"
+    },
+    "signed_in_as": "Inloggad som:",
+    "admin": "Admin",
+    "user": "Användare"
+  },
+  "switch": {
+    "races": "Väntande lopp",
+    "users": "Användarhantering",
+    "login": "Logga in",
+    "signup": "Registrera"
+  },
+  "validation": {
+    "required_field": "* Obligatoriskt fält",
+    "empty_field": "Fältet får inte vara tomt"
+  },
+  "alt_text": {
+    "hero_alt": "Traillöpare i bergen"
+  },
+  "buttons": {
+    "explore_races": "Utforska lopp",
+    "how_it_works": "Så fungerar det",
+    "cancel": "Avbryt",
+    "add_race": "Lägg till lopp",
+    "approve": "Godkänn",
+    "reject": "Avvisa",
+    "delete": "Ta bort",
+    "find_my_perfect_races": "Hitta mina perfekta lopp",
+    "logout": "Logga ut",
+    "close": "Stäng",
+    "clear_search": "Rensa sökning",
+    "add_to_favorites": "Lägg till i favoriter",
+    "remove_from_favorites": "Ta bort från favoriter",
+    "save_to_bucketlist": "Spara i bucketlist",
+    "close_nav": "Stäng navigering",
+    "open_nav": "Öppna navigering"
+  },
+  "races": {
+    "explore_your_next_race": "Utforska ditt nästa lopp",
+    "explore_subtext": "Platt eller kuperat. Kort eller långt. Lätt-ish eller \"varför anmälde jag mig?\"",
+    "no_image": "Bilden sprang iväg innan vi hann fånga den",
+    "terrain_type": "Terrängtyp",
+    "distance": "Distans",
+    "difficulty": "Svårighetsgrad",
+    "loading": "Laddar lopp...",
+    "no_races": "Inga lopp hittades som matchar dina filter.",
+    "load_more": "Ladda fler",
+    "no_races_found": "Inga utvalda lopp tillgängliga.",
+    "sort_by": "Sort by",
+    "upcoming_first": "Upcoming races first",
+    "farthest_first": "Farthest races first",
+    "search_label": "Sök lopp",
+    "search_races": "Sök lopp efter namn eller plats...",
+    "search_aria_label": "Sök lopp i bucketlist efter namn eller plats",
+    "terrain_filter": {
+      "urban": "Urban",
+      "mountain": "Mountain",
+      "forest": "Forest",
+      "coastal": "Coastal",
+      "desert": "Desert"
+    },
+    "distance_filter": {
+      "one_to_ten": "1-10 km",
+      "ten_to_twenty": "10-20 km",
+      "twenty_plus": "20 km+",
+      "half_marathon": "Half Marathon",
+      "marathon": "Marathon"
+    },
+    "difficulty_filter": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "aria": {
+      "location": "Loppets plats",
+      "date": "Loppets datum",
+      "distance": "Loppets distans",
+      "description": "Loppbeskrivning",
+      "terrain": "Terrängtyp",
+      "difficulty": "Svårighetsgrad"
+    },
+    "view_full_race_details": "Visa fullständiga loppdetaljer"
+  },
+  "footer": {
+    "scroll_to_top": "Gå till toppen",
+    "text": {
+      "discover_and_conquer": "Upptäck och erövra världens mest episka lopp. Ditt nästa äventyr väntar.",
+      "all_rights": "Lopply. Alla rättigheter förbehållna."
+    }
+  },
+  "error": {
+    "whoops_wrong_trail": "Hoppsan — fel stig!",
+    "this_page_missed_the_marker": "Den här sidan missade markeringen och sprang åt fel håll.",
+    "uhoh_something_tripped": "Oj då, något snubblade!",
+    "an_unexpected_error_occurred": "Ett oväntat fel uppstod."
+  },
+  "authentication": {
+    "admin": {
+      "admin_login": "Admininloggning",
+      "admin_subtext": "Ange adminlösenord för att få tillgång till panelen",
+      "access_admin_panel": "Öppna adminpanelen",
+      "access_denied": "Åtkomst nekad. Administratörsbehörighet krävs.",
+      "invalid_credentials": "Ogiltiga inloggningsuppgifter",
+      "login_success": "Inloggad som admin",
+      "welcome": "Välkommen tillbaka till Lopply!",
+      "already_signed_in": "Redan inloggad",
+      "logged_in_message": "Du är redan inloggad. Logga ut för att byta eller lägga till ett annat konto.",
+      "logout": "Logga ut"
+    },
+    "user": {
+      "user_text_discover": "Upptäck ditt nästa löpäventyr",
+      "login": "Logga in",
+      "signup": "Registrera",
+      "signup_failed": "Registrering misslyckades",
+      "optional_name": "Ditt namn är valfritt och används inte för autentisering.",
+      "signup_success": "Registrering lyckades!",
+      "login_success": "Inloggning lyckades!",
+      "signup_success_text": "Välkommen till Lopply!",
+      "already_signed_in": "Redan inloggad",
+      "logged_in_message": "Du är redan inloggad. Logga ut för att byta eller lägga till ett annat konto.",
+      "logout": "Logga ut",
+      "logging_in": "Loggar in...",
+      "signing_up": "Registrerar...",
+      "network_error": "Nätverksfel. Försök igen."
+    },
+    "name": "Namn",
+    "email": "E-post",
+    "password": "Lösenord",
+    "required_email": "E-post *",
+    "required_password": "Lösenord *",
+    "logging_in": "Loggar in...",
+    "toaster": {
+      "logged_out": "Utloggad",
+      "logged_out_text": "Du har loggats ut.",
+      "auth_required": "Inloggning krävs",
+      "auth_subtext": "Logga in för att lägga lopp i din bucketlist"
+    }
+  },
+  "home_page": {
+    "discover_your_next": "Upptäck ditt nästa",
+    "run": "SPRING",
+    "running_adventure": "löpäventyr",
+    "curated_running_experiences": "Utvalda löpupplevelser",
+    "hero_heading_line_1": "Hitta ditt nästa",
+    "hero_heading_line_2": "oförglömliga lopp",
+    "explore_races_by_terrain_text": "Utforska lopp efter terräng, utmaning och plats. Hitta det perfekta loppet som matchar dina mål och din träningsplan.",
+    "featured_races": "Utvalda lopp",
+    "handpicked_adventures_across": "Handplockade äventyr i fantastiska miljöer världen över",
+    "how_lopply_works": "Så fungerar Lopply",
+    "a_new_way_to_discover": "Ett nytt sätt att upptäcka och planera dina löpäventyr",
+    "hero_overlay_line_1": "Där bergen testar dina gränser",
+    "hero_overlay_line_2": "Jaga horisonten. Besegra det omöjliga.",
+    "hero_overlay_line_3": "Varje klättring berättar en historia. Varje mållinje förändrar dig.",
+    "how_lopply_works_section": {
+      "explore_visually": "Utforska visuellt",
+      "browse_races_by_terrain": "Bläddra bland lopp efter terräng, plats och distans med vår interaktiva utforskare",
+      "match_by_preferences": "Matcha efter preferenser",
+      "find_races_based": "Hitta lopp baserat på dina preferenser",
+      "build_your_bucket_list": "Bygg din bucketlist",
+      "save_your_dream": "Spara dina drömlopp och skapa din personliga plan för framtida löpäventyr",
+      "match_your_training": "Matcha din träning",
+      "find_races_that": "Hitta lopp som passar din träningstidslinje och förberedelse"
+    }
+  },
+  "add_race_page": {
+    "add_new_race": "Lägg till nytt lopp",
+    "submit_a_race": "Skicka in ett lopp för godkännande av administratörer",
+    "race_title": "Loppnamn *",
+    "locations": "Plats *",
+    "distance": "Distans *",
+    "date": "Datum *",
+    "difficulty": "Svårighetsgrad *",
+    "difficulty_options": {
+      "select_difficulty": "Välj svårighetsgrad...",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "terrain": "Terräng *",
+    "terrain_options": {
+      "select_terrain": "Välj terräng...",
+      "urban": "Urban",
+      "costal": "Costal",
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "forest": "Forest"
+    },
+    "image_url": "Bild-URL *",
+    "description": "Beskrivning",
+    "url_race_page": "URL till loppsida *",
+    "popup": {
+      "race_submitted": "Lopp inskickat!",
+      "submitted_text": "Ditt lopp väntar på godkännande av en administratör",
+      "error": "Fel",
+      "error_text": "Ett fel uppstod",
+      "failed_to_add_race": "Kunde inte lägga till lopp",
+      "submit_error": "Inskicksfel:",
+      "an_error_occurred_while_submitting_the_form": "Ett fel uppstod vid inskickning av formuläret"
+    },
+    "helper": {
+      "location_helper": "Ange plats som Stad, Land (t.ex. Stockholm, Sverige)",
+      "location_error": "Ange plats som Stad, Land",
+      "distance_helper": "Ange distansen i kilometer (endast siffror)",
+      "image_helper": "Ange en direktlänk till bilden (bild-URL)",
+      "description_helper": "Beskrivningen får vara max 80 tecken"
+    }
+  },
+  "pending_races": {
+    "pending_races": "Väntande lopptillstånd",
+    "review_submissions": "Granska och godkänn eller avvisa inskickade lopp",
+    "no_pending_races": "Inga väntande lopp att granska",
+    "success": "Lyckades",
+    "action_completed": "Åtgärden slutfördes",
+    "error": "Fel",
+    "approve_error": "Kunde inte godkänna lopp",
+    "reject_error": "Kunde inte avvisa lopp",
+    "delete_error": "Kunde inte ta bort lopp",
+    "loading": "Laddar...",
+    "all_races": "Alla lopp",
+    "no_races": "Inga lopp tillgängliga",
+    "confirm_approve_message": "Det här loppet kommer att godkännas och publiceras.",
+    "confirm_reject_message": "Det här loppet kommer att avvisas och inte publiceras.",
+    "confirm_delete_message": "Det här loppet kommer att tas bort permanent.",
+    "confirm_approve_title": "Är du säker på att du vill godkänna?",
+    "confirm_reject_title": "Är du säker på att du vill avvisa?",
+    "confirm_delete_title": "Är du säker på att du vill ta bort?"
+  },
+  "confirm": {
+    "clear_form": "Rensa formulär",
+    "are_you_sure": "Är du säker på att du vill rensa formuläret? Detta kan inte ångras.",
+    "confirm": "Bekräfta",
+    "cancel": "Avbryt"
+  },
+  "admin_panel": {
+    "admin_dashboard": "Adminöversikt",
+    "manage_races_and_users": "Hantera lopp och användare"
+  },
+  "user_management": {
+    "title": "Användarhantering",
+    "subtitle": "Hantera registrerade användare och administratörsroller",
+    "no_users": "Inga användare hittades",
+    "loading": "Laddar...",
+    "name": "Namn",
+    "email": "E-post",
+    "role": "Roll",
+    "actions": "Åtgärder",
+    "user": "Användare",
+    "admin": "Admin",
+    "confirm_role_change_title": "Ändra användarroll?",
+    "confirm_role_change_message": "Detta ändrar användarens roll till {role}.",
+    "confirm_delete_title": "Ta bort användare?",
+    "confirm_delete_message": "Den här användaren kommer att tas bort permanent. Denna åtgärd kan inte ångras.",
+    "success": "Lyckades",
+    "role_updated": "Användarroll uppdaterades",
+    "user_deleted": "Användaren togs bort",
+    "error": "Fel",
+    "update_error": "Kunde inte uppdatera användarroll",
+    "delete_error": "Kunde inte ta bort användare"
+  },
+  "bucketlist": {
+    "my_bucketlist": "Min bucketlist",
+    "bucketlist_subtext": "Lopp du har sparat för framtida äventyr",
+    "no_races_saved": "Inga lopp sparade ännu",
+    "no_races_subtext": "Börja utforska och lägg till lopp i din bucketlist!",
+    "loading": "Laddar...",
+    "added_to_bucketlist": "Tillagt i bucketlist",
+    "added_subtext": "Det här loppet har sparats i din bucketlist",
+    "removed_from_bucketlist": "Borttaget från bucketlist",
+    "removed_subtext": "Det här loppet har tagits bort från din bucketlist",
+    "remove_from_list": "Ta bort från bucketlist",
+    "search_label": "Sök i din bucketlist",
+    "search_placeholder": "Sök på lopptitel eller plats...",
+    "search_aria_label": "Sök lopp i bucketlist efter namn eller plats",
+    "no_search_results": "Inga lopp hittades",
+    "adjust_search_terms": "Försök justera dina sökord"
+  },
+  "race_match": {
+    "find_your_favorite": "Hitta ditt perfekta lopp",
+    "find_your_subtext": "Svara på några frågor om dina preferenser så matchar vi lopp som passar din stil",
+    "math_powered": "Math-powered matching",
+    "your_race_preferences": "Dina löppreferenser",
+    "select_all_that": "Välj allt som passar för att få de bästa matchningarna",
+    "preffered_terrain": "Preferred terrain",
+    "preffered_distance": "Preferred distance",
+    "preffered_location": "Preferred location",
+    "preffered_months": "Preferred months",
+    "terrain": {
+      "urban": "Urban",
+      "coastal": "Coastal",
+      "mountain": "Mountain",
+      "desert": "Desert",
+      "forest": "Forest"
+    },
+    "distance": {
+      "5k": "5 km",
+      "10k": "10 km",
+      "half_marathon": "Half Marathon",
+      "marathon": "Marathon",
+      "ultra": "Ultra"
+    },
+    "location": {
+      "europe": "Europe",
+      "africa": "Africa",
+      "usa": "USA",
+      "asia": "Asia",
+      "south_america": "South America",
+      "oceania": "Oceania"
+    },
+    "preffered_difficulty": "Preferred difficulty",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    }
+  },
+  "results": {
+    "your_race_matches": "Dina loppmatchningar",
+    "personalized_matches": "Dina personliga matchningar",
+    "matches_subtitle": "Baserat på dina preferenser har vi matchat dig med lopp som passar din stil",
+    "update_preferences": "Uppdatera preferenser",
+    "match_percentage": "Match"
+  }
+}
