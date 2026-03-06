@@ -21,7 +21,6 @@ const AddRace = () => {
   const [showErrorToaster, setShowErrorToaster] = useState(false);
   const [errorToasterText, setErrorToasterText] = useState("");
 
-
   const [categoryTerrain, setCategoryTerrain] = useState("");
   const [showToaster, setShowToaster] = useState(false);
 
@@ -49,17 +48,21 @@ const AddRace = () => {
     e.preventDefault();
 
     const newErrors: typeof errors = {};
-    const locationRegex = /^[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*(\s[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*)*,\s*[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*(\s[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*)*$/;
+    const locationRegex =
+      /^[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*(\s[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*)*,\s*[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*(\s[A-ZÀ-Ö][a-zà-öø-ÿ'\-]*)*$/;
 
     if (!title) newErrors.title = validationT("empty_field");
     if (!locations) {
       newErrors.locations = validationT("empty_field");
     } else if (!locationRegex.test(locations)) {
       newErrors.locations = addT("helper.location_error");
-    } if (!distance) newErrors.distance = validationT("empty_field");
+    }
+    if (!distance) newErrors.distance = validationT("empty_field");
     if (!date) newErrors.date = validationT("empty_field");
-    if (!categoryDifficulty) newErrors.categoryDifficulty = validationT("empty_field");
-    if (!categoryTerrain) newErrors.categoryTerrain = validationT("empty_field");
+    if (!categoryDifficulty)
+      newErrors.categoryDifficulty = validationT("empty_field");
+    if (!categoryTerrain)
+      newErrors.categoryTerrain = validationT("empty_field");
     if (!imageUrl) newErrors.imageUrl = validationT("empty_field");
     if (!racePageUrl) newErrors.racePageUrl = validationT("empty_field");
 
@@ -68,10 +71,10 @@ const AddRace = () => {
     if (Object.keys(newErrors).length > 0) return;
 
     try {
-      const response = await fetch('/api/races', {
-        method: 'POST',
+      const response = await fetch("/api/races", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: title,
@@ -152,10 +155,16 @@ const AddRace = () => {
         <div className="bg-secondary border border-secondaryaccent rounded-3xl p-5 md:p-8 lg:p-15 flex flex-col gap-6 max-w-7xl w-full">
           <div className="flex flex-col gap-1 mb-2">
             <h3 className="text-2xl font-medium">{addT("add_new_race")}</h3>
-            <span className="text-secondaryaccent text-base">{addT("submit_a_race")}</span>
+            <span className="text-secondaryaccent text-base">
+              {addT("submit_a_race")}
+            </span>
           </div>
           <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_22rem] gap-8 items-start">
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 min-w-0" noValidate>
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 min-w-0"
+              noValidate
+            >
               <div className="col-span-2 md:col-span-1">
                 <InputField
                   label={addT("race_title")}
@@ -175,7 +184,9 @@ const AddRace = () => {
                   value={locations}
                   onChange={(e) => setLocations(e.target.value)}
                   error={errors.locations}
-                  helpButton={<HelperButton infoText={addT("helper.location_helper")} />}
+                  helpButton={
+                    <HelperButton infoText={addT("helper.location_helper")} />
+                  }
                 />
               </div>
 
@@ -187,7 +198,9 @@ const AddRace = () => {
                   value={distance}
                   onChange={(e) => setDistance(e.target.value)}
                   error={errors.distance}
-                  helpButton={<HelperButton infoText={addT("helper.distance_helper")} />}
+                  helpButton={
+                    <HelperButton infoText={addT("helper.distance_helper")} />
+                  }
                 />
               </div>
 
@@ -209,10 +222,22 @@ const AddRace = () => {
                   onChange={(e) => setCategoryDifficulty(e.target.value)}
                   error={errors.categoryDifficulty}
                   options={[
-                    { value: "", label: addT("difficulty_options.select_difficulty") },
-                    { value: addT("difficulty_options.easy"), label: addT("difficulty_options.easy") },
-                    { value: addT("difficulty_options.medium"), label: addT("difficulty_options.medium") },
-                    { value: addT("difficulty_options.hard"), label: addT("difficulty_options.hard") },
+                    {
+                      value: "",
+                      label: addT("difficulty_options.select_difficulty"),
+                    },
+                    {
+                      value: addT("difficulty_options.easy"),
+                      label: addT("difficulty_options.easy"),
+                    },
+                    {
+                      value: addT("difficulty_options.medium"),
+                      label: addT("difficulty_options.medium"),
+                    },
+                    {
+                      value: addT("difficulty_options.hard"),
+                      label: addT("difficulty_options.hard"),
+                    },
                   ]}
                 />
               </div>
@@ -224,12 +249,30 @@ const AddRace = () => {
                   onChange={(e) => setCategoryTerrain(e.target.value)}
                   error={errors.categoryTerrain}
                   options={[
-                    { value: "", label: addT("terrain_options.select_terrain") },
-                    { value: addT("terrain_options.urban"), label: addT("terrain_options.urban") },
-                    { value: addT("terrain_options.costal"), label: addT("terrain_options.costal") },
-                    { value: addT("terrain_options.mountain"), label: addT("terrain_options.mountain") },
-                    { value: addT("terrain_options.desert"), label: addT("terrain_options.desert") },
-                    { value: addT("terrain_options.forest"), label: addT("terrain_options.forest") },
+                    {
+                      value: "",
+                      label: addT("terrain_options.select_terrain"),
+                    },
+                    {
+                      value: addT("terrain_options.urban"),
+                      label: addT("terrain_options.urban"),
+                    },
+                    {
+                      value: addT("terrain_options.costal"),
+                      label: addT("terrain_options.costal"),
+                    },
+                    {
+                      value: addT("terrain_options.mountain"),
+                      label: addT("terrain_options.mountain"),
+                    },
+                    {
+                      value: addT("terrain_options.desert"),
+                      label: addT("terrain_options.desert"),
+                    },
+                    {
+                      value: addT("terrain_options.forest"),
+                      label: addT("terrain_options.forest"),
+                    },
                   ]}
                 />
               </div>
@@ -242,7 +285,9 @@ const AddRace = () => {
                   value={imageUrl}
                   onChange={(e) => setImageUrl(e.target.value)}
                   error={errors.imageUrl}
-                  helpButton={<HelperButton infoText={addT("helper.image_helper")} />}
+                  helpButton={
+                    <HelperButton infoText={addT("helper.image_helper")} />
+                  }
                 />
               </div>
 
@@ -251,7 +296,11 @@ const AddRace = () => {
                   label={addT("description")}
                   value={description}
                   onChange={setDescription}
-                  helpButton={<HelperButton infoText={addT("helper.description_helper")} />}
+                  helpButton={
+                    <HelperButton
+                      infoText={addT("helper.description_helper")}
+                    />
+                  }
                 />
               </div>
 
@@ -266,22 +315,42 @@ const AddRace = () => {
                 />
               </div>
 
-              <div className="col-span-2 flex flex-row gap-3 mt-8">
+              <span className="text-sm text-secondaryaccent">
+                {validationT("required_field")}
+              </span>
+
+              <div className="col-span-2 flex flex-row gap-3 mt-4 mb-5">
                 <PrimaryButton text={buttonsT("add_race")} size="large" />
-                <SecondaryButton text={buttonsT("cancel")} size="small" type="button" onClick={handleCancel} />
+                <SecondaryButton
+                  text={buttonsT("cancel")}
+                  size="small"
+                  type="button"
+                  onClick={handleCancel}
+                />
               </div>
             </form>
 
-            <aside className="xl:w-88 xl:justify-self-end" aria-labelledby="race-preview-title">
+            <aside
+              className="xl:w-88 xl:justify-self-end"
+              aria-labelledby="race-preview-title"
+            >
               <div className="xl:sticky xl:top-6 rounded-3xl border border-secondaryaccent/30 bg-primary/35 p-3 w-full">
                 <div className="rounded-3xl bg-primary p-4">
-                  <h4 id="race-preview-title" className="text-xl font-medium mb-1">
+                  <h4
+                    id="race-preview-title"
+                    className="text-xl font-medium mb-1"
+                  >
                     {addT("preview.title")}
                   </h4>
-                  <p className="text-sm text-secondaryaccent mb-4">{addT("preview.subtitle")}</p>
+                  <p className="text-sm text-secondaryaccent mb-4">
+                    {addT("preview.subtitle")}
+                  </p>
 
                   <div className="flex justify-center">
-                    <article className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 min-w-80 max-w-80 shrink-0 mx-auto shadow-lg flex flex-col h-full" aria-labelledby="preview-card-heading">
+                    <article
+                      className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 min-w-80 max-w-80 shrink-0 mx-auto shadow-lg flex flex-col h-full"
+                      aria-labelledby="preview-card-heading"
+                    >
                       <div className="relative h-48 md:h-60 w-full">
                         {imageUrl ? (
                           <Image
@@ -296,35 +365,59 @@ const AddRace = () => {
                             <span className="material-symbols-outlined text-3xl! opacity-70">
                               image_not_supported
                             </span>
-                            <span className="text-sm mt-2 opacity-60 w-40 text-center">{racesT("no_image")}</span>
+                            <span className="text-sm mt-2 opacity-60 w-40 text-center">
+                              {racesT("no_image")}
+                            </span>
                           </div>
                         )}
                       </div>
 
                       <div className="p-4 md:p-6 flex flex-col gap-3 grow">
-                        <h5 id="preview-card-heading" className="text-xl md:text-2xl font-bold text-primaryaccent! truncate">
+                        <h5
+                          id="preview-card-heading"
+                          className="text-xl md:text-2xl font-bold text-primaryaccent! truncate"
+                        >
                           {previewTitle}
                         </h5>
 
                         <dl className="space-y-2 text-base">
                           <div className="flex items-center gap-2">
                             <dt className="sr-only">{addT("locations")}</dt>
-                            <span className="material-symbols-outlined text-primaryaccent" aria-hidden="true">location_on</span>
+                            <span
+                              className="material-symbols-outlined text-primaryaccent"
+                              aria-hidden="true"
+                            >
+                              location_on
+                            </span>
                             <dd className="font-sans">{previewLocation}</dd>
                           </div>
                           <div className="flex items-center gap-2">
                             <dt className="sr-only">{addT("date")}</dt>
-                            <span className="material-symbols-outlined text-primaryaccent" aria-hidden="true">calendar_today</span>
-                            <dd className="font-sans">{formattedPreviewDate}</dd>
+                            <span
+                              className="material-symbols-outlined text-primaryaccent"
+                              aria-hidden="true"
+                            >
+                              calendar_today
+                            </span>
+                            <dd className="font-sans">
+                              {formattedPreviewDate}
+                            </dd>
                           </div>
                           <div className="flex items-center gap-2">
                             <dt className="sr-only">{addT("distance")}</dt>
-                            <span className="material-symbols-outlined text-primaryaccent" aria-hidden="true">steps</span>
+                            <span
+                              className="material-symbols-outlined text-primaryaccent"
+                              aria-hidden="true"
+                            >
+                              steps
+                            </span>
                             <dd className="font-sans">{previewDistance} km</dd>
                           </div>
                         </dl>
 
-                        <p className="text-base font-sans line-clamp-3 h-20">{previewDescription}</p>
+                        <p className="text-base font-sans line-clamp-3 h-20">
+                          {previewDescription}
+                        </p>
 
                         <div className="flex flex-wrap gap-4 mt-auto">
                           <span className="flex items-center gap-2 px-5 py-2 rounded-full border border-primaryaccent text-primaryaccent text-base">
@@ -335,7 +428,10 @@ const AddRace = () => {
                           </span>
                         </div>
 
-                        <p className="text-xs text-secondaryaccent/80 truncate" title={previewRaceUrl}>
+                        <p
+                          className="text-xs text-secondaryaccent/80 truncate"
+                          title={previewRaceUrl}
+                        >
                           {previewRaceUrl}
                         </p>
                       </div>
@@ -359,7 +455,6 @@ const AddRace = () => {
               onClose={() => setShowErrorToaster(false)}
             />
           )}
-          <span className="text-sm text-secondaryaccent">{validationT("required_field")}</span>
         </div>
       </section>
       <ConfirmModal
