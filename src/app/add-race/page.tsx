@@ -348,7 +348,7 @@ const AddRace = () => {
 
                   <div className="flex justify-center">
                     <article
-                      className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 min-w-80 max-w-80 shrink-0 mx-auto shadow-lg flex flex-col h-full"
+                      className="rounded-3xl overflow-hidden bg-secondary text-secondaryaccent w-80 shadow-lg flex flex-col h-full"
                       aria-labelledby="preview-card-heading"
                     >
                       <div className="relative h-48 md:h-60 w-full">
